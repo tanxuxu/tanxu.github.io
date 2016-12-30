@@ -84,24 +84,18 @@
 
 
 
-<meta name="description" content="&amp;#x5BFC;&amp;#x8BED;&amp;#xFF1A;
-
-ionic&amp;#x5728;&amp;#x5B89;&amp;#x5353;&amp;#x7684;&amp;#x6253;&amp;#x5305;&amp;#x4E0D;&amp;#x987A;&amp;#x5229;&amp;#x7684;&amp;#x8BDD;&amp;#x53EF;&amp;#x80FD;&amp;#x4F1A;&amp;#x9047;&amp;#x5230;&amp;#x5404;&amp;#x79CD;&amp;#x5404;&amp;#x6837;&amp;#x7684;&amp;">
+<meta name="description" content="在用了ionic做了几个项目之后，安卓上的打包时最能出问题的地方，jdk的platform tool版本不够报错，从svn下载下来的index.html是只读状态时报错，jvm空间不足报错，安卓的插件多了的话也可能回报各种各样样的错误。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ionic解决安卓打包报jvm错误">
 <meta property="og:url" content="http://yoursite.com/2016/12/29/ionic解决安卓打包报jvm错误/index.html">
 <meta property="og:site_name" content="Jtanx's Notes">
-<meta property="og:description" content="&amp;#x5BFC;&amp;#x8BED;&amp;#xFF1A;
-
-ionic&amp;#x5728;&amp;#x5B89;&amp;#x5353;&amp;#x7684;&amp;#x6253;&amp;#x5305;&amp;#x4E0D;&amp;#x987A;&amp;#x5229;&amp;#x7684;&amp;#x8BDD;&amp;#x53EF;&amp;#x80FD;&amp;#x4F1A;&amp;#x9047;&amp;#x5230;&amp;#x5404;&amp;#x79CD;&amp;#x5404;&amp;#x6837;&amp;#x7684;&amp;">
+<meta property="og:description" content="在用了ionic做了几个项目之后，安卓上的打包时最能出问题的地方，jdk的platform tool版本不够报错，从svn下载下来的index.html是只读状态时报错，jvm空间不足报错，安卓的插件多了的话也可能回报各种各样样的错误。">
 <meta property="og:image" content="http://yoursite.com/2016/12/29/ionic解决安卓打包报jvm错误/2.png">
 <meta property="og:image" content="http://yoursite.com/2016/12/29/ionic解决安卓打包报jvm错误/1.png">
-<meta property="og:updated_time" content="2016-12-29T04:06:15.717Z">
+<meta property="og:updated_time" content="2016-12-30T02:04:31.496Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ionic解决安卓打包报jvm错误">
-<meta name="twitter:description" content="&amp;#x5BFC;&amp;#x8BED;&amp;#xFF1A;
-
-ionic&amp;#x5728;&amp;#x5B89;&amp;#x5353;&amp;#x7684;&amp;#x6253;&amp;#x5305;&amp;#x4E0D;&amp;#x987A;&amp;#x5229;&amp;#x7684;&amp;#x8BDD;&amp;#x53EF;&amp;#x80FD;&amp;#x4F1A;&amp;#x9047;&amp;#x5230;&amp;#x5404;&amp;#x79CD;&amp;#x5404;&amp;#x6837;&amp;#x7684;&amp;">
+<meta name="twitter:description" content="在用了ionic做了几个项目之后，安卓上的打包时最能出问题的地方，jdk的platform tool版本不够报错，从svn下载下来的index.html是只读状态时报错，jvm空间不足报错，安卓的插件多了的话也可能回报各种各样样的错误。">
 <meta name="twitter:image" content="http://yoursite.com/2016/12/29/ionic解决安卓打包报jvm错误/2.png">
 
 
@@ -342,6 +336,10 @@ ionic&amp;#x5728;&amp;#x5B89;&amp;#x5353;&amp;#x7684;&amp;#x6253;&amp;#x5305;&am
           
 
           
+              <div class="post-description">
+                  在用了ionic做了几个项目之后，安卓上的打包时最能出问题的地方，jdk的platform tool版本不够报错，从svn下载下来的index.html是只读状态时报错，jvm空间不足报错，安卓的插件多了的话也可能回报各种各样样的错误。
+              </div>
+          
 
         </div>
       </header>
@@ -358,6 +356,7 @@ ionic&amp;#x5728;&amp;#x5B89;&amp;#x5353;&amp;#x7684;&amp;#x6253;&amp;#x5305;&am
 <blockquote>
 <p>ionic&#x5728;&#x5B89;&#x5353;&#x7684;&#x6253;&#x5305;&#x4E0D;&#x987A;&#x5229;&#x7684;&#x8BDD;&#x53EF;&#x80FD;&#x4F1A;&#x9047;&#x5230;&#x5404;&#x79CD;&#x5404;&#x6837;&#x7684;&#x95EE;&#x9898;&#xFF0C;jvm&#x62A5;&#x9519;&#x4E5F;&#x662F;&#x7ECF;&#x5E38;&#x7684;&#xFF0C;&#x5728;stack overflow&#x4E5F;&#x67E5;&#x4E86;&#x5F88;&#x591A;&#x95EE;&#x9898;&#x4FE1;&#x606F;&#xFF0C;&#x52A0;jvm&#x7684;&#x7A7A;&#x95F4;&#xFF0C;&#x5728;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x91CC;&#x914D;&#x7F6E;java&#x7684;&#x7A7A;&#x95F4;<br>&#x4F46;&#x662F;&#xFF0C;&#x90FD;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x89E3;&#x51B3;&#x6211;&#x7684;&#x95EE;&#x9898;</p>
 </blockquote>
+<a id="more"></a>
 <p><img src="/2016/12/29/ionic&#x89E3;&#x51B3;&#x5B89;&#x5353;&#x6253;&#x5305;&#x62A5;jvm&#x9519;&#x8BEF;/2.png" alt="&#x914D;&#x7F6E;"></p>
 <p>&#x6700;&#x540E;&#x628A;java&#x7684;&#x7248;&#x672C;&#x5347;&#x7EA7;&#x4E86;&#xFF0C;&#x95EE;&#x9898;&#x89E3;&#x51B3;</p>
 <p><img src="/2016/12/29/ionic&#x89E3;&#x51B3;&#x5B89;&#x5353;&#x6253;&#x5305;&#x62A5;jvm&#x9519;&#x8BEF;/1.png" alt="&#x914D;&#x7F6E;"></p>
