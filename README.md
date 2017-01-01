@@ -39,7 +39,7 @@
 * hexo deploy --generate
 
 #### 关于草稿的
-* hexo publish  <title>
+* hexo publish 
 
 #### 关于模版
 * hexo new "postName" #新建文章
