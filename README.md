@@ -1,10 +1,4 @@
----
-title: 为何从博客园转移到hexo来
-date: 2016-12-29 10:17:12
-categories: "瞎折腾"
-tags: [hexo,博客搭建]
-description: 之前也用wordpress搭建过博客，也自己用php开发过博客，自己买域名，租服务器，最后的最后定居在了博客园，前几天无意中看到用hexo搭建的博客，风格让我很喜欢，使用markdown语法去写博客简直是帅呆了
----
+
 #### 导语
 > 之前一直都是在博客园写博客，前几天无意中看到用hexo搭建的博客，风格让我很喜欢，使用markdown语法去写博客简直是帅呆了，于是一不做二不休，搭建好博客。下面给出一点遇到的问题。
 
@@ -15,7 +9,7 @@ description: 之前也用wordpress搭建过博客，也自己用php开发过博�
 首先你得去github创建个仓库，仓库名很讲究，必须是：your_name.github.io,否则创建不成功
 创建好之后，在你的项目根目录配置文件_config.yml文件中配置如下，tanxuxu是我的gitname
 
-![配置](1.png)
+![配置](../1.png)
 
 重新部署项目即可
 这里列出几点hexo的常用指令
@@ -45,7 +39,7 @@ description: 之前也用wordpress搭建过博客，也自己用php开发过博�
 * hexo deploy --generate
 
 #### 关于草稿的
-* hexo publish [layout] <title>
+* hexo publish  <title>
 
 #### 关于模版
 * hexo new "postName" #新建文章
@@ -53,7 +47,7 @@ description: 之前也用wordpress搭建过博客，也自己用php开发过博�
 * hexo generate #生成静态页面至public目录
 * hexo server #开启预览访问端口（默认端口4000，'ctrl + c'关闭server）
 * hexo deploy #将.deploy目录部署到GitHub
-* hexo new [layout] <title>
+* hexo new <title>
 * hexo new photo "My Gallery"
 * hexo new "Hello World" --lang tw
 
@@ -65,7 +59,7 @@ description: 之前也用wordpress搭建过博客，也自己用php开发过博�
 ### 怎么和你的域名关联
 你可以去github去设置
 
-![github域名配置](2.png)
+![github域名配置](../2.png)
 
 你也可以在source根目录下创建文件CNAME 把你的域名写上去，注意不要写http://
 
