@@ -84,13 +84,25 @@
 
 
 
+<meta name="description" content="window.onload = function(){
+     var defaultSrc =&quot;//music.163.com/outchain/player?type=2&amp;id=25788001&amp;auto=1&amp;height=66&quot;;
+     var musicIframe = document.getElementById(&apos;musicIframe&apos;);
+     musicIfra">
 <meta property="og:type" content="website">
 <meta property="og:title" content="音乐">
 <meta property="og:url" content="http://yoursite.com/music/index.html">
 <meta property="og:site_name" content="Jtanx's Notes">
-<meta property="og:updated_time" content="2017-01-01T12:45:14.075Z">
+<meta property="og:description" content="window.onload = function(){
+     var defaultSrc =&quot;//music.163.com/outchain/player?type=2&amp;id=25788001&amp;auto=1&amp;height=66&quot;;
+     var musicIframe = document.getElementById(&apos;musicIframe&apos;);
+     musicIfra">
+<meta property="og:updated_time" content="2017-01-01T12:52:01.987Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="音乐">
+<meta name="twitter:description" content="window.onload = function(){
+     var defaultSrc =&quot;//music.163.com/outchain/player?type=2&amp;id=25788001&amp;auto=1&amp;height=66&quot;;
+     var musicIframe = document.getElementById(&apos;musicIframe&apos;);
+     musicIfra">
 
 
 
@@ -284,7 +296,14 @@
 
     
     
-      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&amp;id=25788001&amp;auto=1&amp;height=66"></iframe>
+      <p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" id="musicIframe"></iframe></p>
+<script>
+ window.onload = function(){
+     var defaultSrc ="//music.163.com/outchain/player?type=2&id=25788001&auto=1&height=66";
+     var musicIframe = document.getElementById('musicIframe');
+     musicIframe.src = defaultSrc;
+ }
+</script>
     
   </div>
 
