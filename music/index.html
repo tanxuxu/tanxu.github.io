@@ -84,55 +84,25 @@
 
 
 
-<meta name="description" content="#musicList li{
-    background:#eee;
-    line-height:30px;
-    padding:0px;
-    margin:10p auto;
-    cursor:pointer;
-}
-#musicList li span{
-    color:#ff6700;
-    margin-left:10px;
-}
-
-
- window.onl">
+<meta name="description" content="window.onload = function(){
+     var musicIframe = document.getElementById(&apos;musicIframe&apos;);  //iframe
+     var musicCon = document.getElementById(&quot;musicList&quot;);  //div
+     var musicArr = [">
 <meta property="og:type" content="website">
 <meta property="og:title" content="音乐">
 <meta property="og:url" content="http://yoursite.com/music/index.html">
 <meta property="og:site_name" content="Jtanx's Notes">
-<meta property="og:description" content="#musicList li{
-    background:#eee;
-    line-height:30px;
-    padding:0px;
-    margin:10p auto;
-    cursor:pointer;
-}
-#musicList li span{
-    color:#ff6700;
-    margin-left:10px;
-}
-
-
- window.onl">
-<meta property="og:updated_time" content="2017-01-01T13:55:36.105Z">
+<meta property="og:description" content="window.onload = function(){
+     var musicIframe = document.getElementById(&apos;musicIframe&apos;);  //iframe
+     var musicCon = document.getElementById(&quot;musicList&quot;);  //div
+     var musicArr = [">
+<meta property="og:updated_time" content="2017-01-01T14:01:17.340Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="音乐">
-<meta name="twitter:description" content="#musicList li{
-    background:#eee;
-    line-height:30px;
-    padding:0px;
-    margin:10p auto;
-    cursor:pointer;
-}
-#musicList li span{
-    color:#ff6700;
-    margin-left:10px;
-}
-
-
- window.onl">
+<meta name="twitter:description" content="window.onload = function(){
+     var musicIframe = document.getElementById(&apos;musicIframe&apos;);  //iframe
+     var musicCon = document.getElementById(&quot;musicList&quot;);  //div
+     var musicArr = [">
 
 
 
@@ -328,20 +298,8 @@
     
       <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" id="musicIframe" style="width:100%;"></iframe>
 
-<p><div class="musicWrap"><br>  <ul id="musicList"></ul><br></div></p>
-<p><style></p>
-<pre><code>#musicList li{
-    background:#eee;
-    line-height:30px;
-    padding:0px;
-    margin:10p auto;
-    cursor:pointer;
-}
-#musicList li span{
-    color:#ff6700;
-    margin-left:10px;
-}
-</code></pre><p></style></p>
+<div class="musicWrap"><br>  <ul id="musicList"></ul><br></div>
+
 <script>
  window.onload = function(){
      var musicIframe = document.getElementById('musicIframe');  //iframe
@@ -375,8 +333,21 @@
      //创建li
      for(var i= 0; i<musicArr.length;i++){
          var oli = document.createElement('li');
+         var span = document.createElement('span');
+         span.style.color = '#ff6700';
+         span.style.marginLeft = 10+'px';
+         oli.style.background = '#eee';
+         oli.style.lineHeight = 30+'px';
+         oli.style.padding = 0;
+         oli.style.marginTop = 10+'px';
+         oli.style.marginBottom = 10+'px';
+         oli.style.marginLeft = 'auto';
+         oli.style.marginRight = 'auto';
+         oli.style.cursor = 'pointer';
+         //
          oli.src = musicArr[i].url;
          oli.innerHTML = musicArr[i].title
+         oli.appendChild(span);
          musicCon.appendChild(oli);
      }
 
