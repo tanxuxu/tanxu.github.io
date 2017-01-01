@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://yoursite.com/music/index.html">
 <meta property="og:site_name" content="Jtanx's Notes">
 <meta property="og:description" content="window.onload = function(){     var musicIframe = document.getElementById(‘musicIframe’);  //iframe     var musicCon = document.getElementById(“musicList”);  //div     var musicArr = [">
-<meta property="og:updated_time" content="2017-01-01T13:40:08.468Z">
+<meta property="og:updated_time" content="2017-01-01T13:44:10.138Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="音乐">
 <meta name="twitter:description" content="window.onload = function(){     var musicIframe = document.getElementById(‘musicIframe’);  //iframe     var musicCon = document.getElementById(“musicList”);  //div     var musicArr = [">
@@ -291,18 +291,23 @@
 
 <div class="musicWrap"><br>  <ul id="musicList"></ul><br></div>
 
-<p><script><br> window.onload = function(){<br>     var musicIframe = document.getElementById(‘musicIframe’);  //iframe<br>     var musicCon = document.getElementById(“musicList”);  //div<br>     var musicArr = [<br>         {<br>           title: ‘其实都没有’,<br>           url: ‘//music.163.com/outchain/player?type=2&amp;id=25788001&amp;auto=1&amp;height=66’<br>         },<br>         {<br>           title: ‘天后’,<br>           url: ‘//music.163.com/outchain/player?type=2&amp;id=408307256&amp;auto=1&amp;height=66’<br>         },<br>         {<br>           title: ‘模特’,<br>           url: ‘//music.163.com/outchain/player?type=2&amp;id=33418862&amp;auto=1&amp;height=66’<br>         },<br>         {<br>           title: ‘当爱已成往事’,<br>           url: ‘//music.163.com/outchain/player?type=2&amp;id=26188037&amp;auto=1&amp;height=66’<br>         },<br>         {<br>           title: ‘默’,<br>           url: ‘//music.163.com/outchain/player?type=2&amp;id=31473269&amp;auto=1&amp;height=66’<br>         },<br>         {<br>           title: ‘小幸运’,<br>           url: ‘//music.163.com/outchain/player?type=2&amp;id=441489800&amp;auto=1&amp;height=66’<br>         }<br>     ];<br>     //创建li<br>     for(var i= 0; i&lt;musicArr.length;i++){<br>         var oli = document.createElement(‘li’);<br>         oli.src = musicArr[i].url;<br>         oli.innerHTML = musicArr[i].title+’<span>点击播放</span>‘<br>         musicCon.appendChild(oli);<br>     }</p>
-<pre><code>musicIframe.src = musicArr[0].url;  //默认
-
-//点击li
-var liList = musicCon.getElementsByTagName(&apos;li&apos;);
-for(var i=0;i&lt;liList.length;i++){
-    liList[i].addEventListener(&apos;click&apos;,function(){
-        var url = this.src;
-        musicIframe.src = url;
-    });
-}
-</code></pre><p> }<br></script></p>
+<p><script><br> window.onload = function(){<br>     var musicIframe = document.getElementById(‘musicIframe’);  //iframe<br>     var musicCon = document.getElementById(“musicList”);  //div<br>     var musicArr = [<br>         {<br>           title: ‘其实都没有’,<br>           url: ‘//music.163.com/outchain/player?type=2&amp;id=25788001&amp;auto=1&amp;height=66’<br>         },<br>         {<br>           title: ‘天后’,<br>           url: ‘//music.163.com/outchain/player?type=2&amp;id=408307256&amp;auto=1&amp;height=66’<br>         },<br>         {<br>           title: ‘模特’,<br>           url: ‘//music.163.com/outchain/player?type=2&amp;id=33418862&amp;auto=1&amp;height=66’<br>         },<br>         {<br>           title: ‘当爱已成往事’,<br>           url: ‘//music.163.com/outchain/player?type=2&amp;id=26188037&amp;auto=1&amp;height=66’<br>         },<br>         {<br>           title: ‘默’,<br>           url: ‘//music.163.com/outchain/player?type=2&amp;id=31473269&amp;auto=1&amp;height=66’<br>         },<br>         {<br>           title: ‘小幸运’,<br>           url: ‘//music.163.com/outchain/player?type=2&amp;id=441489800&amp;auto=1&amp;height=66’<br>         }<br>     ];<br>     //创建li<br>     for(var i= 0; i<musicArr.length;i++){
+         var oli = document.createElement('li');
+         oli.src = musicArr[i].url;
+         oli.innerHTML = musicArr[i].title+"<span>点击播放</span>";
+         musicCon.appendChild(oli);
+     }
+     musicIframe.src = musicArr[0].url;  //默认
+     //点击li
+     var liList = musicCon.getElementsByTagName('li');
+     for(var i=0;i<liList.length;i++){
+         liList[i].addEventListener('click',function(){
+             var url = this.src;
+             musicIframe.src = url;
+         });
+     }
+ }
+</script></p>
 <style>
     ul#musicList li {
         line-height: 36px;
