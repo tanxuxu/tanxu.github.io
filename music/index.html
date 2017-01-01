@@ -96,7 +96,7 @@
      var musicIframe = document.getElementById(&apos;musicIframe&apos;);  //iframe
      var musicCon = document.getElementById(&quot;musicList&quot;);  //div
      var musicArr = [">
-<meta property="og:updated_time" content="2017-01-01T14:01:17.340Z">
+<meta property="og:updated_time" content="2017-01-01T14:04:20.191Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="音乐">
 <meta name="twitter:description" content="window.onload = function(){
@@ -298,7 +298,7 @@
     
       <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" id="musicIframe" style="width:100%;"></iframe>
 
-<div class="musicWrap"><br>  <ul id="musicList"></ul><br></div>
+<div class="musicWrap"><br>  <ul id="musicList" style="padding:0px;"></ul><br></div>
 
 <script>
  window.onload = function(){
@@ -337,8 +337,9 @@
          span.style.color = '#ff6700';
          span.style.marginLeft = 10+'px';
          oli.style.background = '#eee';
-         oli.style.lineHeight = 30+'px';
-         oli.style.padding = 0;
+         oli.style.lineHeight = 40+'px';
+         oli.style.paddingLeft = 20+'px';
+         oli.style.paddingRight = 20+'px';
          oli.style.marginTop = 10+'px';
          oli.style.marginBottom = 10+'px';
          oli.style.marginLeft = 'auto';
@@ -347,6 +348,7 @@
          //
          oli.src = musicArr[i].url;
          oli.innerHTML = musicArr[i].title
+         span.innerHTML = '点击播放';
          oli.appendChild(span);
          musicCon.appendChild(oli);
      }
