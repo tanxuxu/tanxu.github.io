@@ -85,24 +85,24 @@
 
 
 <meta name="description" content="window.onload = function(){
-     var defaultSrc =&quot;//music.163.com/outchain/player?type=2&amp;id=25788001&amp;auto=1&amp;height=66&quot;;
-     var musicIframe = document.getElementById(&apos;musicIframe&apos;);
-     musicIfra">
+     var musicIframe = document.getElementById(&apos;musicIframe&apos;);  //iframe
+     var musicCon = document.getElementById(&quot;musicList&quot;);  //div
+     var musicArr = [">
 <meta property="og:type" content="website">
 <meta property="og:title" content="音乐">
 <meta property="og:url" content="http://yoursite.com/music/index.html">
 <meta property="og:site_name" content="Jtanx's Notes">
 <meta property="og:description" content="window.onload = function(){
-     var defaultSrc =&quot;//music.163.com/outchain/player?type=2&amp;id=25788001&amp;auto=1&amp;height=66&quot;;
-     var musicIframe = document.getElementById(&apos;musicIframe&apos;);
-     musicIfra">
-<meta property="og:updated_time" content="2017-01-01T12:52:01.987Z">
+     var musicIframe = document.getElementById(&apos;musicIframe&apos;);  //iframe
+     var musicCon = document.getElementById(&quot;musicList&quot;);  //div
+     var musicArr = [">
+<meta property="og:updated_time" content="2017-01-01T13:19:16.787Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="音乐">
 <meta name="twitter:description" content="window.onload = function(){
-     var defaultSrc =&quot;//music.163.com/outchain/player?type=2&amp;id=25788001&amp;auto=1&amp;height=66&quot;;
-     var musicIframe = document.getElementById(&apos;musicIframe&apos;);
-     musicIfra">
+     var musicIframe = document.getElementById(&apos;musicIframe&apos;);  //iframe
+     var musicCon = document.getElementById(&quot;musicList&quot;);  //div
+     var musicArr = [">
 
 
 
@@ -296,12 +296,60 @@
 
     
     
-      <p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" id="musicIframe"></iframe></p>
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" id="musicIframe" style="width:100%;"></iframe>
+
+<div class="musicWrap"><br>  <ul id="musicList"></ul><br></div>
+
 <script>
  window.onload = function(){
-     var defaultSrc ="//music.163.com/outchain/player?type=2&id=25788001&auto=1&height=66";
-     var musicIframe = document.getElementById('musicIframe');
-     musicIframe.src = defaultSrc;
+     var musicIframe = document.getElementById('musicIframe');  //iframe
+     var musicCon = document.getElementById("musicList");  //div
+     var musicArr = [
+         {
+           title: '其实都没有',
+           url: '//music.163.com/outchain/player?type=2&id=25788001&auto=1&height=66'
+         },
+         {
+           title: '天后',
+           url: '//music.163.com/outchain/player?type=2&id=408307256&auto=1&height=66'
+         },
+         {
+           title: '模特',
+           url: '//music.163.com/outchain/player?type=2&id=33418862&auto=1&height=66'
+         },
+         {
+           title: '当爱已成往事',
+           url: '//music.163.com/outchain/player?type=2&id=26188037&auto=1&height=66'
+         },
+         {
+           title: '默',
+           url: '//music.163.com/outchain/player?type=2&id=31473269&auto=1&height=66'
+         },
+         {
+           title: '小幸运',
+           url: '//music.163.com/outchain/player?type=2&id=441489800&auto=1&height=66'
+         }
+     ];
+     //创建li
+     var liBox = '';
+     for(var i= 0; i<musicArr.length;i++){
+         var oli = documet.createElement('li');
+         oli.src = musicArr[i].url;
+         oli.innerHTML = musicArr[i].title
+         liBox += oli;
+     }
+     musicCon.appendChild(liBox);
+
+     musicIframe.src = musicArr[0].url;  //默认
+
+     //点击li
+     var liList = musicCon.getElementsByTagName('li');
+     for(var i=0;i<liList.length;i++){
+         liList[0].onClick = function(){
+             var url = this.src;
+             musicIframe.src = url;
+         }
+     }
  }
 </script>
     
