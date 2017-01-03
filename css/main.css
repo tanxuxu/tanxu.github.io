@@ -1681,7 +1681,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #afba6c;
+  background: #e325a2;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2552,7 +2552,7 @@ a.search-result {
 @media (max-width: 767px) {
   .content-wrap {
     width: 100%;
-    padding: 20px;
+    padding: 0px;
     min-height: auto;
     border-radius: initial;
   }
