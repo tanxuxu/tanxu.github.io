@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+Allow: /archives/
+Allow: /categories/
+Allow: /tags/ 
+Disallow: /music/
+Disallow: /board/
+Disallow: /about/
+
+
+
+
+
+Sitemap: http://jtanx.cn/sitemap.xml
+Sitemap: http://jtanx.cn/baidusitemap.xml
