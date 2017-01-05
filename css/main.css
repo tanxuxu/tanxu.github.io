@@ -1556,7 +1556,7 @@ pre .javascript .function {
   position: relative;
   padding: 20px 10px;
   color: #999;
-  text-align: center;
+  text-align: left;
 }
 .sidebar-toggle {
   position: fixed;
@@ -1681,7 +1681,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #6137ff;
+  background: #416395;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -1743,7 +1743,7 @@ pre .javascript .function {
 }
 .post-toc ol {
   margin: 0;
-  padding: 0 2px 5px 10px;
+  padding: 0 2px 5px 30px;
   text-align: left;
   list-style: none;
   font-size: 14px;
