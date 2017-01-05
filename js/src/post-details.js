@@ -64,7 +64,7 @@ $(document).ready(function () {
 
     // Initialize TOC Width.
     var scrollbarWidth = NexT.utils.getScrollbarWidth();
-    //$('.post-toc').css('width', 'calc(100% + ' + scrollbarWidth + 'px)');
+    $('.post-toc').css('width', 'calc(100% + ' + scrollbarWidth + 'px)');
   }
 
   function updateTOCHeight (height) {
