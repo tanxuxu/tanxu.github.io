@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="jtanx 个人博客 谭旭 博客" />
+  <meta name="keywords" content="小程序," />
 
 
 
@@ -84,22 +84,23 @@
 
 
 
-<meta name="description" content="title: &amp;#x5FAE;&amp;#x4FE1;&amp;#x5C0F;&amp;#x7A0B;&amp;#x5E8F;&amp;#x4E4B;&amp;#x751F;&amp;#x547D;&amp;#x5468;&amp;#x671F;date: 2017-01-12 19:45:50tags: [&amp;#x5C0F;&amp;#x7A0B;&amp;#x5E8F;]categories: &amp;#x5FAE;&amp;#x4FE1;&amp;#x5C0F;&amp;#x7A0B;&amp;#x5E8F;
-&amp;#">
+<meta name="description" content="&amp;#x5BFC;&amp;#x8BED;
+&amp;#x73A9;&amp;#x8FC7;angular&amp;#x548C;vue&amp;#x7684;&amp;#x4EBA;&amp;#x90FD;&amp;#x77E5;&amp;#x9053;&amp;#x751F;&amp;#x547D;&amp;#x5468;&amp;#x671F;&amp;#x7684;&amp;#x6982;&amp;#x5FF5;&amp;#x5F88;&amp;#x91CD;&amp;#x8981;&amp;#xFF0C;&amp;#x5904;&amp;#x7406;&amp;#x5F">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jtanx's Notes">
+<meta property="og:title" content="微信小程序之生命周期">
 <meta property="og:url" content="http://jtanx.cn/2017/01/12/微信小程序之生命周期/index.html">
 <meta property="og:site_name" content="Jtanx's Notes">
-<meta property="og:description" content="title: &amp;#x5FAE;&amp;#x4FE1;&amp;#x5C0F;&amp;#x7A0B;&amp;#x5E8F;&amp;#x4E4B;&amp;#x751F;&amp;#x547D;&amp;#x5468;&amp;#x671F;date: 2017-01-12 19:45:50tags: [&amp;#x5C0F;&amp;#x7A0B;&amp;#x5E8F;]categories: &amp;#x5FAE;&amp;#x4FE1;&amp;#x5C0F;&amp;#x7A0B;&amp;#x5E8F;
-&amp;#">
+<meta property="og:description" content="&amp;#x5BFC;&amp;#x8BED;
+&amp;#x73A9;&amp;#x8FC7;angular&amp;#x548C;vue&amp;#x7684;&amp;#x4EBA;&amp;#x90FD;&amp;#x77E5;&amp;#x9053;&amp;#x751F;&amp;#x547D;&amp;#x5468;&amp;#x671F;&amp;#x7684;&amp;#x6982;&amp;#x5FF5;&amp;#x5F88;&amp;#x91CD;&amp;#x8981;&amp;#xFF0C;&amp;#x5904;&amp;#x7406;&amp;#x5F">
+<meta property="og:image" content="http://jtanx.cn/2017/01/12/微信小程序之生命周期/1.png">
 <meta property="og:image" content="http://jtanx.cn/2017/01/12/微信小程序之生命周期/2.png">
 <meta property="og:image" content="http://jtanx.cn/2017/01/12/微信小程序之生命周期/3.png">
-<meta property="og:updated_time" content="2017-01-12T11:53:43.390Z">
+<meta property="og:updated_time" content="2017-01-12T12:04:06.705Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jtanx's Notes">
-<meta name="twitter:description" content="title: &amp;#x5FAE;&amp;#x4FE1;&amp;#x5C0F;&amp;#x7A0B;&amp;#x5E8F;&amp;#x4E4B;&amp;#x751F;&amp;#x547D;&amp;#x5468;&amp;#x671F;date: 2017-01-12 19:45:50tags: [&amp;#x5C0F;&amp;#x7A0B;&amp;#x5E8F;]categories: &amp;#x5FAE;&amp;#x4FE1;&amp;#x5C0F;&amp;#x7A0B;&amp;#x5E8F;
-&amp;#">
-<meta name="twitter:image" content="http://jtanx.cn/2017/01/12/微信小程序之生命周期/2.png">
+<meta name="twitter:title" content="微信小程序之生命周期">
+<meta name="twitter:description" content="&amp;#x5BFC;&amp;#x8BED;
+&amp;#x73A9;&amp;#x8FC7;angular&amp;#x548C;vue&amp;#x7684;&amp;#x4EBA;&amp;#x90FD;&amp;#x77E5;&amp;#x9053;&amp;#x751F;&amp;#x547D;&amp;#x5468;&amp;#x671F;&amp;#x7684;&amp;#x6982;&amp;#x5FF5;&amp;#x5F88;&amp;#x91CD;&amp;#x8981;&amp;#xFF0C;&amp;#x5904;&amp;#x7406;&amp;#x5F">
+<meta name="twitter:image" content="http://jtanx.cn/2017/01/12/微信小程序之生命周期/1.png">
 
 
 
@@ -133,7 +134,7 @@
 
 
 
-  <title>  | Jtanx's Notes </title>
+  <title> 微信小程序之生命周期 | Jtanx's Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -310,7 +311,7 @@
             
             
               
-                
+                微信小程序之生命周期
               
             
           </h1>
@@ -335,6 +336,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/微信小程序/" itemprop="url" rel="index">
+                    <span itemprop="name">微信小程序</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -371,12 +394,11 @@
       
 
       
-        <hr>
-<p>title: &#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x4E4B;&#x751F;&#x547D;&#x5468;&#x671F;<br>date: 2017-01-12 19:45:50<br>tags: [&#x5C0F;&#x7A0B;&#x5E8F;]<br>categories: &#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;</p>
-<h2 id="&#x5BFC;&#x8BED;"><a href="#&#x5BFC;&#x8BED;" class="headerlink" title="&#x5BFC;&#x8BED;"></a>&#x5BFC;&#x8BED;</h2><blockquote>
+        <h2 id="&#x5BFC;&#x8BED;"><a href="#&#x5BFC;&#x8BED;" class="headerlink" title="&#x5BFC;&#x8BED;"></a>&#x5BFC;&#x8BED;</h2><blockquote>
 <p>&#x73A9;&#x8FC7;angular&#x548C;vue&#x7684;&#x4EBA;&#x90FD;&#x77E5;&#x9053;&#x751F;&#x547D;&#x5468;&#x671F;&#x7684;&#x6982;&#x5FF5;&#x5F88;&#x91CD;&#x8981;&#xFF0C;&#x5904;&#x7406;&#x5F97;&#x4E0D;&#x597D;&#x4F1A;&#x51FA;&#x5404;&#x79CD;&#x5404;&#x6837;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x53C8;&#x662F;&#x5982;&#x4F55;&#x7684;&#x5462;</p>
 </blockquote>
-<h2 id="&#x539F;&#x7406;"><a href="#&#x539F;&#x7406;" class="headerlink" title="&#x539F;&#x7406;"></a>&#x539F;&#x7406;</h2><p>![&#x539F;&#x7406;&#x56FE;] (1.png)</p>
+<a id="more"></a>
+<h2 id="&#x539F;&#x7406;"><a href="#&#x539F;&#x7406;" class="headerlink" title="&#x539F;&#x7406;"></a>&#x539F;&#x7406;</h2><p><img src="/2017/01/12/&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x4E4B;&#x751F;&#x547D;&#x5468;&#x671F;/1.png" alt="&#x539F;&#x7406;&#x56FE;"></p>
 <h2 id="&#x5728;app-js&#x4E2D;"><a href="#&#x5728;app-js&#x4E2D;" class="headerlink" title="&#x5728;app.js&#x4E2D;"></a>&#x5728;app.js&#x4E2D;</h2><p><img src="/2017/01/12/&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x4E4B;&#x751F;&#x547D;&#x5468;&#x671F;/2.png" alt="appjs&#x4E2D;"></p>
 <h2 id="&#x5728;page&#x4E2D;"><a href="#&#x5728;page&#x4E2D;" class="headerlink" title="&#x5728;page&#x4E2D;"></a>&#x5728;page&#x4E2D;</h2><p><img src="/2017/01/12/&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x4E4B;&#x751F;&#x547D;&#x5468;&#x671F;/3.png" alt="page&#x4E2D;"></p>
 
@@ -399,6 +421,12 @@
 
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/小程序/" rel="tag"># 小程序</a>
+          
+        </div>
       
 
       
@@ -429,7 +457,7 @@
     <div class="post-spread">
       
         <div class="ds-share flat" data-thread-key="2017/01/12/微信小程序之生命周期/"
-     data-title=""
+     data-title="微信小程序之生命周期"
      data-content=""
      data-url="http://jtanx.cn/2017/01/12/微信小程序之生命周期/">
   <div class="ds-share-inline">
@@ -459,7 +487,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2017/01/12/微信小程序之生命周期/"
-           data-title="" data-url="http://jtanx.cn/2017/01/12/微信小程序之生命周期/">
+           data-title="微信小程序之生命周期" data-url="http://jtanx.cn/2017/01/12/微信小程序之生命周期/">
       </div>
     
   </div>
@@ -515,7 +543,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -524,7 +552,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
