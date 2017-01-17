@@ -84,25 +84,12 @@
 
 
 
-<meta name="description" content="window.onload = function(){
-     var musicIframe = document.getElementById(&apos;musicIframe&apos;);  //iframe
-     var musicCon = document.getElementById(&quot;musicList&quot;);  //div
-     var musicArr = [">
 <meta property="og:type" content="website">
-<meta property="og:title" content="音乐">
-<meta property="og:url" content="http://jtanx.cn/music/index.html">
+<meta property="og:title" content="Jtanx's Notes">
+<meta property="og:url" content="http://jtanx.cn/categories/node/index.html">
 <meta property="og:site_name" content="Jtanx's Notes">
-<meta property="og:description" content="window.onload = function(){
-     var musicIframe = document.getElementById(&apos;musicIframe&apos;);  //iframe
-     var musicCon = document.getElementById(&quot;musicList&quot;);  //div
-     var musicArr = [">
-<meta property="og:updated_time" content="2017-01-01T15:13:07.129Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="音乐">
-<meta name="twitter:description" content="window.onload = function(){
-     var musicIframe = document.getElementById(&apos;musicIframe&apos;);  //iframe
-     var musicCon = document.getElementById(&quot;musicList&quot;);  //div
-     var musicArr = [">
+<meta name="twitter:title" content="Jtanx's Notes">
 
 
 
@@ -130,19 +117,13 @@
 
 
 
-  <link rel="canonical" href="http://jtanx.cn/music/"/>
+  <link rel="canonical" href="http://jtanx.cn/categories/node/"/>
 
 
 
 
 
-  <title>
-  
-
-  
-    音乐 | Jtanx's Notes
-  
-</title>
+  <title> 分类: node | Jtanx's Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -285,91 +266,47 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-  <header class="post-header">
-
-	<h2 class="post-title" itemprop="name headline">音乐</h2>
-
-
-
-</header>
-
-    
-    
-      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" id="musicIframe" style="width:100%;"></iframe>
-
-<div class="musicWrap"><br>  <ul id="musicList" style="padding:0px;"></ul><br></div>
-
-<script>
- window.onload = function(){
-     var musicIframe = document.getElementById('musicIframe');  //iframe
-     var musicCon = document.getElementById("musicList");  //div
-     var musicArr = [
-         {
-           title: '小幸运',
-           url: '//music.163.com/outchain/player?type=2&id=39637800&auto=1&height=66'
-         },
-         {
-           title: '天后',
-           url: '//music.163.com/outchain/player?type=2&id=408307256&auto=1&height=66'
-         },
-         {
-           title: '模特',
-           url: '//music.163.com/outchain/player?type=2&id=33418862&auto=1&height=66'
-         },
-         {
-           title: '当爱已成往事',
-           url: '//music.163.com/outchain/player?type=2&id=26188037&auto=1&height=66'
-         },
-         {
-           title: '默',
-           url: '//music.163.com/outchain/player?type=2&id=31473269&auto=1&height=66'
-         },
-         {
-           title: '其实都没有',
-           url: '//music.163.com/outchain/player?type=2&id=25788001&auto=1&height=66'
-         }
-     ];
-     //创建li
-     for(var i= 0; i<musicArr.length;i++){
-         var oli = document.createElement('li');
-         var span = document.createElement('span');
-         span.style.color = '#ff6700';
-         span.style.marginLeft = 10+'px';
-         span.style.float = 'right';
-         oli.style.background = '#eee';
-         oli.style.lineHeight = 40+'px';
-         oli.style.paddingLeft = 20+'px';
-         oli.style.paddingRight = 20+'px';
-         oli.style.marginTop = 10+'px';
-         oli.style.marginBottom = 10+'px';
-         oli.style.marginLeft = 'auto';
-         oli.style.marginRight = 'auto';
-         oli.style.cursor = 'pointer';
-         //
-         oli.src = musicArr[i].url;
-         oli.innerHTML = musicArr[i].title
-         span.innerHTML = '点击播放';
-         oli.appendChild(span);
-         musicCon.appendChild(oli);
-     }
-
-
-     musicIframe.src = musicArr[0].url;  //默认
-
-     //点击li
-     var liList = musicCon.getElementsByTagName('li');
-     for(var i=0;i<liList.length;i++){
-         liList[i].addEventListener('click',function(){
-             var url = this.src;
-             musicIframe.src = url;
-         })
-     }
- }
-</script>
+  <section id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h2 >
+        node
+        <small>分类</small>
+      </h2>
+    </div>
 
     
-  </div>
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
+        
+            <a class="post-title-link" href="/2017/01/17/linux环境下搭建express项目/" itemprop="url">
+              
+                <span itemprop="name">linux环境下搭建express项目</span>
+              
+            </a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-01-17T16:50:00+08:00"
+              content="2017-01-17" >
+          01-17
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+    
+  </section>
+
+  
+
 
 
           </div>
@@ -377,14 +314,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="music/index.html"
-           data-title="音乐" data-url="http://jtanx.cn/music/index.html">
-      </div>
-    
-  </div>
-
 
         </div>
         
