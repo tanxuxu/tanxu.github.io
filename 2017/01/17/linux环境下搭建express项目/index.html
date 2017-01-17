@@ -96,7 +96,14 @@
 <meta property="og:image" content="http://jtanx.cn/2017/01/17/linux环境下搭建express项目/3.png">
 <meta property="og:image" content="http://jtanx.cn/2017/01/17/linux环境下搭建express项目/4.png">
 <meta property="og:image" content="http://jtanx.cn/2017/01/17/linux环境下搭建express项目/5.png">
-<meta property="og:updated_time" content="2017-01-17T09:38:54.539Z">
+<meta property="og:image" content="http://jtanx.cn/2017/01/17/linux环境下搭建express项目/6.png">
+<meta property="og:image" content="http://jtanx.cn/2017/01/17/linux环境下搭建express项目/7.png">
+<meta property="og:image" content="http://jtanx.cn/2017/01/17/linux环境下搭建express项目/8.png">
+<meta property="og:image" content="http://jtanx.cn/2017/01/17/linux环境下搭建express项目/10.png">
+<meta property="og:image" content="http://jtanx.cn/2017/01/17/linux环境下搭建express项目/11.png">
+<meta property="og:image" content="http://jtanx.cn/2017/01/17/linux环境下搭建express项目/12.png">
+<meta property="og:image" content="http://jtanx.cn/2017/01/17/linux环境下搭建express项目/13.png">
+<meta property="og:updated_time" content="2017-01-17T10:45:47.479Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux环境下搭建express项目">
 <meta name="twitter:description" content="&amp;#x5BFC;&amp;#x8BED;
@@ -392,7 +399,36 @@
 <p>&#x9009;&#x62E9;&#x5B89;&#x88C5;centos 7 </p>
 <p><img src="/2017/01/17/linux&#x73AF;&#x5883;&#x4E0B;&#x642D;&#x5EFA;express&#x9879;&#x76EE;/5.png" alt="&#x5B89;&#x88C5;centos 7"></p>
 <p>&#x671F;&#x95F4;&#x9009;&#x62E9;&#x9ED8;&#x8BA4;&#x7684;&#x82F1;&#x6587;&#xFF0C;&#x521B;&#x5EFA;&#x7528;&#x6237;&#x540D;&#x5BC6;&#x7801;&#xFF0C;&#x662F;&#x5426;&#x5B89;&#x88C5;GUI&#x8FD8;&#x662F;basic&#x6A21;&#x5F0F;&#xFF0C;&#x6269;&#x5C55;&#x5305;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#x8FDB;&#x884C;&#x5B89;&#x88C5;&#xFF0C;&#x9009;&#x62E9;&#x5B89;&#x88C5;&#x7684;&#x786C;&#x76D8;&#x7B49;&#x4FE1;&#x606F;&#x3002;</p>
-<h2 id="&#x5728;xshell&#x4E2D;&#x5EFA;&#x7ACB;&#x5BF9;linux&#x7684;&#x8FDE;&#x63A5;"><a href="#&#x5728;xshell&#x4E2D;&#x5EFA;&#x7ACB;&#x5BF9;linux&#x7684;&#x8FDE;&#x63A5;" class="headerlink" title="&#x5728;xshell&#x4E2D;&#x5EFA;&#x7ACB;&#x5BF9;linux&#x7684;&#x8FDE;&#x63A5;"></a>&#x5728;xshell&#x4E2D;&#x5EFA;&#x7ACB;&#x5BF9;linux&#x7684;&#x8FDE;&#x63A5;</h2>
+<h2 id="&#x5728;xshell&#x4E2D;&#x5EFA;&#x7ACB;&#x5BF9;linux&#x7684;&#x8FDE;&#x63A5;"><a href="#&#x5728;xshell&#x4E2D;&#x5EFA;&#x7ACB;&#x5BF9;linux&#x7684;&#x8FDE;&#x63A5;" class="headerlink" title="&#x5728;xshell&#x4E2D;&#x5EFA;&#x7ACB;&#x5BF9;linux&#x7684;&#x8FDE;&#x63A5;"></a>&#x5728;xshell&#x4E2D;&#x5EFA;&#x7ACB;&#x5BF9;linux&#x7684;&#x8FDE;&#x63A5;</h2><p>&#x5148;&#x6765;&#x542F;&#x52A8;&#x7F51;&#x5361;</p>
+<pre><code>vi /etc/systemfig/network-scripts/ifcfg-enp0s3
+</code></pre><p>&#x5C06;ONBOOT&#x8BBE;&#x7F6E;&#x6210;yes<br>ps&#xFF1A;&#x64CD;&#x4F5C;&#xFF0C;&#x6309;&#x4F4F;i&#x8FDB;&#x53BB;&#x7F16;&#x8F91;&#x6A21;&#x5F0F;&#xFF0C;&#x4FEE;&#x6539;&#x4E4B;&#x540E;&#x6309;&#xFF1A;&#x5207;&#x6362;&#x6210;&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#xFF0C;&#x8F93;&#x5165;wq&#xFF0C;&#x4FDD;&#x5B58;&#x9000;&#x51FA;&#x5373;&#x53EF;</p>
+<p>&#x4FEE;&#x6539;&#x4E4B;&#x540E;&#x91CD;&#x542F;&#x7F51;&#x7EDC;</p>
+<pre><code>systemctl restart network
+</code></pre><p>&#x67E5;&#x770B;IP&#x5730;&#x5740;</p>
+<pre><code>ifconfig
+</code></pre><p>&#x53EF;&#x4EE5;&#x770B;&#x5230;<br><img src="/2017/01/17/linux&#x73AF;&#x5883;&#x4E0B;&#x642D;&#x5EFA;express&#x9879;&#x76EE;/6.png" alt="ip&#x5730;&#x5740;"></p>
+<p>&#x5728;xshell&#x4E2D;&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;</p>
+<p><img src="/2017/01/17/linux&#x73AF;&#x5883;&#x4E0B;&#x642D;&#x5EFA;express&#x9879;&#x76EE;/7.png" alt="&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;"><br><img src="/2017/01/17/linux&#x73AF;&#x5883;&#x4E0B;&#x642D;&#x5EFA;express&#x9879;&#x76EE;/8.png" alt="&#x8FDE;&#x63A5;&#x6210;&#x529F;"></p>
+<p>&#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5728;xshell&#x4E2D;&#x64CD;&#x4F5C;&#x6211;&#x4EEC;&#x7684;linux&#x7CFB;&#x7EDF;</p>
+<h2 id="&#x5728;linux&#x4E2D;&#x5B89;&#x88C5;node"><a href="#&#x5728;linux&#x4E2D;&#x5B89;&#x88C5;node" class="headerlink" title="&#x5728;linux&#x4E2D;&#x5B89;&#x88C5;node"></a>&#x5728;linux&#x4E2D;&#x5B89;&#x88C5;node</h2><p>&#x60F3;&#x5B89;&#x88C5;epel&#x548C;nodejs&#xFF0C;&#x901A;&#x8FC7;yum&#x6765;&#x5B89;&#x88C5;  </p>
+<pre><code>yum install epel-release 
+yum install nodejs
+</code></pre><p>&#x6D4B;&#x8BD5;node&#x662F;&#x5426;&#x6210;&#x529F;&#x5B89;&#x88C5;  node -v<br><img src="/2017/01/17/linux&#x73AF;&#x5883;&#x4E0B;&#x642D;&#x5EFA;express&#x9879;&#x76EE;/10.png" alt="&#x8FDE;&#x63A5;&#x6210;&#x529F;"></p>
+<h2 id="&#x521B;&#x5EFA;express&#x9879;&#x76EE;"><a href="#&#x521B;&#x5EFA;express&#x9879;&#x76EE;" class="headerlink" title="&#x521B;&#x5EFA;express&#x9879;&#x76EE;"></a>&#x521B;&#x5EFA;express&#x9879;&#x76EE;</h2><p>&#x8FD9;&#x91CC;&#x9002;&#x7528;express&#x7684;cli&#x6765;&#x5FEB;&#x901F;&#x521B;&#x5EFA;&#x9879;&#x76EE;&#xFF0C;&#x5F53;&#x7136;&#x4E5F;&#x53EF;&#x4EE5;&#x4E0D;&#x4F7F;&#x7528;</p>
+<p>&#x9996;&#x5148;&#x5B89;&#x88C5;express-generator &#xFF0C;&#x5E76;&#x4E14;&#x7528;&#x8D77;&#x6765;&#x6267;&#x884C;express&#x5B89;&#x88C5;&#x547D;&#x4EE4;</p>
+<pre><code>npm install -g express-generator
+express test02
+npm install    //&#x5207;&#x6362;&#x5230;test02&#x76EE;&#x5F55;
+</code></pre><p>&#x521B;&#x5EFA;&#x5B8C;&#x6210;<br><img src="/2017/01/17/linux&#x73AF;&#x5883;&#x4E0B;&#x642D;&#x5EFA;express&#x9879;&#x76EE;/11.png" alt="&#x8FDE;&#x63A5;&#x6210;&#x529F;"></p>
+<p>&#x8FD0;&#x884C;&#x6211;&#x4EEC;&#x7684;&#x9879;&#x76EE; </p>
+<pre><code>npm start   &#x4E5F;&#x53EF;&#x4EE5;&#x6267;&#x884C;    node bin/www
+</code></pre><p>&#x65B0;&#x5EFA;&#x7A97;&#x53E3; &#x6267;&#x884C; curl <a href="http://localhost:8080&#x6D4B;&#x8BD5;&#x662F;&#x5426;&#x8F93;&#x51FA;&#x4E00;&#x6BB5;html&#x6807;&#x8BB0;" target="_blank" rel="external">http://localhost:8080&#x6D4B;&#x8BD5;&#x662F;&#x5426;&#x8F93;&#x51FA;&#x4E00;&#x6BB5;html&#x6807;&#x8BB0;</a><br><img src="/2017/01/17/linux&#x73AF;&#x5883;&#x4E0B;&#x642D;&#x5EFA;express&#x9879;&#x76EE;/12.png" alt="&#x8FDE;&#x63A5;&#x6210;&#x529F;"></p>
+<h2 id="&#x5728;&#x7269;&#x7406;&#x673A;&#x4E0A;&#x8BBF;&#x95EE;&#x9879;&#x76EE;"><a href="#&#x5728;&#x7269;&#x7406;&#x673A;&#x4E0A;&#x8BBF;&#x95EE;&#x9879;&#x76EE;" class="headerlink" title="&#x5728;&#x7269;&#x7406;&#x673A;&#x4E0A;&#x8BBF;&#x95EE;&#x9879;&#x76EE;"></a>&#x5728;&#x7269;&#x7406;&#x673A;&#x4E0A;&#x8BBF;&#x95EE;&#x9879;&#x76EE;</h2><p>&#x5148;&#x5173;&#x95ED;&#x4E00;&#x4E0B;linux&#x7684;&#x9632;&#x706B;&#x5899;</p>
+<pre><code>systemctl stop firewalld
+</code></pre><p>&#x8BBF;&#x95EE;</p>
+<p><img src="/2017/01/17/linux&#x73AF;&#x5883;&#x4E0B;&#x642D;&#x5EFA;express&#x9879;&#x76EE;/13.png" alt="&#x8FDE;&#x63A5;&#x6210;&#x529F;"></p>
+<p>&#x5728;sublime&#x4E2D;&#x901A;&#x8FC7;&#x4E4B;&#x524D;&#x4E0B;&#x8F7D;&#x597D;&#x7684;sftp&#x63D2;&#x4EF6;&#x4E0B;&#x6765;&#x5230;&#x7269;&#x7406;&#x673A;&#x4E0A;&#x8FDB;&#x884C;&#x7F16;&#x8F91;&#xFF0C;&#x5E76;&#x8BBE;&#x7F6E;&#x914D;&#x7F6E;&#x53C2;&#x6570;&#xFF0C;&#x5B9E;&#x65F6;&#x6709;&#x53D8;&#x52A8;&#x65F6;&#x63D0;&#x4EA4;&#x5230;&#x670D;&#x52A1;&#x5668;&#x4E2D;</p>
+
       
     </div>
 
@@ -632,7 +668,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导语"><span class="nav-number">1.</span> <span class="nav-text">导语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工具"><span class="nav-number">2.</span> <span class="nav-text">工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装虚拟机和linux"><span class="nav-number">3.</span> <span class="nav-text">安装虚拟机和linux</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在xshell中建立对linux的连接"><span class="nav-number">4.</span> <span class="nav-text">在xshell中建立对linux的连接</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导语"><span class="nav-number">1.</span> <span class="nav-text">导语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工具"><span class="nav-number">2.</span> <span class="nav-text">工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装虚拟机和linux"><span class="nav-number">3.</span> <span class="nav-text">安装虚拟机和linux</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在xshell中建立对linux的连接"><span class="nav-number">4.</span> <span class="nav-text">在xshell中建立对linux的连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在linux中安装node"><span class="nav-number">5.</span> <span class="nav-text">在linux中安装node</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建express项目"><span class="nav-number">6.</span> <span class="nav-text">创建express项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在物理机上访问项目"><span class="nav-number">7.</span> <span class="nav-text">在物理机上访问项目</span></a></li></ol></div>
             
 
           </div>
