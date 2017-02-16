@@ -389,11 +389,16 @@
 
       
         
-          
-          &#x5E38;&#x7528;&#x6307;&#x4EE4;SVN&#x5B89;&#x88C5;$yum install subversion
+          <h2 id="&#x5E38;&#x7528;&#x6307;&#x4EE4;"><a href="#&#x5E38;&#x7528;&#x6307;&#x4EE4;" class="headerlink" title="&#x5E38;&#x7528;&#x6307;&#x4EE4;"></a>&#x5E38;&#x7528;&#x6307;&#x4EE4;</h2><h3 id="SVN&#x5B89;&#x88C5;"><a href="#SVN&#x5B89;&#x88C5;" class="headerlink" title="SVN&#x5B89;&#x88C5;"></a>SVN&#x5B89;&#x88C5;</h3><pre><code>$yum install subversion
 $yum install mod_dav_svn
-&#x5224;&#x65AD;&#x662F;&#x5426;&#x5B89;&#x88C5;&#
-          ...
+</code></pre><h3 id="&#x5224;&#x65AD;&#x662F;&#x5426;&#x5B89;&#x88C5;&#x6210;&#x529F;"><a href="#&#x5224;&#x65AD;&#x662F;&#x5426;&#x5B89;&#x88C5;&#x6210;&#x529F;" class="headerlink" title="&#x5224;&#x65AD;&#x662F;&#x5426;&#x5B89;&#x88C5;&#x6210;&#x529F;"></a>&#x5224;&#x65AD;&#x662F;&#x5426;&#x5B89;&#x88C5;&#x6210;&#x529F;</h3><pre><code>$subversion -v
+&#x5982;&#x679C;&#x63D0;&#x793A;&#x5982;&#x4E0B;:-bash: subversion: command not found
+&#x7ECF;&#x8FC7;&#x67E5;&#x627E;&#x53D1;&#x73B0;:
+svnserve --version
+</code></pre><h3 id="&#x6709;&#x4E86;SVN&#x8F6F;&#x4EF6;&#x540E;&#x8FD8;&#x9700;&#x8981;&#x5EFA;&#x7ACB;SVN&#x5E93;&#x3002;"><a href="#&#x6709;&#x4E86;SVN&#x8F6F;&#x4EF6;&#x540E;&#x8FD8;&#x9700;&#x8981;&#x5EFA;&#x7ACB;SVN&#x5E93;&#x3002;" class="headerlink" title="&#x6709;&#x4E86;SVN&#x8F6F;&#x4EF6;&#x540E;&#x8FD8;&#x9700;&#x8981;&#x5EFA;&#x7ACB;SVN&#x5E93;&#x3002;"></a>&#x6709;&#x4E86;SVN&#x8F6F;&#x4EF6;&#x540E;&#x8FD8;&#x9700;&#x8981;&#x5EFA;&#x7ACB;SVN&#x5E93;&#x3002;</h3><pre><code>#mkdir /opt/svn/repos
+#svnadmin create /opt/svn/repos
+&#x6267;&#x884C;&#x4E0A;&#x9762;&#x7684;&#x547D;&#x4EE4;&#x540E;&#xFF0C;&#x81EA;&#x52A8;&#x5728;repos&#x4E0B;&#x5EFA;&#x7ACB;&#x591A;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C; &#x5206;&#x522B;&#x662F;conf, db,format,hooks, locks, README.txt&#x3002;
+</code></pre>
           <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/02/16/在linux中管理svn服务器/#more" rel="contents">
@@ -548,11 +553,20 @@ $yum install mod_dav_svn
 
       
         
-          
-          &#x5E38;&#x7528;&#x6307;&#x4EE4;
-ls&#x3000;&#x3000;        &#x663E;&#x793A;&#x6587;&#x4EF6;&#x6216;&#x76EE;&#x5F55;
--l           &#x5217;&#x51FA;&#x65
-          ...
+          <p>&#x5E38;&#x7528;&#x6307;&#x4EE4;</p>
+<p>ls&#x3000;&#x3000;        &#x663E;&#x793A;&#x6587;&#x4EF6;&#x6216;&#x76EE;&#x5F55;</p>
+<pre><code>-l           &#x5217;&#x51FA;&#x6587;&#x4EF6;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;l(list)
+
+-a          &#x5217;&#x51FA;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x4E0B;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x53CA;&#x76EE;&#x5F55;&#xFF0C;&#x5305;&#x62EC;&#x9690;&#x85CF;&#x7684;a(all)
+</code></pre><p>mkdir         &#x521B;&#x5EFA;&#x76EE;&#x5F55;</p>
+<pre><code>-p           &#x521B;&#x5EFA;&#x76EE;&#x5F55;&#xFF0C;&#x82E5;&#x65E0;&#x7236;&#x76EE;&#x5F55;&#xFF0C;&#x5219;&#x521B;&#x5EFA;p(parent)
+</code></pre><p>cd               &#x5207;&#x6362;&#x76EE;&#x5F55;</p>
+<p>touch          &#x521B;&#x5EFA;&#x7A7A;&#x6587;&#x4EF6;</p>
+<p>echo            &#x521B;&#x5EFA;&#x5E26;&#x6709;&#x5185;&#x5BB9;&#x7684;&#x6587;&#x4EF6;&#x3002;</p>
+<p>cat              &#x67E5;&#x770B;&#x6587;&#x4EF6;&#x5185;&#x5BB9;</p>
+<p>cp                &#x62F7;&#x8D1D;</p>
+<p>mv               &#x79FB;&#x52A8;&#x6216;&#x91CD;&#x547D;&#x540D;</p>
+<p>rm               &#x5220;&#x9664;&#x6587;&#x4EF6;<br></p>
           <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/02/15/Linux中常用操作命令/#more" rel="contents">
