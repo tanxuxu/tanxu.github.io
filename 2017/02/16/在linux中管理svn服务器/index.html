@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="jtanx 个人博客 谭旭 博客" />
+  <meta name="keywords" content="linux," />
 
 
 
@@ -84,24 +84,25 @@
 
 
 
-<meta name="description" content="&amp;#x5BFC;&amp;#x8BED;
-&amp;#x6628;&amp;#x665A;&amp;#xFF0C;&amp;#x6CA1;&amp;#x6709;&amp;#x4E86;&amp;#x4EE5;&amp;#x524D;&amp;#x90A3;&amp;#x79CD;&amp;#x975E;&amp;#x8981;&amp;#x5012;&amp;#x6570;&amp;#x8DE8;&amp;#x5E74;&amp;#x7684;&amp;#x60C5;&amp;#x7EEA;&amp;#xFF0C;&amp;#x53CD;&amp;#x800C;&amp;#x662F">
+<meta name="description" content="&amp;#x5E38;&amp;#x7528;&amp;#x6307;&amp;#x4EE4;SVN&amp;#x5B89;&amp;#x88C5;$yum install subversion
+$yum install mod_dav_svn
+&amp;#x5224;&amp;#x65AD;&amp;#x662F;&amp;#x5426;&amp;#x5B89;&amp;#x88C5;&amp;#x6210;&amp;#x529F;$subversion -v
+&amp;#x5982;&amp;#x679C;&amp;#x63">
 <meta property="og:type" content="article">
-<meta property="og:title" content="踏入2017">
-<meta property="og:url" content="http://jtanx.cn/2017/01/01/踏入2017/index.html">
+<meta property="og:title" content="在linux中管理svn服务器">
+<meta property="og:url" content="http://jtanx.cn/2017/02/16/在linux中管理svn服务器/index.html">
 <meta property="og:site_name" content="Jtanx's Notes">
-<meta property="og:description" content="&amp;#x5BFC;&amp;#x8BED;
-&amp;#x6628;&amp;#x665A;&amp;#xFF0C;&amp;#x6CA1;&amp;#x6709;&amp;#x4E86;&amp;#x4EE5;&amp;#x524D;&amp;#x90A3;&amp;#x79CD;&amp;#x975E;&amp;#x8981;&amp;#x5012;&amp;#x6570;&amp;#x8DE8;&amp;#x5E74;&amp;#x7684;&amp;#x60C5;&amp;#x7EEA;&amp;#xFF0C;&amp;#x53CD;&amp;#x800C;&amp;#x662F">
-<meta property="og:image" content="http://jtanx.cn/2017/01/01/踏入2017/1.JPG">
-<meta property="og:image" content="http://jtanx.cn/2017/01/01/踏入2017/2.JPG">
-<meta property="og:image" content="http://jtanx.cn/2017/01/01/踏入2017/3.JPG">
-<meta property="og:image" content="http://jtanx.cn/2017/01/01/踏入2017/4.JPG">
-<meta property="og:updated_time" content="2017-01-01T06:34:26.629Z">
+<meta property="og:description" content="&amp;#x5E38;&amp;#x7528;&amp;#x6307;&amp;#x4EE4;SVN&amp;#x5B89;&amp;#x88C5;$yum install subversion
+$yum install mod_dav_svn
+&amp;#x5224;&amp;#x65AD;&amp;#x662F;&amp;#x5426;&amp;#x5B89;&amp;#x88C5;&amp;#x6210;&amp;#x529F;$subversion -v
+&amp;#x5982;&amp;#x679C;&amp;#x63">
+<meta property="og:updated_time" content="2017-02-16T01:51:03.783Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="踏入2017">
-<meta name="twitter:description" content="&amp;#x5BFC;&amp;#x8BED;
-&amp;#x6628;&amp;#x665A;&amp;#xFF0C;&amp;#x6CA1;&amp;#x6709;&amp;#x4E86;&amp;#x4EE5;&amp;#x524D;&amp;#x90A3;&amp;#x79CD;&amp;#x975E;&amp;#x8981;&amp;#x5012;&amp;#x6570;&amp;#x8DE8;&amp;#x5E74;&amp;#x7684;&amp;#x60C5;&amp;#x7EEA;&amp;#xFF0C;&amp;#x53CD;&amp;#x800C;&amp;#x662F">
-<meta name="twitter:image" content="http://jtanx.cn/2017/01/01/踏入2017/1.JPG">
+<meta name="twitter:title" content="在linux中管理svn服务器">
+<meta name="twitter:description" content="&amp;#x5E38;&amp;#x7528;&amp;#x6307;&amp;#x4EE4;SVN&amp;#x5B89;&amp;#x88C5;$yum install subversion
+$yum install mod_dav_svn
+&amp;#x5224;&amp;#x65AD;&amp;#x662F;&amp;#x5426;&amp;#x5B89;&amp;#x88C5;&amp;#x6210;&amp;#x529F;$subversion -v
+&amp;#x5982;&amp;#x679C;&amp;#x63">
 
 
 
@@ -129,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://jtanx.cn/2017/01/01/踏入2017/"/>
+  <link rel="canonical" href="http://jtanx.cn/2017/02/16/在linux中管理svn服务器/"/>
 
 
 
 
 
-  <title> 踏入2017 | Jtanx's Notes </title>
+  <title> 在linux中管理svn服务器 | Jtanx's Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -288,7 +289,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://jtanx.cn/2017/01/01/踏入2017/">
+  <link itemprop="mainEntityOfPage" href="http://jtanx.cn/2017/02/16/在linux中管理svn服务器/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="jtanx">
@@ -312,7 +313,7 @@
             
             
               
-                踏入2017
+                在linux中管理svn服务器
               
             
           </h1>
@@ -327,8 +328,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-01T13:08:37+08:00">
-                2017-01-01
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-16T09:29:11+08:00">
+                2017-02-16
               </time>
             
 
@@ -350,8 +351,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/随心/" itemprop="url" rel="index">
-                    <span itemprop="name">随心</span>
+                  <a href="/categories/node/" itemprop="url" rel="index">
+                    <span itemprop="name">node</span>
                   </a>
                 </span>
 
@@ -368,8 +369,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/01/01/踏入2017/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/01/踏入2017/" itemprop="commentCount"></span>
+                <a href="/2017/02/16/在linux中管理svn服务器/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/16/在linux中管理svn服务器/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -395,20 +396,95 @@
       
 
       
-        <h4 id="&#x5BFC;&#x8BED;"><a href="#&#x5BFC;&#x8BED;" class="headerlink" title="&#x5BFC;&#x8BED;"></a>&#x5BFC;&#x8BED;</h4><blockquote>
-<p>&#x6628;&#x665A;&#xFF0C;&#x6CA1;&#x6709;&#x4E86;&#x4EE5;&#x524D;&#x90A3;&#x79CD;&#x975E;&#x8981;&#x5012;&#x6570;&#x8DE8;&#x5E74;&#x7684;&#x60C5;&#x7EEA;&#xFF0C;&#x53CD;&#x800C;&#x662F;&#x4E00;&#x4E2A;&#x4EBA;&#x5728;&#x4E66;&#x623F;&#x7EA0;&#x7ED3;&#x6211;&#x7684;&#x591A;&#x8BF4;&#x8BC4;&#x8BBA;&#x6846;&#x4E3A;&#x4F55;&#x51FA;&#x4E0D;&#x6765;&#xFF0C;&#x7136;&#x540E;&#x5230;&#x4E86;&#x65F6;&#x95F4;&#x5C31;&#x7761;&#x89C9;&#x53BB;&#x4E86;&#x3002;&#x770B;&#x4E86;&#x670B;&#x53CB;&#x5708;&#x7684;&#x70DF;&#x706B;&#x77ED;&#x89C6;&#x9891;&#xFF0C;&#x770B;&#x4E86;&#x5404;&#x79CD;&#x6652;&#x7684;&#x5927;&#x9910;&#xFF0C;&#x65C5;&#x6E38;&#x7167;&#x2026;&#x6211;&#x662F;&#x4E0D;&#x662F;&#x6DF7;&#x5F97;&#x5F88;&#x60E8;&#xFF0C;&#x8FD8;&#x662F;&#x81EA;&#x5DF1;&#x6DE1;&#x7136;&#x4E86;&#x5F88;&#x591A;&#x3002;</p>
-</blockquote>
-<p>&#x66F4;&#x52A0;&#x8981;&#x547D;&#x7684;&#x662F;&#xFF0C;&#x6211;&#x7ADF;&#x7136;&#x65E0;&#x610F;&#x4E2D;&#x5728;&#x8FD9;&#x4E2A;&#x6C1B;&#x56F4;&#x4E0B;&#x542C;&#x4E86;&#x6768;&#x5B97;&#x7EAC;&#x7684;&#x201D;&#x5176;&#x5B9E;&#x90FD;&#x6CA1;&#x6709;&#x201D;&#xFF0C;&#x90A3;&#x53E5;&#x201D;&#x6211;&#x5728;&#x811A;&#x6B65;&#x6025;&#x4FC3;&#x7684;&#x57CE;&#x5E02;&#x4E2D;&#xFF0C;&#x4F9D;&#x7136;&#x4E00;&#x4E2A;&#x4EBA;&#x751F;&#x6D3B;&#x201D;&#xFF0C;&#x77AC;&#x95F4;&#x6F78;&#x7136;&#x6CEA;&#x4E0B;(qi shi hai hao)&#x3002;</p>
-<a id="more"></a>
-<p>&#x600E;&#x4E48;&#x8BF4;&#x4E5F;&#x662F;2017&#x5E74;&#x7684;&#x5F00;&#x59CB;&#xFF0C;&#x4E5F;&#x8BE5;&#x56DE;&#x9996;&#x548C;&#x5C55;&#x671B;&#x4E00;&#x4E0B;&#x3002;</p>
-<p>&#x90A3;&#x4E48;2016&#x5E74;&#xFF0C;&#x6211;&#x5230;&#x5E95;&#x662F;&#x600E;&#x4E48;&#x8FC7;&#x6765;&#x7684;&#xFF0C;&#x662F;&#x7684;&#xFF0C;&#x5E74;&#x521D;&#x7684;&#x65F6;&#x5019;&#x6211;&#x820D;&#x5F03;&#x4E86;&#x4E4B;&#x524D;&#x7684;&#x516C;&#x53F8;&#xFF0C;&#x51FA;&#x6765;&#x548C;&#x51E0;&#x4E2A;&#x4F19;&#x4F34;&#x521B;&#x4E1A;&#x4E86;&#xFF0C;&#x5F53;&#x7136;&#x4E0D;&#x80FD;&#x505A;&#x9879;&#x76EE;&#x4E86;&#xFF0C;&#x8981;&#x521B;&#x4E1A;&#x5C31;&#x505A;&#x4EA7;&#x54C1;&#x3002;&#x51E0;&#x4E2A;&#x6708;&#x540E;&#x7B2C;&#x4E00;&#x7248;&#x4E0A;&#x7EBF;&#x4E86;&#xFF0C;bug&#x597D;&#x591A;&#xFF0C;&#x6539;&#xFF01; &#x51E0;&#x4E2A;&#x6708;&#x540E;&#x7A0D;&#x5FAE;&#x7A33;&#x5B9A;&#xFF0C;&#x7B2C;&#x4E8C;&#x7248;&#x53D1;&#x5E03;&#xFF0C;&#x5C31;&#x8FD9;&#x6837;3&#x6708;&#x4EFD;&#x5F00;&#x59CB;&#x5230;&#x5982;&#x4ECA;&#xFF0C;&#x4EA7;&#x54C1;&#x57FA;&#x672C;&#x4E0A;&#x5B9A;&#x578B;&#x4E86;&#xFF0C;bug&#x8FD8;&#x662F;&#x6709;&#x7684;&#xFF0C;&#x5E02;&#x573A;&#x68C0;&#x9A8C;&#x5982;&#x4F55;&#x6709;&#x4E86;&#x521D;&#x6B65;&#x7684;&#x6210;&#x6548;&#xFF0C;&#x4F46;&#x662F;&#x8DEF;&#x9014;&#x663E;&#x7136;&#x8FD8;&#x633A;&#x8FDC;&#x7684;&#xFF0C;&#x505A;&#x597D;&#x4E00;&#x4E2A;&#x4EA7;&#x54C1;&#x4E0D;&#x662F;&#x4E00;&#x4E24;&#x5929;&#x7684;&#x4E8B;&#x3002;</p>
-<p>2016&#x5E74;&#x4F46;&#x51E1;&#x6709;&#x7A7A;&#xFF0C;&#x6211;&#x51E0;&#x4E4E;&#x662F;&#x8DD1;&#x51FA;&#x8FD9;&#x4E2A;&#x5C0F;&#x57CE;&#x5E02;&#x53BB;&#x5E7F;&#x5DDE;&#xFF0C;&#x53BB;&#x4E2D;&#x5C71;&#xFF0C;&#x53BB;&#x9999;&#x6E2F;&#xFF0C;&#x53BB;&#x6FB3;&#x95E8;&#xFF0C;&#x9999;&#x6E2F;&#xFF0C;&#x4E0A;&#x6D77;&#xFF0C;&#x676D;&#x5DDE;&#xFF0C;&#x53E4;&#x9547;&#xFF0C;&#x90FD;&#x662F;&#x4E00;&#x4E9B;&#x633A;&#x7F8E;&#x7684;&#x57CE;&#x5E02;&#xFF0C;&#x653E;&#x4E9B;&#x7167;&#x7247;&#x51FA;&#x6765;<br><img src="/2017/01/01/&#x8E0F;&#x5165;2017/1.JPG" alt="1"></p>
-<p><img src="/2017/01/01/&#x8E0F;&#x5165;2017/2.JPG" alt="2"></p>
-<p><img src="/2017/01/01/&#x8E0F;&#x5165;2017/3.JPG" alt="3"></p>
-<p><img src="/2017/01/01/&#x8E0F;&#x5165;2017/4.JPG" alt="4"></p>
-<p>&#x53E6;&#x5916;2016&#x5E74;&#x8003;&#x4E86;&#x8F66;&#x8BD5;&#xFF0C;&#x5BF9;&#x4E8E;&#x6211;&#x8FD9;&#x4E2A;&#x4E5F;&#x4E86;&#x4E24;&#x5E74;&#x624D;&#x8003;&#x8F66;&#x8BD5;&#x7684;&#x4EBA;&#x6765;&#x8BF4;&#x5B9E;&#x5728;&#x662F;&#x4E0D;&#x597D;&#x610F;&#x601D;&#x4E00;&#x63D0;&#x4E86;&#xFF0C;&#x4E0D;&#x8FC7;&#x8FD8;&#x633A;&#x987A;&#x5229;&#x7684;&#x3002;</p>
-<p>2017&#x5E74;&#xFF0C;&#x5982;&#x679C;&#x521B;&#x4E1A;&#x5C31;&#x7EE7;&#x7EED;&#x521B;&#x4E1A;&#xFF0C;&#x597D;&#x597D;&#x521B;&#x4E1A;&#x3002;&#x6211;&#x5982;&#x679C;&#x4E0D;&#x7EE7;&#x7EED;&#x521B;&#x4E1A;&#x4E86;&#xFF0C;&#x6211;&#x60F3;&#x6211;&#x4F1A;&#x6362;&#x4E00;&#x4E2A;&#x57CE;&#x5E02;&#xFF0C;&#x6362;&#x4E00;&#x4EFD;&#x5DE5;&#x4F5C;&#xFF0C;&#x6709;&#x7A7A;&#x6211;&#x60F3;&#x53BB;&#x897F;&#x85CF;&#x4E00;&#x6B21;&#xFF0C;&#x53BB;&#x4E91;&#x5357;&#x4E00;&#x6B21;&#xFF0C;&#x81F3;&#x4E8E;&#x56FD;&#x5916;&#x6211;&#x60F3;&#x53BB;&#x6CF0;&#x56FD;&#x4E00;&#x6B21;&#xFF0C;&#x65E5;&#x672C;&#x4E00;&#x6B21;&#x3002;&#x5176;&#x4ED6;&#x65F6;&#x95F4;&#x6211;&#x8FD8;&#x4F1A;&#x7EE7;&#x7EED;&#x778E;&#x6298;&#x817E;&#xFF0C;&#x7EE7;&#x7EED;&#x73A9;&#x524D;&#x7AEF;&#x6280;&#x672F;&#xFF0C;&#x7EE7;&#x7EED;&#x5199;&#x535A;&#x5BA2;</p>
+        <h2 id="&#x5E38;&#x7528;&#x6307;&#x4EE4;"><a href="#&#x5E38;&#x7528;&#x6307;&#x4EE4;" class="headerlink" title="&#x5E38;&#x7528;&#x6307;&#x4EE4;"></a>&#x5E38;&#x7528;&#x6307;&#x4EE4;</h2><h3 id="SVN&#x5B89;&#x88C5;"><a href="#SVN&#x5B89;&#x88C5;" class="headerlink" title="SVN&#x5B89;&#x88C5;"></a>SVN&#x5B89;&#x88C5;</h3><pre><code>$yum install subversion
+$yum install mod_dav_svn
+</code></pre><h3 id="&#x5224;&#x65AD;&#x662F;&#x5426;&#x5B89;&#x88C5;&#x6210;&#x529F;"><a href="#&#x5224;&#x65AD;&#x662F;&#x5426;&#x5B89;&#x88C5;&#x6210;&#x529F;" class="headerlink" title="&#x5224;&#x65AD;&#x662F;&#x5426;&#x5B89;&#x88C5;&#x6210;&#x529F;"></a>&#x5224;&#x65AD;&#x662F;&#x5426;&#x5B89;&#x88C5;&#x6210;&#x529F;</h3><pre><code>$subversion -v
+&#x5982;&#x679C;&#x63D0;&#x793A;&#x5982;&#x4E0B;:-bash: subversion: command not found
+&#x7ECF;&#x8FC7;&#x67E5;&#x627E;&#x53D1;&#x73B0;:
+svnserve --version
+</code></pre><h3 id="&#x6709;&#x4E86;SVN&#x8F6F;&#x4EF6;&#x540E;&#x8FD8;&#x9700;&#x8981;&#x5EFA;&#x7ACB;SVN&#x5E93;&#x3002;"><a href="#&#x6709;&#x4E86;SVN&#x8F6F;&#x4EF6;&#x540E;&#x8FD8;&#x9700;&#x8981;&#x5EFA;&#x7ACB;SVN&#x5E93;&#x3002;" class="headerlink" title="&#x6709;&#x4E86;SVN&#x8F6F;&#x4EF6;&#x540E;&#x8FD8;&#x9700;&#x8981;&#x5EFA;&#x7ACB;SVN&#x5E93;&#x3002;"></a>&#x6709;&#x4E86;SVN&#x8F6F;&#x4EF6;&#x540E;&#x8FD8;&#x9700;&#x8981;&#x5EFA;&#x7ACB;SVN&#x5E93;&#x3002;</h3><pre><code>#mkdir /opt/svn/repos
+#svnadmin create /opt/svn/repos
+&#x6267;&#x884C;&#x4E0A;&#x9762;&#x7684;&#x547D;&#x4EE4;&#x540E;&#xFF0C;&#x81EA;&#x52A8;&#x5728;repos&#x4E0B;&#x5EFA;&#x7ACB;&#x591A;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C; &#x5206;&#x522B;&#x662F;conf, db,format,hooks, locks, README.txt&#x3002;
+</code></pre><h3 id="&#x914D;&#x7F6E;"><a href="#&#x914D;&#x7F6E;" class="headerlink" title="&#x914D;&#x7F6E;"></a>&#x914D;&#x7F6E;</h3><pre><code>&#x4E0A;&#x9762;&#x7684;&#x64CD;&#x4F5C;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x51E0;&#x4E2A;&#x547D;&#x4EE4;&#x5C31;&#x641E;&#x5B9A;, &#x4E0B;&#x9762;&#x7684;&#x64CD;&#x4F5C;&#x4E5F;&#x4E0D;&#x96BE;&#x3002;
+&#x8FDB;&#x5165;&#x4E0A;&#x9762;&#x751F;&#x6210;&#x7684;&#x6587;&#x4EF6;&#x5939;conf&#x4E0B;&#xFF0C;&#x8FDB;&#x884C;&#x914D;&#x7F6E;,   &#x6709;&#x4EE5;&#x4E0B;&#x51E0;&#x4E2A;&#x6587;&#x4EF6;authz, passwd, svnserve.conf
+&#x5176;&#x4E2D;authz &#x662F;&#x6743;&#x9650;&#x63A7;&#x5236;&#xFF0C;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x54EA;&#x4E9B;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x54EA;&#x4E9B;&#x76EE;&#x5F55;,  
+passwd&#x662F;&#x8BBE;&#x7F6E;&#x7528;&#x6237;&#x548C;&#x5BC6;&#x7801;&#x7684;,    
+svnserve&#x662F;&#x8BBE;&#x7F6E;svn&#x76F8;&#x5173;&#x7684;&#x64CD;&#x4F5C;&#x3002;
+</code></pre><h4 id="&#x5148;&#x8BBE;&#x7F6E;passwd"><a href="#&#x5148;&#x8BBE;&#x7F6E;passwd" class="headerlink" title="&#x5148;&#x8BBE;&#x7F6E;passwd"></a>&#x5148;&#x8BBE;&#x7F6E;passwd</h4><pre><code>[users]
+ # harry = harryssecret
+ # sally = sallyssecret
+ hello=123
+&#x7528;&#x6237;&#x540D;=&#x5BC6;&#x7801;
+</code></pre><h4 id="&#x518D;&#x8BBE;&#x7F6E;&#x6743;&#x9650;authz"><a href="#&#x518D;&#x8BBE;&#x7F6E;&#x6743;&#x9650;authz" class="headerlink" title="&#x518D;&#x8BBE;&#x7F6E;&#x6743;&#x9650;authz"></a>&#x518D;&#x8BBE;&#x7F6E;&#x6743;&#x9650;authz</h4><pre><code>[/]
+ hello= rw
+ &#x610F;&#x601D;&#x662F;hello&#x7528;&#x6237;&#x5BF9;&#x6240;&#x6709;&#x7684;&#x76EE;&#x5F55;&#x6709;&#x8BFB;&#x5199;&#x6743;&#x9650;
+ svn://120.25.174.99:3690
+</code></pre><h3 id="&#x542F;&#x52A8;SVN"><a href="#&#x542F;&#x52A8;SVN" class="headerlink" title="&#x542F;&#x52A8;SVN"></a>&#x542F;&#x52A8;SVN</h3><pre><code>1&#x3001;svnserve -d -r /opt/svn/
+</code></pre><hr>
+<h3 id="&#x5B89;&#x88C5;&#x8F6F;&#x4EF6;&#x5305;"><a href="#&#x5B89;&#x88C5;&#x8F6F;&#x4EF6;&#x5305;" class="headerlink" title="&#x5B89;&#x88C5;&#x8F6F;&#x4EF6;&#x5305;"></a>&#x5B89;&#x88C5;&#x8F6F;&#x4EF6;&#x5305;</h3><pre><code># yum install httpd
+# yum install mod_dav_svn
+# yum install subversion
+</code></pre><h3 id="&#x9A8C;&#x8BC1;&#x5B89;&#x88C5;"><a href="#&#x9A8C;&#x8BC1;&#x5B89;&#x88C5;" class="headerlink" title="&#x9A8C;&#x8BC1;&#x5B89;&#x88C5;"></a>&#x9A8C;&#x8BC1;&#x5B89;&#x88C5;</h3><h1 id="httpd-version"><a href="#httpd-version" class="headerlink" title="httpd -version"></a>httpd -version</h1><pre><code>&#x7ED3;&#x679C;&#x663E;&#x793A;&#xFF1A;
+</code></pre><p>  &#x524D;&#x5F80; /etc/httpd/modules/ &#x4E0B;&#xFF0C;&#x68C0;&#x67E5;&#x662F;&#x5426;&#x5305;&#x542B;mod_dav_svn.so&#x548C;mod_authz_svn.so,&#x5982;&#x679C;&#x6709;&#xFF0C;mod_dav_svn&#x5B89;&#x88C5;&#x6210;&#x529F;&#x3002;</p>
+<pre><code># svnserve --version
+</code></pre><pre><code>&#x7ED3;&#x679C;&#x663E;&#x793A;&#xFF1A;
+&#x5B89;&#x88C5;svn &#x6210;&#x529F;&#x3002;
+</code></pre><h3 id="&#x521B;&#x5EFA;&#x4ED3;&#x5E93;"><a href="#&#x521B;&#x5EFA;&#x4ED3;&#x5E93;" class="headerlink" title="&#x521B;&#x5EFA;&#x4ED3;&#x5E93;"></a>&#x521B;&#x5EFA;&#x4ED3;&#x5E93;</h3><pre><code># mkdir /var/www/svn
+# cd /var/www/svn
+# svnadmin create repo1
+</code></pre><h3 id="&#x914D;&#x7F6E;-1"><a href="#&#x914D;&#x7F6E;-1" class="headerlink" title="&#x914D;&#x7F6E;"></a>&#x914D;&#x7F6E;</h3><p>  /var/www/svn &#x76EE;&#x5F55;&#x4E0B;&#x4F1A;&#x6709;&#x4E00;&#x4E2A;repo1&#x7684;&#x6587;&#x4EF6;&#x5939;<br>  &#x4FEE;&#x6539;&#x6240;&#x6709;&#x8005;:</p>
+<pre><code> # chown -R apache:apache repo1
+  copy  /var/www/svn/repo1/conf &#x4E0B;&#x7684; authz&#x5230; /var/www/svn&#x4E0B;,&#x5E76;&#x521B;&#x5EFA;passwd&#x6587;&#x4EF6;
+ # cp /var/www/svn/repo1/conf/authz /var/www/svn/authz
+ # cd /var/www/svn
+ # vi passwd
+ :wq&#x4FDD;&#x5B58;&#x9000;&#x51FA;
+  &#x751F;&#x6210;&#x8D26;&#x53F7;&#xFF1A;
+ 1&#x3001;&#x6DFB;&#x52A0;&#x8D26;&#x53F7;&#x4FE1;&#x606F;
+ #htpasswd -b /opt/svn/passwd zhangsan 123456
 
+ 2&#x3001;&#x6DFB;&#x52A0;&#x65B0;&#x7684;&#x7528;&#x6237;
+ #htpasswd -b passwd namce pw
+ &#x6743;&#x9650;&#x7BA1;&#x7406;&#x8BBE;&#x7F6E;:
+ # vi /var/www/svn/authz
+    &#x5728;[groups]&#x4E0B;&#x6DFB;&#x52A0;&#x7EC4;,
+     [/] &#x76F8;&#x5F53;&#x4E8E;/var/www/svn&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;,&#x8D4B;&#x4E88;&#x6743;&#x9650;&#x7ED9;&#x7528;&#x6237;&#x7EC4;
+     [repo1:/] &#x662F;&#x6307;repo1&#x5E93;
+     [repo1:/desgin]&#x662F;repo1&#x4E0B;&#x7684;desgin&#x76EE;&#x5F55;
+[groups]
+admin=user1&#xFF0C;user2
+proj1_developer=user2,user3
+proj2_develoer=user2,user4
+proj1_desgin=user5,user6
+[/]
+@admin=rw
+[repo1:/]
+@proj1_developer=rw
+[repo1:/desgin]
+@proj1_desgin=rw
+[repo2:/]
+@proj2_developer=rw
+ &#x5C06;svn&#x5173;&#x8054;&#x5230;apache&#x4E0A;:
+ # vi /etc/httpd/conf.d/subversion.conf
+  &#x5728;&#x5E95;&#x90E8;&#x52A0;&#x4E0A;:
+&lt;Location /repos&gt;
+   DAV svn
+   SVNParentPath /var/www/svn
+
+#   # Limit write permission to list of valid users.
+#   &lt;LimitExcept GET PROPFIND OPTIONS REPORT&gt;
+#      # Require SSL connection for password protection.
+#      # SSLRequireSSL
+#
+      AuthType Basic
+      AuthName &quot;Authorization SVN&quot;
+      AuthzSVNAccessFile /var/www/svn/authz
+      AuthUserFile /var/www/svn/passwd
+      Require valid-user
+#   &lt;/LimitExcept&gt;
+&lt;/Location&gt;
+</code></pre><h3 id="&#x91CD;&#x542F;httpd"><a href="#&#x91CD;&#x542F;httpd" class="headerlink" title="&#x91CD;&#x542F;httpd"></a>&#x91CD;&#x542F;httpd</h3><pre><code># service httpd restart
+</code></pre>
       
     </div>
 
@@ -429,13 +505,19 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/30/杭州古镇上海三天旅游攻略/" rel="next" title="杭州古镇上海三天旅游攻略">
-                <i class="fa fa-chevron-left"></i> 杭州古镇上海三天旅游攻略
+              <a href="/2017/02/15/Linux中常用操作命令/" rel="next" title="Linux中常用操作命令">
+                <i class="fa fa-chevron-left"></i> Linux中常用操作命令
               </a>
             
           </div>
@@ -443,10 +525,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/01/03/css高级技巧/" rel="prev" title="css高级技巧">
-                css高级技巧 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -461,10 +539,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2017/01/01/踏入2017/"
-     data-title="踏入2017"
+        <div class="ds-share flat" data-thread-key="2017/02/16/在linux中管理svn服务器/"
+     data-title="在linux中管理svn服务器"
      data-content=""
-     data-url="http://jtanx.cn/2017/01/01/踏入2017/">
+     data-url="http://jtanx.cn/2017/02/16/在linux中管理svn服务器/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -491,8 +569,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/01/01/踏入2017/"
-           data-title="踏入2017" data-url="http://jtanx.cn/2017/01/01/踏入2017/">
+      <div class="ds-thread" data-thread-key="2017/02/16/在linux中管理svn服务器/"
+           data-title="在linux中管理svn服务器" data-url="http://jtanx.cn/2017/02/16/在linux中管理svn服务器/">
       </div>
     
   </div>
@@ -644,7 +722,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#导语"><span class="nav-number">1.</span> <span class="nav-text">导语</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用指令"><span class="nav-number">1.</span> <span class="nav-text">常用指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SVN安装"><span class="nav-number">1.1.</span> <span class="nav-text">SVN安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断是否安装成功"><span class="nav-number">1.2.</span> <span class="nav-text">判断是否安装成功</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有了SVN软件后还需要建立SVN库。"><span class="nav-number">1.3.</span> <span class="nav-text">有了SVN软件后还需要建立SVN库。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">1.4.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#先设置passwd"><span class="nav-number">1.4.1.</span> <span class="nav-text">先设置passwd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#再设置权限authz"><span class="nav-number">1.4.2.</span> <span class="nav-text">再设置权限authz</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动SVN"><span class="nav-number">1.5.</span> <span class="nav-text">启动SVN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装软件包"><span class="nav-number">1.6.</span> <span class="nav-text">安装软件包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证安装"><span class="nav-number">1.7.</span> <span class="nav-text">验证安装</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#httpd-version"><span class="nav-number"></span> <span class="nav-text">httpd -version</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建仓库"><span class="nav-number">0.1.</span> <span class="nav-text">创建仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-1"><span class="nav-number">0.2.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重启httpd"><span class="nav-number">0.3.</span> <span class="nav-text">重启httpd</span></a></li></ol></li></ol></div>
             
 
           </div>
