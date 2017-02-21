@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://jtanx.cn/2016/10/20/%E5%B1%85%E4%BA%8Evue2-0%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B0%8F%E5%AE%9E%E4%BE%8B/</loc>
+    <lastmod>2017-02-21T09:42:54.922Z</lastmod>
+    <data>
+        <display>
+        <title>居于vue2.0的一个小实例</title>
+        <pubTime>2016-10-20T02:19:21.000Z</pubTime>
+        
+        <tag>vue</tag>
+         
+         
+           
+             
+              <breadCrumb title="vue/angular/ionic" url="http://jtanx.cn/categories/vue-angular-ionic/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://jtanx.cn/2016/07/17/%E6%BE%B3%E9%97%A8%E4%B8%80%E6%97%A5%E6%B8%B8%E6%94%BB%E7%95%A5/</loc>
     <lastmod>2017-02-20T02:52:25.665Z</lastmod>
     <data>
@@ -79,26 +99,6 @@
            
              
               <breadCrumb title="node/linux" url="http://jtanx.cn/categories/node-linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jtanx.cn/2016/10/20/%E5%B1%85%E4%BA%8Evue2-0%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B0%8F%E5%AE%9E%E4%BE%8B/</loc>
-    <lastmod>2017-02-20T02:40:49.731Z</lastmod>
-    <data>
-        <display>
-        <title>居于vue2.0的一个小实例</title>
-        <pubTime>2016-10-20T02:19:21.000Z</pubTime>
-        
-        <tag>vue</tag>
-         
-         
-           
-             
-              <breadCrumb title="vue/angular/ionic" url="http://jtanx.cn/categories/vue-angular-ionic/"/>
           
         </display>
     </data>
