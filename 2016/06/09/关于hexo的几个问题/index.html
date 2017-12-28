@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>关于hexo的几个问题 | Jtanx</title>
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url()">
+        <div class='av-pic' style="background-image: url(/assets/avatar.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>Jtanx</div>
+        
+            <div>走在前端道路上、瞎逛在头条&amp;掘金&amp;知乎&amp;简书</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>首页</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>归档</li>
+            </a>  
+          
+            <a href="/categories/" class="Btn">
+              <li>分类</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>关于</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>关于hexo的几个问题</h1>
+    </header>
+
+    <section>
+      <p>使用hexo搭建博客比较简单，常规的流程不作记录，这里只记录一些后期的问题，之前有用过hexo搭建过博客，但是由于代码没有上传到github，工程的push进去的是编译后的代码，这次重新搭建，遇到的比较关键的问题做一些记录。<br><a id="more"></a></p>
+<p>1、 主题如何更改</p>
+<ul>
+<li>在官网可以看到各种主题</li>
+<li>用git clone克隆对应的主题到theme目录下</li>
+<li>在全局的config.yml中配置主题名字</li>
+</ul>
+<p>2、 绑定域名后每次提交都报404页面错误</p>
+<ul>
+<li>准备好域名，解析到对应的xxx.github.io</li>
+<li>在source文件夹内新建CNAME文件在里写你的域名</li>
+</ul>
+<p>3、 安装主题后，在哪里配置菜单</p>
+<ul>
+<li>在主题里面的config.yml中配置菜单，具体例如</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">    首页: /</span><br><span class="line">    归档: /archives</span><br><span class="line">    关于: /about</span><br></pre></td></tr></table></figure>
+<p>4、 换了电脑没有对代码做保存怎么办</p>
+<ul>
+<li>建议分为两个分支，一个用来git工程项目，一个用来git源文件，这样还电脑后可以clone源文件下来使用</li>
+</ul>
+<p>5、 如何显示简介和阅读更多</p>
+<ul>
+<li>在主题的配置文件中，加入</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">excerpt_link: 阅读更多</span><br></pre></td></tr></table></figure>
+<ul>
+<li>md写文章时</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">简介内容...</span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line">正文...</span><br></pre></td></tr></table></figure>
+
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2016-06-09T07:31:22.000Z" itemprop="datePublished">
+              2016-06-09
+            </time>
+          </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2016 - Jtanx </div>
+    <div>
+    Powered by Jtanx   emial： 1036699126@qq.com
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+<script src="/js/pager/dist/singlepager.js"></script>
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>

@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Jtanx</title>
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url()">
+        <div class='av-pic' style="background-image: url(/assets/avatar.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>Jtanx</div>
+        
+            <div>走在前端道路上、瞎逛在头条&amp;掘金&amp;知乎&amp;简书</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>首页</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>归档</li>
+            </a>  
+          
+            <a href="/categories/" class="Btn">
+              <li>分类</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>关于</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <ul class="Index">
+  
+    <header class='PageTitle'>
+        <h1>{ 前端 }</h1>
+    </header>
+  
+  
+    <li>
+      <article class='ListView'>
+    <header class="title">
+      
+        <h1>
+          <a href="/2017/08/15/使用async和await处理异步请求/">使用async和await处理异步请求</a>
+        </h1>
+      
+      <div class='ListMeta'>
+  <time datetime="2017-08-15T07:21:21.000Z" itemprop="datePublished">
+    2017-08-15
+  </time>
+  
+  | 
+  <ul>
+    
+  <li class="meta-text">
+  { <a href="/tags/nodeJs/">nodeJs</a> }
+  </li>
+
+
+  </ul>
+  
+  
+  / 
+  <ul>
+    
+  <li class="meta-text">
+  { <a href="/categories/前端/">前端</a> }
+  </li>
+
+
+  </ul>
+  
+</div>
+
+    </header>
+    <div>
+      
+        <p>随着node新版本出来和es6/7的逐步深入，异步解决方法又有了新的解决方案，那就是async和await,在实际的开发中，我们更多的是请求后端的resful api接口进行前端各种操作，这种异步请求太常见了。通过一个简单的案例来看看async和await的使用错误处理的方式。</p>
+        
+          <div class="more-link">
+            <a href="/2017/08/15/使用async和await处理异步请求/#more">Read On »</a>
+          </div>
+        
+      
+    </div>
+</article>
+
+    </li>
+  
+    <li>
+      <article class='ListView'>
+    <header class="title">
+      
+        <h1>
+          <a href="/2017/06/14/koa入门笔记-三-使用mysql/">koa入门笔记(三)使用mysql</a>
+        </h1>
+      
+      <div class='ListMeta'>
+  <time datetime="2017-06-14T03:41:53.000Z" itemprop="datePublished">
+    2017-06-14
+  </time>
+  
+  | 
+  <ul>
+    
+  <li class="meta-text">
+  { <a href="/tags/nodeJs/">nodeJs</a> }
+  </li>
+
+  <li class="meta-text">
+  { <a href="/tags/koa/">koa</a> }
+  </li>
+
+
+  </ul>
+  
+  
+  / 
+  <ul>
+    
+  <li class="meta-text">
+  { <a href="/categories/前端/">前端</a> }
+  </li>
+
+
+  </ul>
+  
+</div>
+
+    </header>
+    <div>
+      
+        <p>在使用koa的过程中，我们可以使用mysql中间件来对mysql进行操作, 并结合koa-router进行api返回数据</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install mysql --save</span><br></pre></td></tr></table></figure>
+        
+          <div class="more-link">
+            <a href="/2017/06/14/koa入门笔记-三-使用mysql/#more">Read On »</a>
+          </div>
+        
+      
+    </div>
+</article>
+
+    </li>
+  
+    <li>
+      <article class='ListView'>
+    <header class="title">
+      
+        <h1>
+          <a href="/2017/06/13/koa入门笔记-二-静态资源使用/">koa入门笔记(二)静态资源使用</a>
+        </h1>
+      
+      <div class='ListMeta'>
+  <time datetime="2017-06-13T08:27:53.000Z" itemprop="datePublished">
+    2017-06-13
+  </time>
+  
+  | 
+  <ul>
+    
+  <li class="meta-text">
+  { <a href="/tags/nodeJs/">nodeJs</a> }
+  </li>
+
+  <li class="meta-text">
+  { <a href="/tags/koa/">koa</a> }
+  </li>
+
+
+  </ul>
+  
+  
+  / 
+  <ul>
+    
+  <li class="meta-text">
+  { <a href="/categories/前端/">前端</a> }
+  </li>
+
+
+  </ul>
+  
+</div>
+
+    </header>
+    <div>
+      
+        <p>static模块的使用也比较简单，规划好静态文件存放的路径，使用app.use挂载在应用上即可。<br>下面的代码中 dirname+ “/static” 表示静态文件存放的路径，当接收到请求后，会在该路径下进行查找，serve还可以接收一个对象，表示查找文件的后缀名。</p>
+<p>使用的中间件</p>
+<ul>
+<li>koa-static  <a href="https://www.npmjs.com/package/koa-static" target="_blank" rel="noopener">npm仓库地址</a></li>
+</ul>
+        
+          <div class="more-link">
+            <a href="/2017/06/13/koa入门笔记-二-静态资源使用/#more">Read On »</a>
+          </div>
+        
+      
+    </div>
+</article>
+
+    </li>
+  
+    <li>
+      <article class='ListView'>
+    <header class="title">
+      
+        <h1>
+          <a href="/2017/06/09/在vue组件中多次使用echart不随窗口resize/">在vue组件中多次使用echart不随窗口resize</a>
+        </h1>
+      
+      <div class='ListMeta'>
+  <time datetime="2017-06-09T09:44:53.000Z" itemprop="datePublished">
+    2017-06-09
+  </time>
+  
+  | 
+  <ul>
+    
+  <li class="meta-text">
+  { <a href="/tags/vue/">vue</a> }
+  </li>
+
+
+  </ul>
+  
+  
+  / 
+  <ul>
+    
+  <li class="meta-text">
+  { <a href="/categories/前端/">前端</a> }
+  </li>
+
+
+  </ul>
+  
+</div>
+
+    </header>
+    <div>
+      
+        <p>最近在vue项目这两个，在不同的组件中使用echart，虽然每一个组件去new一个echart实例，但是在窗口改变时，echart不能自适应，或者只能其中一个chart在适应。<br>
+        
+          <div class="more-link">
+            <a href="/2017/06/09/在vue组件中多次使用echart不随窗口resize/#more">Read On »</a>
+          </div>
+        
+      
+    </div>
+</article>
+
+    </li>
+  
+    <li>
+      <article class='ListView'>
+    <header class="title">
+      
+        <h1>
+          <a href="/2017/04/19/搭建公司内网npm/">搭建公司内网npm</a>
+        </h1>
+      
+      <div class='ListMeta'>
+  <time datetime="2017-04-19T09:05:49.000Z" itemprop="datePublished">
+    2017-04-19
+  </time>
+  
+  
+  / 
+  <ul>
+    
+  <li class="meta-text">
+  { <a href="/categories/前端/">前端</a> }
+  </li>
+
+
+  </ul>
+  
+</div>
+
+    </header>
+    <div>
+      
+        <p>由于公司的很多前端组件不方便公开到npm中，也为了给各位前端员工互相调用，分享，搭建公司内网的npm成为了必要<br>截图如下：<br><img src="/images/6.png" alt="截图1"></p>
+        
+          <div class="more-link">
+            <a href="/2017/04/19/搭建公司内网npm/#more">Read On »</a>
+          </div>
+        
+      
+    </div>
+</article>
+
+    </li>
+  
+    <li>
+      <article class='ListView'>
+    <header class="title">
+      
+        <h1>
+          <a href="/2016/10/13/玩一把gank集中营api/">玩一把干货集中营api</a>
+        </h1>
+      
+      <div class='ListMeta'>
+  <time datetime="2016-10-13T03:25:42.000Z" itemprop="datePublished">
+    2016-10-13
+  </time>
+  
+  | 
+  <ul>
+    
+  <li class="meta-text">
+  { <a href="/tags/vue/">vue</a> }
+  </li>
+
+
+  </ul>
+  
+  
+  / 
+  <ul>
+    
+  <li class="meta-text">
+  { <a href="/categories/前端/">前端</a> }
+  </li>
+
+
+  </ul>
+  
+</div>
+
+    </header>
+    <div>
+      
+        <p>结合vue2.0、light7、vue-router、vue-resource和干货集中营的api完成一个小demo,当然现在vue-router已经不建议使用了,现在推荐使用axios<br>这个案例旨在<br>1、看一下light-ui怎样，毕竟用过很多的ui库<br>2、看美女。<br><img src="/images/5.png" alt="截图1"></p>
+        
+          <div class="more-link">
+            <a href="/2016/10/13/玩一把gank集中营api/#more">Read On »</a>
+          </div>
+        
+      
+    </div>
+</article>
+
+    </li>
+  
+    <li>
+      <article class='ListView'>
+    <header class="title">
+      
+        <h1>
+          <a href="/2016/07/19/设置css单行和多行溢出省略号/">设置css单行和多行溢出省略号</a>
+        </h1>
+      
+      <div class='ListMeta'>
+  <time datetime="2016-07-19T09:28:47.000Z" itemprop="datePublished">
+    2016-07-19
+  </time>
+  
+  | 
+  <ul>
+    
+  <li class="meta-text">
+  { <a href="/tags/css/">css</a> }
+  </li>
+
+
+  </ul>
+  
+  
+  / 
+  <ul>
+    
+  <li class="meta-text">
+  { <a href="/categories/前端/">前端</a> }
+  </li>
+
+
+  </ul>
+  
+</div>
+
+    </header>
+    <div>
+      
+        <p>工作中，经常会对内容的溢出做省略号处理，多行的内容溢出需要webkit支持<br>
+        
+          <div class="more-link">
+            <a href="/2016/07/19/设置css单行和多行溢出省略号/#more">Read On »</a>
+          </div>
+        
+      
+    </div>
+</article>
+
+    </li>
+  
+    <li>
+      <article class='ListView'>
+    <header class="title">
+      
+        <h1>
+          <a href="/2016/07/13/结合vue-iview-vuex记事本小案例/">结合vue+iview+vuex记事本小案例</a>
+        </h1>
+      
+      <div class='ListMeta'>
+  <time datetime="2016-07-13T02:55:05.000Z" itemprop="datePublished">
+    2016-07-13
+  </time>
+  
+  | 
+  <ul>
+    
+  <li class="meta-text">
+  { <a href="/tags/vue/">vue</a> }
+  </li>
+
+  <li class="meta-text">
+  { <a href="/tags/vuex/">vuex</a> }
+  </li>
+
+
+  </ul>
+  
+  
+  / 
+  <ul>
+    
+  <li class="meta-text">
+  { <a href="/categories/前端/">前端</a> }
+  </li>
+
+
+  </ul>
+  
+</div>
+
+    </header>
+    <div>
+      
+        <p>为了让公司的一些对前端有兴趣和刚入门前端的人快速的掌握前端的知识，我构建了该案例，原因也是大多数公司的案例使用的是iview，于是用iview+vue+vue-router+vuex搭建一个小案例，当然，vuex本不应该适用是小项目，这里只作为使用案例</p>
+        
+          <div class="more-link">
+            <a href="/2016/07/13/结合vue-iview-vuex记事本小案例/#more">Read On »</a>
+          </div>
+        
+      
+    </div>
+</article>
+
+    </li>
+  
+</ul>
+
+
+            <footer>
+    <div>© 2016 - Jtanx </div>
+    <div>
+    Powered by Jtanx   emial： 1036699126@qq.com
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+<script src="/js/pager/dist/singlepager.js"></script>
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>

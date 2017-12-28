@@ -1,0 +1,46 @@
+<h1 id="normalize-css"><a href="#normalize-css" class="headerlink" title="normalize.css"></a>normalize.css</h1><p><a href="https://github.com/necolas/normalize.css"><img
+  src="https://necolas.github.io/normalize.css/logo.svg" alt="Normalize Logo"
+  width="80" height="80" align="right"></a></p>
+<blockquote>
+<p>A modern alternative to CSS resets</p>
+</blockquote>
+<p><a href="https://www.npmjs.com/package/normalize.css"><img src="https://img.shields.io/npm/v/normalize.css.svg?style=flat-square" alt="npm"></a> <a href="LICENSE.md"><img src="https://img.shields.io/npm/l/normalize.css.svg?style=flat-square" alt="license"></a><br><a href="CHANGELOG.md"><img src="https://img.shields.io/badge/changelog-md-blue.svg?style=flat-square" alt="changelog"></a><br><a href="https://gitter.im/necolas/normalize.css"><img src="https://img.shields.io/badge/chat-gitter-blue.svg?style=flat-square" alt="gitter"></a></p>
+<p><strong>NPM</strong></p>
+<pre><code class="sh">npm install --save normalize.css
+</code></pre>
+<p><strong>Bower</strong></p>
+<pre><code class="sh">bower install --save normalize-css
+</code></pre>
+<p><strong>CDN</strong></p>
+<p>See <a href="https://cdnjs.com/libraries/normalize">https://cdnjs.com/libraries/normalize</a></p>
+<p><strong>Download</strong></p>
+<p>See <a href="https://necolas.github.io/normalize.css/latest/normalize.css">https://necolas.github.io/normalize.css/latest/normalize.css</a></p>
+<h2 id="What-does-it-do"><a href="#What-does-it-do" class="headerlink" title="What does it do?"></a>What does it do?</h2><ul>
+<li>Preserves useful defaults, unlike many CSS resets.</li>
+<li>Normalizes styles for a wide range of elements.</li>
+<li>Corrects bugs and common browser inconsistencies.</li>
+<li>Improves usability with subtle modifications.</li>
+<li>Explains what code does using detailed comments.</li>
+</ul>
+<h2 id="Browser-support"><a href="#Browser-support" class="headerlink" title="Browser support"></a>Browser support</h2><ul>
+<li>Chrome (last two)</li>
+<li>Edge (last two)</li>
+<li>Firefox (last two)</li>
+<li>Firefox ESR</li>
+<li>Internet Explorer 8+</li>
+<li>iOS Safari (last two)</li>
+<li>Opera (last two)</li>
+<li>Safari 6+</li>
+</ul>
+<p><em>[Normalize.css v1 provides legacy browser support]<br>(<a href="https://github.com/necolas/normalize.css/tree/v1">https://github.com/necolas/normalize.css/tree/v1</a>) (IE 6+, Safari 4+),<br>but is no longer actively developed.</em></p>
+<h2 id="Extended-details-and-known-issues"><a href="#Extended-details-and-known-issues" class="headerlink" title="Extended details and known issues"></a>Extended details and known issues</h2><p>Additional detail and explanation of the esoteric parts of normalize.css.</p>
+<h4 id="pre-code-kbd-samp"><a href="#pre-code-kbd-samp" class="headerlink" title="pre, code, kbd, samp"></a><code>pre, code, kbd, samp</code></h4><p>The <code>font-family: monospace, monospace</code> hack fixes the inheritance and scaling<br>of font-size for preformatted text. The duplication of <code>monospace</code> is<br>intentional. <a href="https://en.wikipedia.org/wiki/User:Davidgothberg/Test59">Source</a>.</p>
+<h4 id="sub-sup"><a href="#sub-sup" class="headerlink" title="sub, sup"></a><code>sub, sup</code></h4><p>Normally, using <code>sub</code> or <code>sup</code> affects the line-box height of text in all<br>browsers. <a href="https://gist.github.com/413930">Source</a>.</p>
+<h4 id="svg-not-root"><a href="#svg-not-root" class="headerlink" title="svg:not(:root)"></a><code>svg:not(:root)</code></h4><p>Adding <code>overflow: hidden</code> fixes IE9’s SVG rendering. Earlier versions of IE<br>don’t support SVG, so we can safely use the <code>:not()</code> and <code>:root</code> selectors that<br>modern browsers use in the default UA stylesheets to apply this style.<br><a href="https://lists.w3.org/Archives/Public/public-svg-wg/2008JulSep/0339.html">Source</a>.</p>
+<h4 id="select"><a href="#select" class="headerlink" title="select"></a><code>select</code></h4><p>By default, Chrome on OS X and Safari on OS X allow very limited styling of<br><code>select</code>, unless a border property is set. The default font weight on <code>optgroup</code><br>elements cannot safely be changed in Chrome on OSX and Safari on OS X.</p>
+<h4 id="type-quot-checkbox-quot"><a href="#type-quot-checkbox-quot" class="headerlink" title="[type=&quot;checkbox&quot;]"></a><code>[type=&quot;checkbox&quot;]</code></h4><p>It is recommended that you do not style checkbox and radio inputs as Firefox’s<br>implementation does not respect box-sizing, padding, or width.</p>
+<h4 id="type-quot-number-quot"><a href="#type-quot-number-quot" class="headerlink" title="[type=&quot;number&quot;]"></a><code>[type=&quot;number&quot;]</code></h4><p>Certain font size values applied to number inputs cause the cursor style of the<br>decrement button to change from <code>default</code> to <code>text</code>.</p>
+<h4 id="type-quot-search-quot"><a href="#type-quot-search-quot" class="headerlink" title="[type=&quot;search&quot;]"></a><code>[type=&quot;search&quot;]</code></h4><p>The search input is not fully stylable by default. In Chrome and Safari on<br>OSX/iOS you can’t control <code>font</code>, <code>padding</code>, <code>border</code>, or <code>background</code>. In<br>Chrome and Safari on Windows you can’t control <code>border</code> properly. It will apply<br><code>border-width</code> but will only show a border color (which cannot be controlled)<br>for the outer 1px of that border. Applying <code>-webkit-appearance: textfield</code><br>addresses these issues without removing the benefits of search inputs (e.g.<br>showing past searches). Safari (but not Chrome) will clip the cancel button on<br>when it has padding (and <code>textfield</code> appearance).</p>
+<h4 id="placeholder"><a href="#placeholder" class="headerlink" title="::placeholder"></a><code>::placeholder</code></h4><p>In Edge, placeholders will disappear on <code>relative</code> or <code>absolute</code> positioned<br><code>&lt;input&gt;</code> elements if you use <code>opacity</code> less than <code>1</code> due to a <a href="https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/3901363/">bug</a>.</p>
+<h2 id="Contributing"><a href="#Contributing" class="headerlink" title="Contributing"></a>Contributing</h2><p>Please read the <a href="CONTRIBUTING.md">contribution guidelines</a> in order to make the<br>contribution process easy and effective for everyone involved.</p>
+<h2 id="Acknowledgements"><a href="#Acknowledgements" class="headerlink" title="Acknowledgements"></a>Acknowledgements</h2><p>Normalize.css is a project by <a href="https://github.com/necolas">Nicolas Gallagher</a>,<br>co-created with <a href="https://github.com/jonathantneal">Jonathan Neal</a>.</p>

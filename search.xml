@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+    
+    <entry>
+      <title><![CDATA[关于git中配置ssh]]></title>
+      <url>/2017/12/28/%E5%85%B3%E4%BA%8Egit%E4%B8%AD%E9%85%8D%E7%BD%AEssh/</url>
+      <content type="html"></content>
+      
+        <categories>
+            
+            <category> 瞎折腾 </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[使用async和await处理异步请求]]></title>
+      <url>/2017/08/15/%E4%BD%BF%E7%94%A8async%E5%92%8Cawait%E5%A4%84%E7%90%86%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82/</url>
+      <content type="html"><![CDATA[<p>随着node新版本出来和es6/7的逐步深入，异步解决方法又有了新的解决方案，那就是async和await,在实际的开发中，我们更多的是请求后端的resful api接口进行前端各种操作，这种异步请求太常见了。通过一个简单的案例来看看async和await的使用错误处理的方式。</p>
+<a id="more"></a>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>)</span><br><span class="line"><span class="keyword">const</span> Router = <span class="built_in">require</span>(<span class="string">'koa-router'</span>);</span><br><span class="line"><span class="keyword">const</span> axios = <span class="built_in">require</span>(<span class="string">'axios'</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</span><br><span class="line"></span><br><span class="line">app.use(<span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params">ctx, next</span>)</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getData</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</span><br><span class="line">         axios.get(<span class="string">"http://192.168.3.205:8018/services/menu/sysMenu"</span>)</span><br><span class="line">         .then(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">            resolve(res.data);</span><br><span class="line">         &#125;)</span><br><span class="line">         .catch(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">            reject(res);</span><br><span class="line">         &#125;)</span><br><span class="line">       &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//错误处理</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      ctx.body = <span class="keyword">await</span> getData();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'starting at port 3000'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>然后json数据就可以直接输出到body中了</p>
+<p><img src="/images/async_ico.png" alt="async插图"></p>
+<p>注意点:</p>
+<ul>
+<li>async本身返回的还是一个promise对象，await必须是在async函数体里面去玩</li>
+<li>注意try-catch的处理方式</li>
+<li>底层还是使用promise，所有无法取代掉promise传统用法，当然callback的使用方式就忘掉吧</li>
+</ul>
+]]></content>
+      
+        <categories>
+            
+            <category> 前端 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> nodeJs </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[koa入门笔记(三)使用mysql]]></title>
+      <url>/2017/06/14/koa%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0-%E4%B8%89-%E4%BD%BF%E7%94%A8mysql/</url>
+      <content type="html"><![CDATA[<p>在使用koa的过程中，我们可以使用mysql中间件来对mysql进行操作, 并结合koa-router进行api返回数据</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install mysql --save</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>index.js中</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>)</span><br><span class="line"><span class="keyword">const</span> Router = <span class="built_in">require</span>(<span class="string">'koa-router'</span>);</span><br><span class="line"><span class="keyword">const</span> controller = <span class="built_in">require</span>(<span class="string">'./controller.js'</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> Router();</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa()</span><br><span class="line"></span><br><span class="line">app.use(<span class="keyword">async</span> (ctx, next) =&gt; &#123;</span><br><span class="line">  <span class="keyword">await</span> next()</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">router.get(<span class="string">'/index'</span>, controller.index)</span><br><span class="line">app</span><br><span class="line">  .use(router.routes())</span><br><span class="line">  .use(router.allowedMethods())</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'starting at port 3000'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>controller.js中<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; query &#125; = <span class="built_in">require</span>(<span class="string">'./mysql/mysql'</span>)</span><br><span class="line"><span class="comment">//控制器</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">indexController</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">async</span> index(ctx, next) &#123;</span><br><span class="line">    <span class="keyword">let</span> sql = <span class="string">'SELECT * FROM list'</span></span><br><span class="line">    ctx.body = <span class="keyword">await</span> query( sql )</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = indexController;</span><br></pre></td></tr></table></figure></p>
+<p>mysql.js中封装连接mysql方法和query方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mysql = <span class="built_in">require</span>(<span class="string">'mysql'</span>)</span><br><span class="line"><span class="comment">// 创建数据池</span></span><br><span class="line"><span class="keyword">const</span> pool  = mysql.createPool(&#123;</span><br><span class="line">  host     : <span class="string">'localhost'</span>,   <span class="comment">// 数据库地址</span></span><br><span class="line">  user     : <span class="string">'root'</span>,    <span class="comment">// 数据库用户</span></span><br><span class="line">  password : <span class="string">''</span>,   <span class="comment">// 数据库密码</span></span><br><span class="line">  database : <span class="string">'notes'</span>  <span class="comment">// 选中数据库</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//封装异步query查询方法</span></span><br><span class="line"><span class="keyword">let</span> query = <span class="function"><span class="keyword">function</span>(<span class="params"> sql, values </span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params"> resolve, reject </span>) =&gt;</span> &#123;</span><br><span class="line">    pool.getConnection(<span class="function"><span class="keyword">function</span>(<span class="params">err, connection</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (err) &#123;</span><br><span class="line">        reject( err )</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        connection.query(sql, values, ( err, rows) =&gt; &#123;</span><br><span class="line">          <span class="keyword">if</span> ( err ) &#123;</span><br><span class="line">            reject( err )</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            resolve( rows )</span><br><span class="line">          &#125;</span><br><span class="line">          connection.release()</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123; query &#125;</span><br></pre></td></tr></table></figure>
+<p>访问 htttp://localhost:3000/index</p>
+<p><img src="/images/koa_mysql_01.png" alt="koa_mysql_01"></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 前端 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> nodeJs </tag>
+            
+            <tag> koa </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[koa入门笔记(二)静态资源使用]]></title>
+      <url>/2017/06/13/koa%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0-%E4%BA%8C-%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E4%BD%BF%E7%94%A8/</url>
+      <content type="html"><![CDATA[<p>static模块的使用也比较简单，规划好静态文件存放的路径，使用app.use挂载在应用上即可。<br>下面的代码中 dirname+ “/static” 表示静态文件存放的路径，当接收到请求后，会在该路径下进行查找，serve还可以接收一个对象，表示查找文件的后缀名。</p>
+<p>使用的中间件</p>
+<ul>
+<li>koa-static  <a href="https://www.npmjs.com/package/koa-static" target="_blank" rel="noopener">npm仓库地址</a></li>
+</ul>
+<a id="more"></a>
+<p>安装中间件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install koa-<span class="keyword">static</span> --save</span><br></pre></td></tr></table></figure>
+<p>index.js文件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">static</span> = <span class="built_in">require</span>(<span class="string">'koa-static'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa()</span><br><span class="line"></span><br><span class="line">app.use(<span class="keyword">static</span>(</span><br><span class="line">  path.join(__dirname,<span class="string">'/static'</span>)  <span class="comment">//路径连接</span></span><br><span class="line">))</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'starting at port 3000'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>在当前目录下创建static文件夹，存放静态文件</p>
+<p><img src="/images/7.png" alt="目录"></p>
+<p>访问浏览器查看效果</p>
+<p><img src="/images/8.png" alt="效果"></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 前端 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> nodeJs </tag>
+            
+            <tag> koa </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[在vue组件中多次使用echart不随窗口resize]]></title>
+      <url>/2017/06/09/%E5%9C%A8vue%E7%BB%84%E4%BB%B6%E4%B8%AD%E5%A4%9A%E6%AC%A1%E4%BD%BF%E7%94%A8echart%E4%B8%8D%E9%9A%8F%E7%AA%97%E5%8F%A3resize/</url>
+      <content type="html"><![CDATA[<p>最近在vue项目这两个，在不同的组件中使用echart，虽然每一个组件去new一个echart实例，但是在窗口改变时，echart不能自适应，或者只能其中一个chart在适应。<br><a id="more"></a></p>
+<p>这还是因为多个实例echart，在使用echart的resize时无法对多个实例进行resize</p>
+<p>在store.js中定义state的echartAll状态</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> state = &#123;</span><br><span class="line">   myChartAll: [], <span class="comment">//echart对象</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在父组件中循环设置</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//遍历所有的echart对象,去自适应窗口</span></span><br><span class="line"><span class="keyword">let</span> echartAll = <span class="keyword">this</span>.$store.state.myChartAll;</span><br><span class="line"><span class="built_in">window</span>.onresize = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;echartAll.length; i++)&#123;</span><br><span class="line">    echartAll[i].resize();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>在子组件中<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.myChart = echarts.init(<span class="built_in">document</span>.getElementById(_this.id));</span><br><span class="line"><span class="keyword">this</span>.$store.state.myChartAll.push(<span class="keyword">this</span>.myChart);</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 前端 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> vue </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[搭建公司内网npm]]></title>
+      <url>/2017/04/19/%E6%90%AD%E5%BB%BA%E5%85%AC%E5%8F%B8%E5%86%85%E7%BD%91npm/</url>
+      <content type="html"><![CDATA[<p>由于公司的很多前端组件不方便公开到npm中，也为了给各位前端员工互相调用，分享，搭建公司内网的npm成为了必要<br>截图如下：<br><img src="/images/6.png" alt="截图1"></p>
+<a id="more"></a>
+<p>使用工具</p>
+<ul>
+<li>sinopia</li>
+</ul>
+<p>遇到问题</p>
+<ul>
+<li>网络问题</li>
+<li>设置代理没有用，清空代理，清空缓</li>
+<li>npm cache clean</li>
+</ul>
+<p>配置文件</p>
+<ul>
+<li>vi /root/.config/sinopia/config.yaml</li>
+</ul>
+<p>储存文件</p>
+<ul>
+<li>/root/.local/share/sinopia/storage</li>
+</ul>
+<p>公司内网访问</p>
+<ul>
+<li><a href="http://192.168.1.3:4873/" target="_blank" rel="noopener">http://192.168.1.3:4873/</a></li>
+</ul>
+<p>服务端安装pm2守候进程<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pm2 start sinopia</span><br><span class="line">pm2 stop sinopia</span><br></pre></td></tr></table></figure></p>
+<p>以下为客户端操作</p>
+<ul>
+<li>安装内网npm</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nrm add govnet http://192.168.1.3:4873</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看在使用的npm</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nrm ls</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用某一个npm</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nrm use govnet</span><br></pre></td></tr></table></figure>
+<p>在linux中添加用户(用户名，密码，邮箱)</p>
+<ul>
+<li>npm adduser</li>
+</ul>
+<p>客户端登陆</p>
+<ul>
+<li>npm login</li>
+</ul>
+<p>客户端发布</p>
+<ul>
+<li>发布之前注意每一次发布的版本号不一样，在package.json中version参数</li>
+<li>npm publish</li>
+</ul>
+<p>客户端退出</p>
+<ul>
+<li>npm logout</li>
+</ul>
+]]></content>
+      
+        <categories>
+            
+            <category> 前端 </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[玩一把干货集中营api]]></title>
+      <url>/2016/10/13/%E7%8E%A9%E4%B8%80%E6%8A%8Agank%E9%9B%86%E4%B8%AD%E8%90%A5api/</url>
+      <content type="html"><![CDATA[<p>结合vue2.0、light7、vue-router、vue-resource和干货集中营的api完成一个小demo,当然现在vue-router已经不建议使用了,现在推荐使用axios<br>这个案例旨在<br>1、看一下light-ui怎样，毕竟用过很多的ui库<br>2、看美女。<br><img src="/images/5.png" alt="截图1"></p>
+<a id="more"></a>
+<p>干货集中营api</p>
+<ul>
+<li><a href="http://gank.io/" target="_blank" rel="noopener">地址</a></li>
+</ul>
+<p>截图效果</p>
+<p><img src="/images/3.png" alt="截图1"></p>
+<p><img src="/images/4.png" alt="截图2"></p>
+<p>github地址</p>
+<ul>
+<li><a href="https://github.com/tanxuxu/gankbook" target="_blank" rel="noopener">案例地址</a></li>
+</ul>
+<p>使用库</p>
+<ul>
+<li>vue2.0</li>
+<li>light7</li>
+<li>vue-router</li>
+<li>vue-resource</li>
+</ul>
+<p>首页代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 这里是页面内容区 --&gt;</span><br><span class="line"> &lt;template&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"article_box"</span> id=<span class="string">"home"</span>&gt;</span><br><span class="line">		&lt;!--福利--&gt;</span><br><span class="line">		 &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"card"</span> v-<span class="keyword">for</span>=<span class="string">'item in articles'</span>&gt;</span><br><span class="line">		    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"card-content"</span>&gt;</span><br><span class="line">		      &lt;img v-bind:src=<span class="string">"item.url+'?imageView2/0/w/100'"</span> v-<span class="keyword">if</span>=<span class="string">"item.type=='福利'"</span> @click=<span class="string">'openImg(item.url)'</span>/&gt;</span><br><span class="line">		      &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"card-content-inner"</span> @click=<span class="string">"item.type=='福利'?'':goToSite(item.url)"</span>&gt;</span><br><span class="line">		      	 &lt;h3 <span class="class"><span class="keyword">class</span></span>=<span class="string">"color-primary"</span> v-<span class="keyword">if</span>=<span class="string">"item.type != '福利'"</span>&gt;&#123;&#123;item.desc&#125;&#125;&lt;<span class="regexp">/h3&gt;</span></span><br><span class="line"><span class="regexp">				 &lt;p&gt;发布人：&#123;&#123;item.who&#125;&#125;&lt;/</span>p&gt;</span><br><span class="line">				 &lt;p v-<span class="keyword">if</span>=<span class="string">"type != item.type"</span>&gt;分类：&#123;&#123;item.type&#125;&#125;&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">		      &lt;/</span>div&gt;</span><br><span class="line">		    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">		 &lt;/</span>div&gt;</span><br><span class="line">		 &lt;!--点击请求--&gt;</span><br><span class="line">		 &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"content-block"</span>&gt;</span><br><span class="line">		 	  &lt;a href=<span class="string">""</span> v-<span class="keyword">if</span>=<span class="string">"hasMore"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"loadMore"</span> @click=<span class="string">'getMore();'</span>&gt;再来一波&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">		 &lt;/</span>div&gt;</span><br><span class="line">	  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">	<span class="keyword">import</span> gankData <span class="keyword">from</span> <span class="string">'../service.js'</span></span><br><span class="line">	<span class="keyword">export</span> <span class="keyword">default</span>&#123;</span><br><span class="line">		props:[<span class="string">'type'</span>],  <span class="comment">//主页面传值过来</span></span><br><span class="line">		data()&#123;</span><br><span class="line">			<span class="keyword">return</span> &#123;</span><br><span class="line">				articles:[],</span><br><span class="line">				hasMore:<span class="literal">false</span>,</span><br><span class="line">				count:<span class="number">20</span>,</span><br><span class="line">				page:<span class="number">1</span>,</span><br><span class="line">				day:<span class="number">0</span>  <span class="comment">//当天，1是昨天 2前天</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;,</span><br><span class="line">		methods:&#123;</span><br><span class="line">			openImg:<span class="function"><span class="keyword">function</span>(<span class="params">url</span>)</span>&#123;</span><br><span class="line">				  <span class="keyword">var</span> myPhotoBrowserPopup = $.photoBrowser(&#123;</span><br><span class="line">				      photos : [url]</span><br><span class="line">				  &#125;);</span><br><span class="line">				  myPhotoBrowserPopup.open();</span><br><span class="line">			&#125;,</span><br><span class="line">			getMore:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">				<span class="keyword">var</span> _this = <span class="keyword">this</span>;</span><br><span class="line">				<span class="keyword">this</span>.day++;</span><br><span class="line">				<span class="keyword">if</span>(<span class="keyword">this</span>.type ==<span class="string">'最新'</span>)&#123;</span><br><span class="line">					<span class="comment">//加载上一日的数据</span></span><br><span class="line">					<span class="keyword">var</span> nowDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">					nowDate.setDate(nowDate.getDate()-<span class="keyword">this</span>.day);</span><br><span class="line">					gankData.getNews(nowDate,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">						<span class="keyword">if</span>(data.length&gt;<span class="number">0</span>)&#123;</span><br><span class="line">							_this.hasMore = <span class="literal">true</span>;</span><br><span class="line">							<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;data.length;i++)&#123;</span><br><span class="line">								_this.articles.push(data[i]);</span><br><span class="line">							&#125;</span><br><span class="line">						&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">							_this.hasMore = <span class="literal">false</span>;</span><br><span class="line">						&#125;</span><br><span class="line">					&#125;);</span><br><span class="line">				&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">					_this.page++;</span><br><span class="line">					gankData.getGankData(_this.type,<span class="number">20</span>,_this.page,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">						<span class="keyword">if</span>(data.length&gt;<span class="number">0</span>)&#123;</span><br><span class="line">							_this.hasMore = <span class="literal">true</span>;</span><br><span class="line">							<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;data.length;i++)&#123;</span><br><span class="line">								_this.articles.push(data[i]);</span><br><span class="line">							&#125;</span><br><span class="line">						&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">							_this.hasMore = <span class="literal">false</span>;</span><br><span class="line">						&#125;</span><br><span class="line">					&#125;)</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;,</span><br><span class="line">			goToSite:<span class="function"><span class="keyword">function</span>(<span class="params">url</span>)</span>&#123;</span><br><span class="line">				<span class="built_in">window</span>.location.href = url;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;,</span><br><span class="line">		mounted:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			<span class="keyword">var</span> _this =<span class="keyword">this</span>;</span><br><span class="line">			<span class="comment">//今天的数据</span></span><br><span class="line">			<span class="keyword">var</span> nowDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">			gankData.getNews(nowDate,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">				<span class="keyword">if</span>(data.length&gt;<span class="number">0</span>)&#123;</span><br><span class="line">					_this.hasMore=<span class="literal">true</span>;</span><br><span class="line">					_this.articles = data;</span><br><span class="line">				&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">					_this.hasMore=<span class="literal">false</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;);</span><br><span class="line">			<span class="comment">//监听类型变化</span></span><br><span class="line">			<span class="keyword">this</span>.$watch(<span class="string">'type'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">newVal,oldVal</span>)</span>&#123;</span><br><span class="line">				gankData.getGankData(newVal,<span class="number">20</span>,<span class="number">1</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">					<span class="keyword">if</span>(data.length&gt;<span class="number">0</span>)&#123;</span><br><span class="line">						_this.hasMore=<span class="literal">true</span>;</span><br><span class="line">						_this.articles = data;</span><br><span class="line">						$.closePanel();</span><br><span class="line">					&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">						_this.hasMore=<span class="literal">false</span>;</span><br><span class="line">						$.closePanel();</span><br><span class="line">					&#125;</span><br><span class="line"></span><br><span class="line">				&#125;);</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      
+        <categories>
+            
+            <category> 前端 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> vue </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[设置css单行和多行溢出省略号]]></title>
+      <url>/2016/07/19/%E8%AE%BE%E7%BD%AEcss%E5%8D%95%E8%A1%8C%E5%92%8C%E5%A4%9A%E8%A1%8C%E6%BA%A2%E5%87%BA%E7%9C%81%E7%95%A5%E5%8F%B7/</url>
+      <content type="html"><![CDATA[<p>工作中，经常会对内容的溢出做省略号处理，多行的内容溢出需要webkit支持<br><a id="more"></a></p>
+<p>单行溢出省略号设置</p>
+<ul>
+<li>前提是设置了width</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">overflow</span><span class="selector-pseudo">:hidden</span>;</span><br><span class="line"><span class="selector-tag">text-overflow</span>: <span class="selector-tag">ellipsis</span>;</span><br><span class="line"><span class="selector-tag">white-space</span>: <span class="selector-tag">nowrap</span>;</span><br></pre></td></tr></table></figure>
+<p>多行溢出省略号设置</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">-webkit-line-clamp</span>: 2;</span><br><span class="line"><span class="selector-tag">display</span>: <span class="selector-tag">-webkit-box</span>;</span><br><span class="line"><span class="selector-tag">-webkit-box-orient</span>: <span class="selector-tag">vertical</span>;</span><br><span class="line"><span class="selector-tag">overflow</span>: <span class="selector-tag">hidden</span>;</span><br></pre></td></tr></table></figure>
+]]></content>
+      
+        <categories>
+            
+            <category> 前端 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> css </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[结合vue+iview+vuex记事本小案例]]></title>
+      <url>/2016/07/13/%E7%BB%93%E5%90%88vue-iview-vuex%E8%AE%B0%E4%BA%8B%E6%9C%AC%E5%B0%8F%E6%A1%88%E4%BE%8B/</url>
+      <content type="html"><![CDATA[<p>为了让公司的一些对前端有兴趣和刚入门前端的人快速的掌握前端的知识，我构建了该案例，原因也是大多数公司的案例使用的是iview，于是用iview+vue+vue-router+vuex搭建一个小案例，当然，vuex本不应该适用是小项目，这里只作为使用案例</p>
+<a id="more"></a>
+<p>功能点:</p>
+<ul>
+<li>笔记本列表页</li>
+<li>添加笔记</li>
+<li>加入收藏</li>
+<li>删除笔记本</li>
+</ul>
+<p>案例github地址</p>
+<ul>
+<li><a href="https://github.com/tanxuxu/vuex_project01" target="_blank" rel="noopener">案例地址</a></li>
+</ul>
+<p>案例截图</p>
+<p><img src="/images/1.png" alt="笔记本列表"></p>
+<p><img src="/images/2.png" alt="笔记本添加"></p>
+<p>状态管理store.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span>;</span><br><span class="line"><span class="keyword">import</span> Vuex <span class="keyword">from</span> <span class="string">'vuex'</span>;</span><br><span class="line"><span class="keyword">import</span> $ <span class="keyword">from</span> <span class="string">'jquery'</span>;</span><br><span class="line">Vue.use(Vuex);</span><br><span class="line">Vue.use($);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> state = &#123;</span><br><span class="line">   winHeight: $(<span class="built_in">window</span>).height(),   <span class="comment">//浏览器高度</span></span><br><span class="line">   notes: [&#123;</span><br><span class="line">     content: <span class="string">'今天学习了vuex'</span>,</span><br><span class="line">     title: <span class="string">'笔记一'</span>,</span><br><span class="line">     favorite: <span class="literal">false</span></span><br><span class="line">   &#125;,&#123;</span><br><span class="line">     content: <span class="string">'今天学习了nodeJs'</span>,</span><br><span class="line">     title: <span class="string">'笔记二'</span>,</span><br><span class="line">     favorite: <span class="literal">false</span></span><br><span class="line">   &#125;],</span><br><span class="line">   activeNote: <span class="string">""</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//同步改变状态</span></span><br><span class="line"><span class="keyword">const</span> mutations = &#123;</span><br><span class="line">    addNotes: <span class="function"><span class="keyword">function</span>(<span class="params">state,payload</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">let</span> obj = &#123;</span><br><span class="line">         title: payload.title,</span><br><span class="line">         content: payload.content,</span><br><span class="line">         favorite: <span class="literal">false</span> <span class="comment">//默认不收藏</span></span><br><span class="line">      &#125;</span><br><span class="line">      state.notes.push(obj);</span><br><span class="line">      state.activeNote = obj;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">delete</span>: <span class="function"><span class="keyword">function</span>(<span class="params">state,callback</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;state.notes.length; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(state.notes[i] == state.activeNote)&#123;</span><br><span class="line">          state.notes.splice(i,<span class="number">1</span>);</span><br><span class="line">          callback();</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      state.activeNote = state.notes[<span class="number">0</span>];</span><br><span class="line">    &#125;,</span><br><span class="line">    editNote: <span class="function"><span class="keyword">function</span>(<span class="params">state,title,content</span>)</span>&#123;</span><br><span class="line">      state.activeNote.content = content;</span><br><span class="line">      state.activeNote.title = title;</span><br><span class="line">    &#125;,</span><br><span class="line">    setActiveNote: <span class="function"><span class="keyword">function</span>(<span class="params">state,note</span>)</span>&#123;</span><br><span class="line">      state.activeNote = note;</span><br><span class="line">    &#125;,</span><br><span class="line">    setFavorite: <span class="function"><span class="keyword">function</span>(<span class="params">state,callback</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(state.activeNote != <span class="string">""</span>)&#123;</span><br><span class="line">          state.activeNote.favorite = !state.activeNote.favorite</span><br><span class="line">          callback();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> getters = &#123;</span><br><span class="line">    activeNote: <span class="function"><span class="keyword">function</span>(<span class="params">state</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> state.activeNote;</span><br><span class="line">    &#125;,</span><br><span class="line">    notes: <span class="function"><span class="keyword">function</span>(<span class="params">state</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> state.notes;</span><br><span class="line">    &#125;,</span><br><span class="line">    favorite: <span class="function"><span class="keyword">function</span>(<span class="params">state</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">let</span> favoriteNotes = [];</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt; state.notes.length; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(state.notes[i].favorite)&#123;</span><br><span class="line">          favoriteNotes.push(state.notes[i]);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> favoriteNotes;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//异步改变状态</span></span><br><span class="line"><span class="keyword">const</span> actions = &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">    state,</span><br><span class="line">    getters,</span><br><span class="line">    mutations,</span><br><span class="line">    actions</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+]]></content>
+      
+        <categories>
+            
+            <category> 前端 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> vue </tag>
+            
+            <tag> vuex </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[关于hexo的几个问题]]></title>
+      <url>/2016/06/09/%E5%85%B3%E4%BA%8Ehexo%E7%9A%84%E5%87%A0%E4%B8%AA%E9%97%AE%E9%A2%98/</url>
+      <content type="html"><![CDATA[<p>使用hexo搭建博客比较简单，常规的流程不作记录，这里只记录一些后期的问题，之前有用过hexo搭建过博客，但是由于代码没有上传到github，工程的push进去的是编译后的代码，这次重新搭建，遇到的比较关键的问题做一些记录。<br><a id="more"></a></p>
+<p>1、 主题如何更改</p>
+<ul>
+<li>在官网可以看到各种主题</li>
+<li>用git clone克隆对应的主题到theme目录下</li>
+<li>在全局的config.yml中配置主题名字</li>
+</ul>
+<p>2、 绑定域名后每次提交都报404页面错误</p>
+<ul>
+<li>准备好域名，解析到对应的xxx.github.io</li>
+<li>在source文件夹内新建CNAME文件在里写你的域名</li>
+</ul>
+<p>3、 安装主题后，在哪里配置菜单</p>
+<ul>
+<li>在主题里面的config.yml中配置菜单，具体例如</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">    首页: /</span><br><span class="line">    归档: /archives</span><br><span class="line">    关于: /about</span><br></pre></td></tr></table></figure>
+<p>4、 换了电脑没有对代码做保存怎么办</p>
+<ul>
+<li>建议分为两个分支，一个用来git工程项目，一个用来git源文件，这样还电脑后可以clone源文件下来使用</li>
+</ul>
+<p>5、 如何显示简介和阅读更多</p>
+<ul>
+<li>在主题的配置文件中，加入</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">excerpt_link: 阅读更多</span><br></pre></td></tr></table></figure>
+<ul>
+<li>md写文章时</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">简介内容...</span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line">正文...</span><br></pre></td></tr></table></figure>
+]]></content>
+      
+        <categories>
+            
+            <category> 瞎折腾 </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+  
+  
+</search>

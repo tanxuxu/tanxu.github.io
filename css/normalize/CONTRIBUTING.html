@@ -1,0 +1,105 @@
+<h1 id="Contributing-to-normalize-css"><a href="#Contributing-to-normalize-css" class="headerlink" title="Contributing to normalize.css"></a>Contributing to normalize.css</h1><p>Please take a moment to review this document in order to make the contribution<br>process easy and effective for everyone involved.</p>
+<p>Following these guidelines helps to communicate that you respect the time of<br>the developers managing and developing this open source project. In return,<br>they should reciprocate that respect in addressing your issue or assessing<br>patches and features.</p>
+<h2 id="Using-the-issue-tracker"><a href="#Using-the-issue-tracker" class="headerlink" title="Using the issue tracker"></a>Using the issue tracker</h2><p>The issue tracker is the preferred channel for <a href="#bugs">bug reports</a>,<br><a href="#features">features requests</a> and <a href="#pull-requests">submitting pull<br>requests</a>, but please respect the following restrictions:</p>
+<ul>
+<li><p>Please <strong>do not</strong> use the issue tracker for personal support requests.</p>
+</li>
+<li><p>Please <strong>do not</strong> derail or troll issues. Keep the discussion on topic and<br>respect the opinions of others.</p>
+</li>
+</ul>
+<h2 id="Bug-reports"><a href="#Bug-reports" class="headerlink" title="Bug reports"></a>Bug reports</h2><p>A bug is a <em>demonstrable problem</em> that is caused by the code in the repository.<br>Good bug reports are extremely helpful - thank you!</p>
+<p>Guidelines for bug reports:</p>
+<ol>
+<li><p><strong>Use the GitHub issue search</strong> – check if the issue has already been<br>reported.</p>
+</li>
+<li><p><strong>Check if the issue has been fixed</strong> – try to reproduce it using the<br>latest <code>master</code> branch in the repository.</p>
+</li>
+<li><p><strong>Isolate the problem</strong> – create a live example (e.g., on<br><a href="http://codepen.io">Codepen</a>) of a <a href="http://css-tricks.com/6263-reduced-test-cases/">reduced test<br>case</a>.</p>
+</li>
+</ol>
+<p>A good bug report shouldn’t leave others needing to chase you up for more<br>information. Please try to be as detailed as possible in your report. What is<br>your environment? What steps will reproduce the issue? What browser(s) and OS<br>experience the problem? What would you expect to be the outcome? All these<br>details will help people to fix any potential bugs.</p>
+<p>Example:</p>
+<blockquote>
+<p>Short and descriptive example bug report title</p>
+<p>A summary of the issue and the browser/OS environment in which it occurs. If<br>suitable, include the steps required to reproduce the bug.</p>
+<ol>
+<li>This is the first step</li>
+<li>This is the second step</li>
+<li>Further steps, etc.</li>
+</ol>
+<p><code>&lt;url&gt;</code> - a link to the reduced test case</p>
+<p>Any other information you want to share that is relevant to the issue being<br>reported. This might include the lines of code that you have identified as<br>causing the bug, and potential solutions (and your opinions on their<br>merits).</p>
+</blockquote>
+<h2 id="Feature-requests"><a href="#Feature-requests" class="headerlink" title="Feature requests"></a>Feature requests</h2><p>Feature requests are welcome. But take a moment to find out whether your idea<br>fits with the scope and aims of the project. It’s up to <em>you</em> to make a strong<br>case to convince the project’s developers of the merits of this feature. Please<br>provide as much detail and context as possible.</p>
+<h2 id="Pull-requests"><a href="#Pull-requests" class="headerlink" title="Pull requests"></a>Pull requests</h2><p>Good pull requests - patches, improvements, new features - are a fantastic<br>help. They should remain focused in scope and avoid containing unrelated<br>commits.</p>
+<p><strong>Please ask first</strong> before embarking on any significant work, otherwise you<br>risk spending a lot of time working on something that the project’s developers<br>might not want to merge into the project.</p>
+<p>Please adhere to the coding conventions used throughout a project (whitespace,<br>accurate comments, etc.) and any other requirements (such as test coverage).</p>
+<p>Follow this process if you’d like your work considered for inclusion in the<br>project:</p>
+<ol>
+<li><p><a href="https://help.github.com/articles/fork-a-repo/">Fork</a> the project, clone your<br>fork, and configure the remotes:</p>
+<pre><code class="bash"><span class="comment"># Clone your fork of the repo into the current directory</span>
+git <span class="built_in">clone</span> https://github.com/&lt;your-username&gt;/normalize.css
+<span class="comment"># Navigate to the newly cloned directory</span>
+<span class="built_in">cd</span> normalize.css
+<span class="comment"># Assign the original repo to a remote called "upstream"</span>
+git remote add upstream https://github.com/necolas/normalize.css
+</code></pre>
+</li>
+<li><p>If you cloned a while ago, get the latest changes from upstream:</p>
+<pre><code class="bash">git checkout master
+git pull upstream master
+</code></pre>
+</li>
+<li><p>Never work directly on <code>master</code>. Create a new topic branch (off the latest<br>version of <code>master</code>) to contain your feature, change, or fix:</p>
+<pre><code class="bash">git checkout -b &lt;topic-branch-name&gt;
+</code></pre>
+</li>
+<li><p>Commit your changes in logical chunks. Please adhere to these <a href="http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">git commit<br>message conventions</a><br>or your code is unlikely be merged into the main project. Use Git’s<br><a href="https://help.github.com/articles/interactive-rebase">interactive rebase</a><br>feature to tidy up your commits before making them public.</p>
+<p>Be sure to test the <code>normalize.css</code> file for style conformance.</p>
+<pre><code class="bash">npm <span class="built_in">test</span>
+</code></pre>
+<p>Be sure to add a test to the <code>test.html</code> file if appropriate, and test<br>your change in all supported browsers.</p>
+</li>
+<li><p>Locally rebase the upstream development branch into your topic branch:</p>
+<pre><code class="bash">git pull --rebase upstream master
+</code></pre>
+</li>
+<li><p>Push your topic branch up to your fork:</p>
+<pre><code class="bash">git push origin &lt;topic-branch-name&gt;
+</code></pre>
+</li>
+<li><p><a href="https://help.github.com/articles/using-pull-requests/">Open a Pull Request</a><br>with a clear title and description.</p>
+</li>
+</ol>
+<p><strong>IMPORTANT</strong>: By submitting a patch, you agree to allow the project owner to<br>license your work under the same license as that used by the project.</p>
+<h3 id="CSS-Conventions"><a href="#CSS-Conventions" class="headerlink" title="CSS Conventions"></a>CSS Conventions</h3><p>Keep the CSS file as readable as possible by following these guidelines:</p>
+<ul>
+<li>Comments are short and to the point.</li>
+<li>Comments without a number reference the entire rule.</li>
+<li>Comments describe the selector when the selector does not make the<br>normalization obvious.</li>
+<li>Comments begin with “Correct the…” when they deal with less obvious side<br>effects.</li>
+<li>Rules are sorted by cascade, specificity, and then alphabetic order.</li>
+<li>Selectors are sorted by specificity and then alphabetic order.</li>
+<li><code>in browser</code> applies to all versions.</li>
+<li><code>in browser v-</code> applies to all versions up to and including the version.</li>
+<li><code>in browser v+</code> applies to all versions after and including the version.</li>
+<li><code>in browser v-v</code> applies to all versions including and between the versions.</li>
+</ul>
+<h2 id="Maintainers"><a href="#Maintainers" class="headerlink" title="Maintainers"></a>Maintainers</h2><p>If you have commit access, please follow this process for merging patches and<br>cutting new releases.</p>
+<h3 id="Accepting-patches"><a href="#Accepting-patches" class="headerlink" title="Accepting patches"></a>Accepting patches</h3><ol>
+<li>Check that a patch is within the scope and philosophy of the project.</li>
+<li>Check that a patch has any necessary tests and a proper, descriptive commit<br>message.</li>
+<li>Test the patch locally.</li>
+<li>Do not use GitHub’s merge button. Apply the patch to <code>master</code> locally<br>(either via <code>git am</code> or by checking the whole branch out). Amend minor<br>problems with the author’s original commit if necessary. Then push to GitHub.</li>
+</ol>
+<h3 id="Releasing-a-new-version"><a href="#Releasing-a-new-version" class="headerlink" title="Releasing a new version"></a>Releasing a new version</h3><ol>
+<li>Include all new functional changes in the CHANGELOG.</li>
+<li>Use a dedicated commit to increment the version. The version needs to be<br>added to the CHANGELOG (inc. date), the <code>package.json</code>, and <code>normalize.css</code><br>files.</li>
+<li>The commit message must be of <code>v0.0.0</code> format.</li>
+<li>Create an annotated tag for the version: <code>git tag -m &quot;v0.0.0&quot; 0.0.0</code>.</li>
+<li>Push the changes and tags to GitHub: <code>git push --tags origin master</code></li>
+<li>Checkout the <code>gh-pages</code> branch and follow the instructions in the README.</li>
+</ol>
+<h3 id="Semver-strategy"><a href="#Semver-strategy" class="headerlink" title="Semver strategy"></a>Semver strategy</h3><p><a href="http://semver.org/">Semver</a> is a widely accepted method for deciding how<br>version numbers are incremented in a project. Versions are written as<br>MAJOR.MINOR.PATCH.</p>
+<p>Any change to CSS rules whatsoever is considered backwards-breaking and will<br>result in a new <strong>major</strong> release. Others changes with no impact on rendering<br>are considered backwards-compatible and will result in a new <strong>patch</strong> release.</p>
+<p>No changes to CSS rules can add functionality in a backwards-compatible manner,<br>therefore no changes are considered <strong>minor</strong>. For instance, a normalization on<br>an element selector may override a user style on a universal selector, a<br>change to <code>opacity</code> might cause <a href="https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/3901363/">inputs to disappear</a>,<br>or a change to <code>background-color</code> might cause <a href="https://github.com/jonathantneal/sanitize.css/issues/42">backgrounds to shrink</a>.</p>

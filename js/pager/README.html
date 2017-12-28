@@ -1,0 +1,58 @@
+<h1 id="SinglePager"><a href="#SinglePager" class="headerlink" title="SinglePager"></a>SinglePager</h1><p>Functional similar to <a href="https://github.com/dieulot/instantclick/">InstantClick</a>, makes simple static pages dynamic and instant just like a single-page-application. Only change the content of specified container.</p>
+<p>For use with Hexo, Jekyll, etc.</p>
+<p>Released in ES2015 without any transformation or polyfill such as Babel.</p>
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><h3 id="Initialize"><a href="#Initialize" class="headerlink" title="Initialize"></a>Initialize</h3><p>Include and initialize it.</p>
+<pre><code class="html">...
+<span class="tag">&lt;<span class="name">div</span> <span class="attr">data-pager-shell</span>&gt;</span>
+  ...
+<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+...
+
+<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"singlepager.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>
+<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span>
+<span class="javascript">  <span class="keyword">var</span> sp = <span class="keyword">new</span> Pager(<span class="string">'data-pager-shell'</span>)</span>
+<span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>
+</code></pre>
+<p>The parameter of construct could be an attribute name string, or a configure object.</p>
+<pre><code class="typescript"><span class="keyword">interface</span> PagerConfig {
+  shellMark?: <span class="built_in">string</span>,     <span class="comment">// The mark attribute to replace content</span>
+  disableMark?: <span class="built_in">string</span>,   <span class="comment">// Attribute mark links not be load</span>
+  ignoreScript?: <span class="built_in">string</span>,  <span class="comment">// Ignore this `&lt;script&gt;` tag</span>
+  runBefore?: <span class="built_in">string</span>,     <span class="comment">// Run script in the `&lt;script&gt;` tag before page switch</span>
+  triggerTime?: <span class="built_in">number</span>,   <span class="comment">// Not implement</span>
+  historyToSave?: <span class="built_in">number</span>  <span class="comment">// Number of histories to save</span>
+}
+
+<span class="keyword">const</span> defaultConfig = &lt;PagerConfig&gt;{
+  shellMark: <span class="string">'data-single-pager'</span>,
+  disableMark: <span class="string">'data-pager-disabled'</span>,
+  ignoreScript: <span class="string">'data-pager-ignore'</span>,
+  runBefore: <span class="string">'data-run-before'</span>,
+  triggerTime: <span class="number">100</span>,
+  historyToSave: <span class="number">3</span>
+}
+</code></pre>
+<h3 id="lt-script-gt-Hook-Tag"><a href="#lt-script-gt-Hook-Tag" class="headerlink" title="&lt;script&gt; Hook Tag"></a><code>&lt;script&gt;</code> Hook Tag</h3><p>While <code>&lt;script&gt;</code> tags in container will default run after the page switching, it can be specified to run before or after the page switching.</p>
+<p>Remember that <code>&lt;script&gt;</code> with <code>data-run-before</code> (or other name setted in config) would run before the content changes, so do not make references to the target page elements.</p>
+<pre><code class="html"><span class="tag">&lt;<span class="name">div</span> <span class="attr">data-pager-shell</span>&gt;</span>
+  ...
+  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"tag"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span>
+<span class="javascript">    <span class="built_in">document</span>.getElementById(<span class="string">'tag'</span>).innerHTML += <span class="string">'&lt;p&gt;Run after mount&lt;/p&gt;'</span></span>
+<span class="undefined">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">script</span> <span class="attr">data-run-before</span>&gt;</span><span class="undefined"></span>
+<span class="javascript">    <span class="comment">// Error!</span></span>
+<span class="xml">    // document.getElementById('tag').innerHTML += '<span class="tag">&lt;<span class="name">p</span>&gt;</span>Run before mount<span class="tag">&lt;/<span class="name">p</span>&gt;</span>'</span>
+<span class="javascript">    alert(<span class="string">'Run before mount'</span>)</span>
+<span class="undefined">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">script</span> <span class="attr">data-pager-disabled</span>&gt;</span><span class="undefined"></span>
+<span class="javascript">    alert(<span class="string">'Do not run this'</span>)</span>
+<span class="undefined">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>
+<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+</code></pre>
+<h2 id="Build"><a href="#Build" class="headerlink" title="Build"></a>Build</h2><p>Run <code>make</code> to dist, <code>make comile</code> to compile typescript (ts 2.2.1+ required)</p>
+<h2 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h2><p>Python 3.4+ required</p>
+<p>Run <code>python -m http.server</code> then open <code>http://127.0.0.1:8000/test/test.html</code></p>
+<h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><ul>
+<li><code>before</code> and <code>after</code> hooks</li>
+</ul>

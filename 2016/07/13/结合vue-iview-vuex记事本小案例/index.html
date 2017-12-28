@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>结合vue+iview+vuex记事本小案例 | Jtanx</title>
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url()">
+        <div class='av-pic' style="background-image: url(/assets/avatar.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>Jtanx</div>
+        
+            <div>走在前端道路上、瞎逛在头条&amp;掘金&amp;知乎&amp;简书</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>首页</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>归档</li>
+            </a>  
+          
+            <a href="/categories/" class="Btn">
+              <li>分类</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>关于</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>结合vue+iview+vuex记事本小案例</h1>
+    </header>
+
+    <section>
+      <p>为了让公司的一些对前端有兴趣和刚入门前端的人快速的掌握前端的知识，我构建了该案例，原因也是大多数公司的案例使用的是iview，于是用iview+vue+vue-router+vuex搭建一个小案例，当然，vuex本不应该适用是小项目，这里只作为使用案例</p>
+<a id="more"></a>
+<p>功能点:</p>
+<ul>
+<li>笔记本列表页</li>
+<li>添加笔记</li>
+<li>加入收藏</li>
+<li>删除笔记本</li>
+</ul>
+<p>案例github地址</p>
+<ul>
+<li><a href="https://github.com/tanxuxu/vuex_project01" target="_blank" rel="noopener">案例地址</a></li>
+</ul>
+<p>案例截图</p>
+<p><img src="/images/1.png" alt="笔记本列表"></p>
+<p><img src="/images/2.png" alt="笔记本添加"></p>
+<p>状态管理store.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span>;</span><br><span class="line"><span class="keyword">import</span> Vuex <span class="keyword">from</span> <span class="string">'vuex'</span>;</span><br><span class="line"><span class="keyword">import</span> $ <span class="keyword">from</span> <span class="string">'jquery'</span>;</span><br><span class="line">Vue.use(Vuex);</span><br><span class="line">Vue.use($);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> state = &#123;</span><br><span class="line">   winHeight: $(<span class="built_in">window</span>).height(),   <span class="comment">//浏览器高度</span></span><br><span class="line">   notes: [&#123;</span><br><span class="line">     content: <span class="string">'今天学习了vuex'</span>,</span><br><span class="line">     title: <span class="string">'笔记一'</span>,</span><br><span class="line">     favorite: <span class="literal">false</span></span><br><span class="line">   &#125;,&#123;</span><br><span class="line">     content: <span class="string">'今天学习了nodeJs'</span>,</span><br><span class="line">     title: <span class="string">'笔记二'</span>,</span><br><span class="line">     favorite: <span class="literal">false</span></span><br><span class="line">   &#125;],</span><br><span class="line">   activeNote: <span class="string">""</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//同步改变状态</span></span><br><span class="line"><span class="keyword">const</span> mutations = &#123;</span><br><span class="line">    addNotes: <span class="function"><span class="keyword">function</span>(<span class="params">state,payload</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">let</span> obj = &#123;</span><br><span class="line">         title: payload.title,</span><br><span class="line">         content: payload.content,</span><br><span class="line">         favorite: <span class="literal">false</span> <span class="comment">//默认不收藏</span></span><br><span class="line">      &#125;</span><br><span class="line">      state.notes.push(obj);</span><br><span class="line">      state.activeNote = obj;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">delete</span>: <span class="function"><span class="keyword">function</span>(<span class="params">state,callback</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;state.notes.length; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(state.notes[i] == state.activeNote)&#123;</span><br><span class="line">          state.notes.splice(i,<span class="number">1</span>);</span><br><span class="line">          callback();</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      state.activeNote = state.notes[<span class="number">0</span>];</span><br><span class="line">    &#125;,</span><br><span class="line">    editNote: <span class="function"><span class="keyword">function</span>(<span class="params">state,title,content</span>)</span>&#123;</span><br><span class="line">      state.activeNote.content = content;</span><br><span class="line">      state.activeNote.title = title;</span><br><span class="line">    &#125;,</span><br><span class="line">    setActiveNote: <span class="function"><span class="keyword">function</span>(<span class="params">state,note</span>)</span>&#123;</span><br><span class="line">      state.activeNote = note;</span><br><span class="line">    &#125;,</span><br><span class="line">    setFavorite: <span class="function"><span class="keyword">function</span>(<span class="params">state,callback</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(state.activeNote != <span class="string">""</span>)&#123;</span><br><span class="line">          state.activeNote.favorite = !state.activeNote.favorite</span><br><span class="line">          callback();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> getters = &#123;</span><br><span class="line">    activeNote: <span class="function"><span class="keyword">function</span>(<span class="params">state</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> state.activeNote;</span><br><span class="line">    &#125;,</span><br><span class="line">    notes: <span class="function"><span class="keyword">function</span>(<span class="params">state</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> state.notes;</span><br><span class="line">    &#125;,</span><br><span class="line">    favorite: <span class="function"><span class="keyword">function</span>(<span class="params">state</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">let</span> favoriteNotes = [];</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt; state.notes.length; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(state.notes[i].favorite)&#123;</span><br><span class="line">          favoriteNotes.push(state.notes[i]);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> favoriteNotes;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//异步改变状态</span></span><br><span class="line"><span class="keyword">const</span> actions = &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">    state,</span><br><span class="line">    getters,</span><br><span class="line">    mutations,</span><br><span class="line">    actions</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2016-07-13T02:55:05.000Z" itemprop="datePublished">
+              2016-07-13
+            </time>
+          </div>
+          
+            <div>
+              tags: 
+  <li class="meta-text">
+  { <a href="/tags/vue/">vue</a> }
+  </li>
+
+  <li class="meta-text">
+  { <a href="/tags/vuex/">vuex</a> }
+  </li>
+
+
+            </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2016 - Jtanx </div>
+    <div>
+    Powered by Jtanx   emial： 1036699126@qq.com
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+<script src="/js/pager/dist/singlepager.js"></script>
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <header>
+    what? haha!
+  </header>
+<div data-single-pager>
+  <p>Hello!</p>
+  <p>World!</p>
+  <div id="tag"></div>
+  <script>
+    document.getElementById('tag').innerHTML += '<p>Run after mmount</p>'
+  </script>
+  <script data-run-before>
+    alert('Run before mount')
+  </script>
+  <script data-pager-disabled>
+    alert('Do not run this')
+  </script>
+</div>
+<script src="../dist/singlepager.js"></script>
+<script>
+  const sp = new Pager();
+</script>
+</body>
+</html>
