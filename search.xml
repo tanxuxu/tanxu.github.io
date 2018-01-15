@@ -27,6 +27,37 @@
     </entry>
     
     <entry>
+      <title><![CDATA[koa入门笔记(五)mockjs在koa2.0中的简单使用]]></title>
+      <url>/2017/09/01/mockjs%E5%9C%A8koa2-0%E4%B8%AD%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</url>
+      <content type="html"><![CDATA[<p>在前后端分离的项目中，为了解耦和，我们一般会用node作为中间层，和后台开发人员约定数据接口后，我们可以使用mockjs去模拟数据，这样我们前端开发起来也完全可以不依赖后端的api接口，后端接口只在最后联调的时候使用。</p>
+<a id="more"></a>
+<p>官网<br><a href="http://mockjs.com" target="_blank" rel="noopener">mockjs官网</a></p>
+<p>这位同学总结了不错</p>
+<p><a href="https://www.cnblogs.com/CyLee/p/6072399.html" target="_blank" rel="noopener">link</a></p>
+<p>koa2.0中使用来模拟数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> router = <span class="built_in">require</span>(<span class="string">'koa-router'</span>)()</span><br><span class="line"><span class="keyword">var</span> Mock = <span class="built_in">require</span>(<span class="string">'mockjs'</span>)</span><br><span class="line"></span><br><span class="line">router.get(<span class="string">'/index'</span>, <span class="keyword">async</span> (ctx, next) =&gt; &#123;</span><br><span class="line">  ctx.body =  <span class="keyword">await</span> Mock.mock(&#123;</span><br><span class="line">      <span class="string">'list|1-10'</span> :[&#123;</span><br><span class="line">        <span class="string">'id|+1'</span>:<span class="number">1</span>,</span><br><span class="line">        <span class="string">'title'</span>: <span class="string">'@title'</span>,</span><br><span class="line">        <span class="string">'content'</span>: <span class="string">'@cparagraph'</span>,</span><br><span class="line">        <span class="string">'favorite|1-2'</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="string">'publicTime'</span>: <span class="string">'@date("yyyy-MM-dd")'</span>,</span><br><span class="line">        <span class="string">'image'</span>: <span class="string">"@image(120x120)"</span></span><br><span class="line">      &#125;]</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = router</span><br></pre></td></tr></table></figure>
+<p>我们请求<a href="http://localhost:3000/index" target="_blank" rel="noopener">http://localhost:3000/index</a><br><img src="/images/mock01.png" alt="目录"></p>
+<p>总结：功能很强大，各种数据模拟，前端后分离必需品，前提是你和后端人员需要商讨一下api接口</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 前端 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> koa </tag>
+            
+            <tag> nodejs </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[koa入门笔记-四-koa2.0搭建api服务器]]></title>
       <url>/2017/08/17/koa%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%E6%90%AD%E5%BB%BAapi%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
       <content type="html"><![CDATA[<p>像我们公司，后端数据是用java服务提供的，然后前端是使用vue2.0去开发，有时遇到一些后台开发人员写好一整套输出数据的逻辑后不想按照你的业务去改接口，这样很多的业务处理的逻辑就要写在前端vue页面，这时候可以尝试搭建一个中间层nodejs作为提供接口服务</p>

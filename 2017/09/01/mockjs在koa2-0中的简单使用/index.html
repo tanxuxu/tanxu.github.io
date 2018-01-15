@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>koa入门笔记(五)mockjs在koa2.0中的简单使用 | Jtanx</title>
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url()">
+        <div class='av-pic' style="background-image: url(/assets/avatar.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>Jtanx</div>
+        
+            <div>走在前端道路上、瞎逛在头条&amp;掘金&amp;知乎&amp;简书</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>首页</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>归档</li>
+            </a>  
+          
+            <a href="/categories/" class="Btn">
+              <li>分类</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>关于</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>koa入门笔记(五)mockjs在koa2.0中的简单使用</h1>
+    </header>
+
+    <section>
+      <p>在前后端分离的项目中，为了解耦和，我们一般会用node作为中间层，和后台开发人员约定数据接口后，我们可以使用mockjs去模拟数据，这样我们前端开发起来也完全可以不依赖后端的api接口，后端接口只在最后联调的时候使用。</p>
+<a id="more"></a>
+<p>官网<br><a href="http://mockjs.com" target="_blank" rel="noopener">mockjs官网</a></p>
+<p>这位同学总结了不错</p>
+<p><a href="https://www.cnblogs.com/CyLee/p/6072399.html" target="_blank" rel="noopener">link</a></p>
+<p>koa2.0中使用来模拟数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> router = <span class="built_in">require</span>(<span class="string">'koa-router'</span>)()</span><br><span class="line"><span class="keyword">var</span> Mock = <span class="built_in">require</span>(<span class="string">'mockjs'</span>)</span><br><span class="line"></span><br><span class="line">router.get(<span class="string">'/index'</span>, <span class="keyword">async</span> (ctx, next) =&gt; &#123;</span><br><span class="line">  ctx.body =  <span class="keyword">await</span> Mock.mock(&#123;</span><br><span class="line">      <span class="string">'list|1-10'</span> :[&#123;</span><br><span class="line">        <span class="string">'id|+1'</span>:<span class="number">1</span>,</span><br><span class="line">        <span class="string">'title'</span>: <span class="string">'@title'</span>,</span><br><span class="line">        <span class="string">'content'</span>: <span class="string">'@cparagraph'</span>,</span><br><span class="line">        <span class="string">'favorite|1-2'</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="string">'publicTime'</span>: <span class="string">'@date("yyyy-MM-dd")'</span>,</span><br><span class="line">        <span class="string">'image'</span>: <span class="string">"@image(120x120)"</span></span><br><span class="line">      &#125;]</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = router</span><br></pre></td></tr></table></figure>
+<p>我们请求<a href="http://localhost:3000/index" target="_blank" rel="noopener">http://localhost:3000/index</a><br><img src="/images/mock01.png" alt="目录"></p>
+<p>总结：功能很强大，各种数据模拟，前端后分离必需品，前提是你和后端人员需要商讨一下api接口</p>
+
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2017-09-01T01:40:01.000Z" itemprop="datePublished">
+              2017-09-01
+            </time>
+          </div>
+          
+            <div>
+              tags: 
+  <li class="meta-text">
+  { <a href="/tags/koa/">koa</a> }
+  </li>
+
+  <li class="meta-text">
+  { <a href="/tags/nodejs/">nodejs</a> }
+  </li>
+
+
+            </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2016 - Jtanx </div>
+    <div>
+    Powered by Jtanx   emial： 1036699126@qq.com
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+<script src="/js/pager/dist/singlepager.js"></script>
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>
