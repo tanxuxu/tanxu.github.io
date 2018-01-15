@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jtanx.cn/"/>
-  <updated>2017-12-28T06:17:33.289Z</updated>
+  <updated>2018-01-15T01:51:59.651Z</updated>
   <id>http://jtanx.cn/</id>
   
   <author>
@@ -15,26 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>关于git中配置ssh</title>
-    <link href="http://jtanx.cn/2017/12/28/%E5%85%B3%E4%BA%8Egit%E4%B8%AD%E9%85%8D%E7%BD%AEssh/"/>
-    <id>http://jtanx.cn/2017/12/28/关于git中配置ssh/</id>
-    <published>2017-12-28T05:50:46.000Z</published>
-    <updated>2017-12-28T06:17:33.289Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近公司升级了固态硬盘，导致电脑环境都没了，安装了git后先克隆项目发现秘钥过期了，然后又去百度了一下指令过程，太麻烦，于是整理个步骤出来，也给以后直接来这里找就好了</p><a id="more"></a><p>1、<br>测试下你是否有权限，重装了硬盘，答案肯定是没有的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure></p><p>2、执行</p><p>后面跟的是你的git用户名</p><pre><code class="bash">ssh-keygen -t rsa -C <span class="string">"tanxuxu"</span></code></pre><p>3、在你的C:\Users\Administrator.ssh目录下会有个文件id_rsa.pub</p><p>4、用记事本打开这个文件，拷贝到github的设置ssh中，提交</p><p>5、再次执行git clone就可以了，当然执行git的提交更新都是没问题的。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;最近公司升级了固态硬盘，导致电脑环境都没了，安装了git后先克隆项目发现秘钥过期了，然后又去百度了一下指令过程，太麻烦，于是整理个步骤出来，也给以后直接来这里找就好了&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="瞎折腾" scheme="http://jtanx.cn/categories/%E7%9E%8E%E6%8A%98%E8%85%BE/"/>
-    
-    
-  </entry>
   
   <entry>
     <title>koa入门笔记(五)mockjs在koa2.0中的简单使用</title>
@@ -178,6 +158,26 @@
     
     
       <category term="vue" scheme="http://jtanx.cn/tags/vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于git中配置ssh</title>
+    <link href="http://jtanx.cn/2017/05/28/%E5%85%B3%E4%BA%8Egit%E4%B8%AD%E9%85%8D%E7%BD%AEssh/"/>
+    <id>http://jtanx.cn/2017/05/28/关于git中配置ssh/</id>
+    <published>2017-05-28T05:50:46.000Z</published>
+    <updated>2018-01-15T01:54:10.592Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近公司升级了固态硬盘，导致电脑环境都没了，安装了git后先克隆项目发现秘钥过期了，然后又去百度了一下指令过程，太麻烦，于是整理个步骤出来，也给以后直接来这里找就好了</p><a id="more"></a><p>1、<br>测试下你是否有权限，重装了硬盘，答案肯定是没有的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure></p><p>2、执行</p><p>后面跟的是你的git用户名</p><pre><code class="bash">ssh-keygen -t rsa -C <span class="string">"tanxuxu"</span></code></pre><p>3、在你的C:\Users\Administrator.ssh目录下会有个文件id_rsa.pub</p><p>4、用记事本打开这个文件，拷贝到github的设置ssh中，提交</p><p>5、再次执行git clone就可以了，当然执行git的提交更新都是没问题的。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近公司升级了固态硬盘，导致电脑环境都没了，安装了git后先克隆项目发现秘钥过期了，然后又去百度了一下指令过程，太麻烦，于是整理个步骤出来，也给以后直接来这里找就好了&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="瞎折腾" scheme="http://jtanx.cn/categories/%E7%9E%8E%E6%8A%98%E8%85%BE/"/>
+    
     
   </entry>
   

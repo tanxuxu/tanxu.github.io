@@ -3,30 +3,6 @@
   
     
     <entry>
-      <title><![CDATA[关于git中配置ssh]]></title>
-      <url>/2017/12/28/%E5%85%B3%E4%BA%8Egit%E4%B8%AD%E9%85%8D%E7%BD%AEssh/</url>
-      <content type="html"><![CDATA[<p>最近公司升级了固态硬盘，导致电脑环境都没了，安装了git后先克隆项目发现秘钥过期了，然后又去百度了一下指令过程，太麻烦，于是整理个步骤出来，也给以后直接来这里找就好了</p>
-<a id="more"></a>
-<p>1、<br>测试下你是否有权限，重装了硬盘，答案肯定是没有的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure></p>
-<p>2、执行</p>
-<p>后面跟的是你的git用户名</p>
-<pre><code class="bash">ssh-keygen -t rsa -C <span class="string">"tanxuxu"</span>
-</code></pre>
-<p>3、在你的C:\Users\Administrator.ssh目录下会有个文件id_rsa.pub</p>
-<p>4、用记事本打开这个文件，拷贝到github的设置ssh中，提交</p>
-<p>5、再次执行git clone就可以了，当然执行git的提交更新都是没问题的。</p>
-]]></content>
-      
-        <categories>
-            
-            <category> 瞎折腾 </category>
-            
-        </categories>
-        
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[koa入门笔记(五)mockjs在koa2.0中的简单使用]]></title>
       <url>/2017/09/01/mockjs%E5%9C%A8koa2-0%E4%B8%AD%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</url>
       <content type="html"><![CDATA[<p>在前后端分离的项目中，为了解耦和，我们一般会用node作为中间层，和后台开发人员约定数据接口后，我们可以使用mockjs去模拟数据，这样我们前端开发起来也完全可以不依赖后端的api接口，后端接口只在最后联调的时候使用。</p>
@@ -210,6 +186,30 @@
             <tag> vue </tag>
             
         </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[关于git中配置ssh]]></title>
+      <url>/2017/05/28/%E5%85%B3%E4%BA%8Egit%E4%B8%AD%E9%85%8D%E7%BD%AEssh/</url>
+      <content type="html"><![CDATA[<p>最近公司升级了固态硬盘，导致电脑环境都没了，安装了git后先克隆项目发现秘钥过期了，然后又去百度了一下指令过程，太麻烦，于是整理个步骤出来，也给以后直接来这里找就好了</p>
+<a id="more"></a>
+<p>1、<br>测试下你是否有权限，重装了硬盘，答案肯定是没有的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure></p>
+<p>2、执行</p>
+<p>后面跟的是你的git用户名</p>
+<pre><code class="bash">ssh-keygen -t rsa -C <span class="string">"tanxuxu"</span>
+</code></pre>
+<p>3、在你的C:\Users\Administrator.ssh目录下会有个文件id_rsa.pub</p>
+<p>4、用记事本打开这个文件，拷贝到github的设置ssh中，提交</p>
+<p>5、再次执行git clone就可以了，当然执行git的提交更新都是没问题的。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 瞎折腾 </category>
+            
+        </categories>
+        
         
     </entry>
     
