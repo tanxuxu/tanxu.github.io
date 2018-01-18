@@ -3,8 +3,100 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css" rel="stylesheet">
+    <!-- Include the Swiper library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!-- Swiper JS Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue-awesome-swiper@3.1.2/dist/vue-awesome-swiper.js"></script>
+    <style media="screen">
+      img{
+        max-width: 100%;
+      }
+    </style>
   </head>
   <body>
-    home
+    <div id="vueapp">
+        <swiper ref="awesomeSwiperA" :options="swiperOptionA" @set-translate="onSetTranslate">
+          <!-- slides -->
+          <swiper-slide>
+            <img src="./watch/1 (1).jpg" alt="">
+          </swiper-slide>
+          <swiper-slide>
+            <img src="./watch/1 (2).jpg" alt="">
+          </swiper-slide>
+          <swiper-slide>
+            <img src="./watch/1 (3).jpg" alt="">
+          </swiper-slide>
+          <swiper-slide>
+            <img src="./watch/1 (4).jpg" alt="">
+          </swiper-slide>
+          <!-- Optional controls -->
+          <div class="swiper-pagination"  slot="pagination"></div>
+        </swiper>
+
+        <swiper ref="awesomeSwiperA" :options="swiperOptionA" @set-translate="onSetTranslate">
+          <!-- slides -->
+          <swiper-slide>
+            <img src="./watch/1 (1).jpg" alt="">
+          </swiper-slide>
+          <swiper-slide>
+            <img src="./watch/1 (2).jpg" alt="">
+          </swiper-slide>
+          <swiper-slide>
+            <img src="./watch/1 (3).jpg" alt="">
+          </swiper-slide>
+          <swiper-slide>
+            <img src="./watch/1 (4).jpg" alt="">
+          </swiper-slide>
+          <!-- Optional controls -->
+          <div class="swiper-pagination"  slot="pagination"></div>
+        </swiper>
+    </div>
+    <script type="text/javascript">
+          Vue.use(VueAwesomeSwiper)
+          new Vue({
+           el: '#vueapp',
+           components: {
+              LocalSwiper: VueAwesomeSwiper.swiper,
+              LocalSlide: VueAwesomeSwiper.swiperSlide,
+           },
+           data: {
+             message: 'Hi from Vue',
+             swiperOptionA: {
+                pagination: {
+                  el: '.swiper-pagination'
+                },
+                navigation: {
+                  nextEl: '.swiper-button-next',
+                  prevEl: '.swiper-button-prev'
+                }
+             },
+             swiperOptionB: {
+                pagination: {
+                  el: '.swiper-pagination',
+                  dynamicBullets: true
+                }
+             }
+           },
+           computed: {
+              swiperA() {
+                return this.$refs.awesomeSwiperA.swiper
+              },
+              swiperB() {
+                return this.$refs.awesomeSwiperB.swiper
+              }
+            },
+            methods: {
+              onSetTranslate() {
+                console.log('onSetTranslate')
+              }
+            },
+            mounted() {
+              console.log('this is swiper A instance object', this.swiperA, 'B instance', this.swiperB)
+            }
+          })
+    </script>
   </body>
 </html>
