@@ -58,7 +58,8 @@
     </header>
 
     <section>
-      <p>之前我们在package.json中配置</p>
+      <p>之前我们在package.json中配置webpack -d –watch，很多时候我们可能需要启动服务器去开发我们的应用程序，然后边写代码，边看看网页上的变化，这个时候最好就是有个双屏显示器，编程起来不知道有多爽歪歪</p>
+<a id="more"></a>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">  <span class="string">"dev"</span>: <span class="string">"webpack -d --watch"</span>,</span><br><span class="line">  <span class="string">"prod"</span>: <span class="string">"webpack -p"</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
 <p>当我们启动npm run dev时执行了webpack -d –watch</p>
 <p>下面我们改一下dev的启动命令</p>
