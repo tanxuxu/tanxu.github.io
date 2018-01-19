@@ -14,12 +14,25 @@
       img{
         max-width: 100%;
       }
+      p{
+        position: absolute;
+        z-index: 999999999;
+        width: 100%;
+        bottom: 4px;
+        background: rgba(0,0,0,0.5);
+        margin: 0px;
+        padding: 10px;
+        color: #fff;
+        line-height: 20px;
+        font-size: 12px;
+      }
     </style>
   </head>
   <body>
     <div id="vueapp">
         <swiper ref="awesomeSwiperA" :options="swiperOptionA" @set-translate="onSetTranslate">
           <!-- slides -->
+          <p>娇滴滴的嫉妒嫉妒嫉妒idi基地</p>
           <swiper-slide>
             <img src="./watch/1 (1).jpg" alt="">
           </swiper-slide>
@@ -40,6 +53,7 @@
           <!-- slides -->
           <swiper-slide>
             <img src="./watch/1 (1).jpg" alt="">
+
           </swiper-slide>
           <swiper-slide>
             <img src="./watch/1 (2).jpg" alt="">
@@ -83,9 +97,6 @@
            computed: {
               swiperA() {
                 return this.$refs.awesomeSwiperA.swiper
-              },
-              swiperB() {
-                return this.$refs.awesomeSwiperB.swiper
               }
             },
             methods: {
