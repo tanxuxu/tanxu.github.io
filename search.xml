@@ -283,6 +283,38 @@
     </entry>
     
     <entry>
+      <title><![CDATA[webpack入门笔记四-CleanWebpackPlugin的使用]]></title>
+      <url>/2017/02/02/webpack%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%E5%9B%9B-CleanWebpackPlugin%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+      <content type="html"><![CDATA[<p>当我们加入了hash值用来生成打包文件时，重新执行webpack -d的时候往往会生成重复的文件</p>
+<p><img src="/images/webpack04/webpack_04_01.png" alt="目录结构"></p>
+<p>这时候可以使用一个插件来解决这个问题</p>
+<ul>
+<li>CleanWebpackPlugin</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i clean-webpack-plugin --save-dev</span><br></pre></td></tr></table></figure>
+<p>配置文件</p>
+<p><img src="/images/webpack04/webpack_04_02.png" alt="目录结构"></p>
+<p>在此之前我创建了global.js文件，每次打包的时候我不想程序帮我清楚掉，这时候可以设置一个排除属性<br>exclude</p>
+<p>整个插件配置项的配置如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">plugins:[</span><br><span class="line">  <span class="keyword">new</span> CleanWebpackPlugin(<span class="string">'./dist'</span>,&#123;</span><br><span class="line">    exclude:  [<span class="string">'global.js'</span>]   <span class="comment">//除去global.js配置文件</span></span><br><span class="line">  &#125;),</span><br><span class="line">  <span class="comment">//自动生成一个html文件，引用相关的资源</span></span><br><span class="line">  <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">    filename: <span class="string">'./index.html'</span>,  <span class="comment">//生成的文件名称,根目录为指定的output目录</span></span><br><span class="line">    hash: <span class="literal">true</span>,  <span class="comment">//在html中引入js时加hash值</span></span><br><span class="line">    template: <span class="string">'./template/index.ejs'</span>   <span class="comment">//从指定的模板中生成html，当前目录找</span></span><br><span class="line">  &#125;),</span><br><span class="line">  <span class="keyword">new</span> ExtractTextPlugin(<span class="string">'style.css'</span>)</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+]]></content>
+      
+        <categories>
+            
+            <category> 前端 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> webpack </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[webpack入门笔记三-webpack-dev-server的使用]]></title>
       <url>/2017/01/28/webpack%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%E4%B8%89-webpack-dev-server%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
       <content type="html"><![CDATA[<p>之前我们在package.json中配置webpack -d –watch，很多时候我们可能需要启动服务器去开发我们的应用程序，然后边写代码，边看看网页上的变化，这个时候最好就是有个双屏显示器，编程起来不知道有多爽歪歪</p>
