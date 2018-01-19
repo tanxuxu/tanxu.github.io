@@ -431,6 +431,61 @@
     <header class="title">
       
         <h1>
+          <a href="/2017/01/28/webpack入门笔记三-webpack-dev-server的使用/">webpack入门笔记三-webpack-dev-server的使用</a>
+        </h1>
+      
+      <div class='ListMeta'>
+  <time datetime="2017-01-28T06:41:15.000Z" itemprop="datePublished">
+    2017-01-28
+  </time>
+  
+  | 
+  <ul>
+    
+  <li class="meta-text">
+  { <a href="/tags/webpack/">webpack</a> }
+  </li>
+
+
+  </ul>
+  
+  
+  / 
+  <ul>
+    
+  <li class="meta-text">
+  { <a href="/categories/前端/">前端</a> }
+  </li>
+
+
+  </ul>
+  
+</div>
+
+    </header>
+    <div>
+      
+        <p>之前我们在package.json中配置</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">  <span class="string">"dev"</span>: <span class="string">"webpack -d --watch"</span>,</span><br><span class="line">  <span class="string">"prod"</span>: <span class="string">"webpack -p"</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>当我们启动npm run dev时执行了webpack -d –watch</p>
+<p>下面我们改一下dev的启动命令</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">  <span class="string">"dev"</span>: <span class="string">"webpack-dev-server --port 8090"</span>,</span><br><span class="line">  <span class="string">"prod"</span>: <span class="string">"webpack -p"</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>可以打开指定端口的本地服务器， –port不是必须的，默认使用的8080端口</p>
+<p>同时会运行你的index.html,也具备实时监听文件的变化</p>
+<p>package.json的所有的配置</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"test01"</span>,</span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"1.0.0"</span>,</span><br><span class="line">  <span class="string">"description"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="string">"main"</span>: <span class="string">"index.js"</span>,</span><br><span class="line">  <span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"dev"</span>: <span class="string">"webpack-dev-server --port 8090"</span>,</span><br><span class="line">    <span class="string">"prod"</span>: <span class="string">"webpack -p"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"author"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="string">"license"</span>: <span class="string">"ISC"</span>,</span><br><span class="line">  <span class="string">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"babel-core"</span>: <span class="string">"^6.26.0"</span>,</span><br><span class="line">    <span class="string">"babel-loader"</span>: <span class="string">"^7.1.2"</span>,</span><br><span class="line">    <span class="string">"css-loader"</span>: <span class="string">"^0.28.9"</span>,</span><br><span class="line">    <span class="string">"ejs-loader"</span>: <span class="string">"^0.3.0"</span>,</span><br><span class="line">    <span class="string">"extract-text-webpack-plugin"</span>: <span class="string">"^3.0.2"</span>,</span><br><span class="line">    <span class="string">"html-webpack-plugin"</span>: <span class="string">"^2.30.1"</span>,</span><br><span class="line">    <span class="string">"less"</span>: <span class="string">"^2.7.3"</span>,</span><br><span class="line">    <span class="string">"less-loader"</span>: <span class="string">"^4.0.5"</span>,</span><br><span class="line">    <span class="string">"style-loader"</span>: <span class="string">"^0.19.1"</span>,</span><br><span class="line">    <span class="string">"webpack"</span>: <span class="string">"^3.10.0"</span>,</span><br><span class="line">    <span class="string">"webpack-dev-server"</span>: <span class="string">"^2.11.0"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+</article>
+
+    </li>
+  
+    <li>
+      <article class='ListView'>
+    <header class="title">
+      
+        <h1>
           <a href="/2017/01/21/webpack入门笔记二-loader的使用/">webpack入门笔记二-loader的使用</a>
         </h1>
       
@@ -520,57 +575,6 @@
         
           <div class="more-link">
             <a href="/2017/01/19/webpack入门笔记一/#more">Read On »</a>
-          </div>
-        
-      
-    </div>
-</article>
-
-    </li>
-  
-    <li>
-      <article class='ListView'>
-    <header class="title">
-      
-        <h1>
-          <a href="/2016/10/13/玩一把gank集中营api/">玩一把干货集中营api</a>
-        </h1>
-      
-      <div class='ListMeta'>
-  <time datetime="2016-10-13T03:25:42.000Z" itemprop="datePublished">
-    2016-10-13
-  </time>
-  
-  | 
-  <ul>
-    
-  <li class="meta-text">
-  { <a href="/tags/vue/">vue</a> }
-  </li>
-
-
-  </ul>
-  
-  
-  / 
-  <ul>
-    
-  <li class="meta-text">
-  { <a href="/categories/前端/">前端</a> }
-  </li>
-
-
-  </ul>
-  
-</div>
-
-    </header>
-    <div>
-      
-        <p>结合vue2.0、light7、vue-router、vue-resource和干货集中营的api完成一个小demo,当然现在vue-router已经不建议使用了,现在推荐使用axios<br>这个案例旨在<br>1、看一下light-ui怎样，毕竟用过很多的ui库<br>2、看美女。<br><img src="/images/5.png" alt="截图1"></p>
-        
-          <div class="more-link">
-            <a href="/2016/10/13/玩一把gank集中营api/#more">Read On »</a>
           </div>
         
       

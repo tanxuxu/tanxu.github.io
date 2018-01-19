@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Jtanx</title>
+  <title>webpack入门笔记三-webpack-dev-server的使用 | Jtanx</title>
   
   
   <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
@@ -51,53 +51,14 @@
 
     <div class="container">
         <div data-pager-shell>
-            <ul class="Index">
-  
+            <div>
+  <article class='ContentView'>
     <header class='PageTitle'>
-        <h1>{ webpack }</h1>
+        <h1>webpack入门笔记三-webpack-dev-server的使用</h1>
     </header>
-  
-  
-    <li>
-      <article class='ListView'>
-    <header class="title">
-      
-        <h1>
-          <a href="/2017/01/28/webpack入门笔记三-webpack-dev-server的使用/">webpack入门笔记三-webpack-dev-server的使用</a>
-        </h1>
-      
-      <div class='ListMeta'>
-  <time datetime="2017-01-28T06:41:15.000Z" itemprop="datePublished">
-    2017-01-28
-  </time>
-  
-  | 
-  <ul>
-    
-  <li class="meta-text">
-  { <a href="/tags/webpack/">webpack</a> }
-  </li>
 
-
-  </ul>
-  
-  
-  / 
-  <ul>
-    
-  <li class="meta-text">
-  { <a href="/categories/前端/">前端</a> }
-  </li>
-
-
-  </ul>
-  
-</div>
-
-    </header>
-    <div>
-      
-        <p>之前我们在package.json中配置</p>
+    <section>
+      <p>之前我们在package.json中配置</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">  <span class="string">"dev"</span>: <span class="string">"webpack -d --watch"</span>,</span><br><span class="line">  <span class="string">"prod"</span>: <span class="string">"webpack -p"</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
 <p>当我们启动npm run dev时执行了webpack -d –watch</p>
 <p>下面我们改一下dev的启动命令</p>
@@ -107,66 +68,35 @@
 <p>package.json的所有的配置</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"test01"</span>,</span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"1.0.0"</span>,</span><br><span class="line">  <span class="string">"description"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="string">"main"</span>: <span class="string">"index.js"</span>,</span><br><span class="line">  <span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"dev"</span>: <span class="string">"webpack-dev-server --port 8090"</span>,</span><br><span class="line">    <span class="string">"prod"</span>: <span class="string">"webpack -p"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"author"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="string">"license"</span>: <span class="string">"ISC"</span>,</span><br><span class="line">  <span class="string">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"babel-core"</span>: <span class="string">"^6.26.0"</span>,</span><br><span class="line">    <span class="string">"babel-loader"</span>: <span class="string">"^7.1.2"</span>,</span><br><span class="line">    <span class="string">"css-loader"</span>: <span class="string">"^0.28.9"</span>,</span><br><span class="line">    <span class="string">"ejs-loader"</span>: <span class="string">"^0.3.0"</span>,</span><br><span class="line">    <span class="string">"extract-text-webpack-plugin"</span>: <span class="string">"^3.0.2"</span>,</span><br><span class="line">    <span class="string">"html-webpack-plugin"</span>: <span class="string">"^2.30.1"</span>,</span><br><span class="line">    <span class="string">"less"</span>: <span class="string">"^2.7.3"</span>,</span><br><span class="line">    <span class="string">"less-loader"</span>: <span class="string">"^4.0.5"</span>,</span><br><span class="line">    <span class="string">"style-loader"</span>: <span class="string">"^0.19.1"</span>,</span><br><span class="line">    <span class="string">"webpack"</span>: <span class="string">"^3.10.0"</span>,</span><br><span class="line">    <span class="string">"webpack-dev-server"</span>: <span class="string">"^2.11.0"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-      
-    </div>
-</article>
 
-    </li>
-  
-    <li>
-      <article class='ListView'>
-    <header class="title">
       
-        <h1>
-          <a href="/2017/01/19/webpack入门笔记一/">webpack入门笔记一</a>
-        </h1>
-      
-      <div class='ListMeta'>
-  <time datetime="2017-01-19T02:57:05.000Z" itemprop="datePublished">
-    2017-01-19
-  </time>
-  
-  | 
-  <ul>
+
+    </section>
     
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2017-01-28T06:41:15.000Z" itemprop="datePublished">
+              2017-01-28
+            </time>
+          </div>
+          
+            <div>
+              tags: 
   <li class="meta-text">
   { <a href="/tags/webpack/">webpack</a> }
   </li>
 
 
-  </ul>
-  
-  
-  / 
-  <ul>
+            </div>
+          
+      </section>
     
-  <li class="meta-text">
-  { <a href="/categories/前端/">前端</a> }
-  </li>
-
-
-  </ul>
-  
-</div>
-
-    </header>
-    <div>
-      
-        <p>工作中我们总是用cli去构建项目，然后去改成符合项目需求的合理打包配置，从来没有细细的去分析每一项是什么，有何作用，这里通过实例去学习webpack的常用配置，做好笔记，以供后面查阅使用。</p>
-        
-          <div class="more-link">
-            <a href="/2017/01/19/webpack入门笔记一/#more">Read On »</a>
-          </div>
-        
-      
-    </div>
+    
 </article>
 
-    </li>
   
-</ul>
-
-
+</div>
 
             <footer>
     <div>© 2016 - Jtanx </div>
