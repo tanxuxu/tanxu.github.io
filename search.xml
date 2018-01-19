@@ -64,37 +64,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[使用async和await处理异步请求]]></title>
-      <url>/2017/08/15/%E4%BD%BF%E7%94%A8async%E5%92%8Cawait%E5%A4%84%E7%90%86%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82/</url>
-      <content type="html"><![CDATA[<p>随着node新版本出来和es6/7的逐步深入，异步解决方法又有了新的解决方案，那就是async和await,在实际的开发中，我们更多的是请求后端的resful api接口进行前端各种操作，这种异步请求太常见了。通过一个简单的案例来看看async和await的使用错误处理的方式。</p>
-<a id="more"></a>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>)</span><br><span class="line"><span class="keyword">const</span> Router = <span class="built_in">require</span>(<span class="string">'koa-router'</span>);</span><br><span class="line"><span class="keyword">const</span> axios = <span class="built_in">require</span>(<span class="string">'axios'</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</span><br><span class="line"></span><br><span class="line">app.use(<span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params">ctx, next</span>)</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getData</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</span><br><span class="line">         axios.get(<span class="string">"http://192.168.3.205:8018/services/menu/sysMenu"</span>)</span><br><span class="line">         .then(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">            resolve(res.data);</span><br><span class="line">         &#125;)</span><br><span class="line">         .catch(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">            reject(res);</span><br><span class="line">         &#125;)</span><br><span class="line">       &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//错误处理</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      ctx.body = <span class="keyword">await</span> getData();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'starting at port 3000'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>然后json数据就可以直接输出到body中了</p>
-<p><img src="/images/async_ico.png" alt="async插图"></p>
-<p>注意点:</p>
-<ul>
-<li>async本身返回的还是一个promise对象，await必须是在async函数体里面去玩</li>
-<li>注意try-catch的处理方式</li>
-<li>底层还是使用promise，所有无法取代掉promise传统用法，当然callback的使用方式就忘掉吧</li>
-</ul>
-]]></content>
-      
-        <categories>
-            
-            <category> 前端 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> nodeJs </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[koa入门笔记(三)使用mysql]]></title>
       <url>/2017/06/14/koa%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0-%E4%B8%89-%E4%BD%BF%E7%94%A8mysql/</url>
       <content type="html"><![CDATA[<p>在使用koa的过程中，我们可以使用mysql中间件来对mysql进行操作, 并结合koa-router进行api返回数据</p>
@@ -157,6 +126,37 @@
             <tag> nodeJs </tag>
             
             <tag> koa </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[koa入门笔记-一-使用async和await处理异步请求]]></title>
+      <url>/2017/06/12/%E4%BD%BF%E7%94%A8async%E5%92%8Cawait%E5%A4%84%E7%90%86%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82/</url>
+      <content type="html"><![CDATA[<p>随着node新版本出来和es6/7的逐步深入，异步解决方法又有了新的解决方案，那就是async和await,在实际的开发中，我们更多的是请求后端的resful api接口进行前端各种操作，这种异步请求太常见了。通过一个简单的案例来看看async和await的使用错误处理的方式。</p>
+<a id="more"></a>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>)</span><br><span class="line"><span class="keyword">const</span> Router = <span class="built_in">require</span>(<span class="string">'koa-router'</span>);</span><br><span class="line"><span class="keyword">const</span> axios = <span class="built_in">require</span>(<span class="string">'axios'</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</span><br><span class="line"></span><br><span class="line">app.use(<span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params">ctx, next</span>)</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getData</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</span><br><span class="line">         axios.get(<span class="string">"http://192.168.3.205:8018/services/menu/sysMenu"</span>)</span><br><span class="line">         .then(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">            resolve(res.data);</span><br><span class="line">         &#125;)</span><br><span class="line">         .catch(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">            reject(res);</span><br><span class="line">         &#125;)</span><br><span class="line">       &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//错误处理</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      ctx.body = <span class="keyword">await</span> getData();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'starting at port 3000'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>然后json数据就可以直接输出到body中了</p>
+<p><img src="/images/async_ico.png" alt="async插图"></p>
+<p>注意点:</p>
+<ul>
+<li>async本身返回的还是一个promise对象，await必须是在async函数体里面去玩</li>
+<li>注意try-catch的处理方式</li>
+<li>底层还是使用promise，所有无法取代掉promise传统用法，当然callback的使用方式就忘掉吧</li>
+</ul>
+]]></content>
+      
+        <categories>
+            
+            <category> 前端 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> nodeJs </tag>
             
         </tags>
         
@@ -360,7 +360,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[webpack入门笔记一]]></title>
+      <title><![CDATA[webpack入门笔记一-基本配置]]></title>
       <url>/2017/01/19/webpack%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%E4%B8%80/</url>
       <content type="html"><![CDATA[<p>工作中我们总是用cli去构建项目，然后去改成符合项目需求的合理打包配置，从来没有细细的去分析每一项是什么，有何作用，这里通过实例去学习webpack的常用配置，做好笔记，以供后面查阅使用。</p>
 <a id="more"></a>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>koa入门笔记-一-使用async和await处理异步请求 | Jtanx</title>
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url()">
+        <div class='av-pic' style="background-image: url(/assets/avatar.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>Jtanx</div>
+        
+            <div>走在前端道路上、瞎逛在头条&amp;掘金&amp;知乎&amp;简书</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>首页</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>归档</li>
+            </a>  
+          
+            <a href="/categories/" class="Btn">
+              <li>分类</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>关于</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>koa入门笔记-一-使用async和await处理异步请求</h1>
+    </header>
+
+    <section>
+      <p>随着node新版本出来和es6/7的逐步深入，异步解决方法又有了新的解决方案，那就是async和await,在实际的开发中，我们更多的是请求后端的resful api接口进行前端各种操作，这种异步请求太常见了。通过一个简单的案例来看看async和await的使用错误处理的方式。</p>
+<a id="more"></a>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>)</span><br><span class="line"><span class="keyword">const</span> Router = <span class="built_in">require</span>(<span class="string">'koa-router'</span>);</span><br><span class="line"><span class="keyword">const</span> axios = <span class="built_in">require</span>(<span class="string">'axios'</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</span><br><span class="line"></span><br><span class="line">app.use(<span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params">ctx, next</span>)</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getData</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</span><br><span class="line">         axios.get(<span class="string">"http://192.168.3.205:8018/services/menu/sysMenu"</span>)</span><br><span class="line">         .then(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">            resolve(res.data);</span><br><span class="line">         &#125;)</span><br><span class="line">         .catch(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">            reject(res);</span><br><span class="line">         &#125;)</span><br><span class="line">       &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//错误处理</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      ctx.body = <span class="keyword">await</span> getData();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'starting at port 3000'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>然后json数据就可以直接输出到body中了</p>
+<p><img src="/images/async_ico.png" alt="async插图"></p>
+<p>注意点:</p>
+<ul>
+<li>async本身返回的还是一个promise对象，await必须是在async函数体里面去玩</li>
+<li>注意try-catch的处理方式</li>
+<li>底层还是使用promise，所有无法取代掉promise传统用法，当然callback的使用方式就忘掉吧</li>
+</ul>
+
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2017-06-12T08:27:53.000Z" itemprop="datePublished">
+              2017-06-12
+            </time>
+          </div>
+          
+            <div>
+              tags: 
+  <li class="meta-text">
+  { <a href="/tags/nodeJs/">nodeJs</a> }
+  </li>
+
+
+            </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2016 - Jtanx </div>
+    <div>
+    Powered by Jtanx   emial： 1036699126@qq.com
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+<script src="/js/pager/dist/singlepager.js"></script>
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>
