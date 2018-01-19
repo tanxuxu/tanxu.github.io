@@ -287,6 +287,7 @@
       <url>/2017/02/02/webpack%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%E5%9B%9B-CleanWebpackPlugin%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
       <content type="html"><![CDATA[<p>当我们加入了hash值用来生成打包文件时，重新执行webpack -d的时候往往会生成重复的文件</p>
 <p><img src="/images/webpack04/webpack_04_01.png" alt="目录结构"></p>
+<a id="more"></a>
 <p>这时候可以使用一个插件来解决这个问题</p>
 <ul>
 <li>CleanWebpackPlugin</li>
