@@ -25,9 +25,9 @@
         
         <tags>
             
-            <tag> nodejs </tag>
-            
             <tag> koa </tag>
+            
+            <tag> nodejs </tag>
             
         </tags>
         
@@ -55,9 +55,9 @@
         
         <tags>
             
-            <tag> koa </tag>
-            
             <tag> nodeJs </tag>
+            
+            <tag> koa </tag>
             
         </tags>
         
@@ -118,9 +118,9 @@
         
         <tags>
             
-            <tag> koa </tag>
-            
             <tag> nodeJs </tag>
+            
+            <tag> koa </tag>
             
         </tags>
         
@@ -154,9 +154,9 @@
         
         <tags>
             
-            <tag> koa </tag>
-            
             <tag> nodeJs </tag>
+            
+            <tag> koa </tag>
             
         </tags>
         
@@ -300,7 +300,7 @@
 <li>如果不修改，你可以使用webpack -d –watch; webpack -p 等命令使用</li>
 <li>修改后你可以直接</li>
 </ul>
-<p>最基本的配置</p>
+<p>最基本的配置<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![目录结构](<span class="regexp">/images/</span>webpack01/webpack_01_04.png)</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>); <span class="comment">//通过 npm 安装</span></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: [<span class="string">'./home.js'</span>,<span class="string">'./index.js'</span>],  <span class="comment">//当为数组时，打包到同一个文件中</span></span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">'vandor.js'</span>,</span><br><span class="line">    path: path.resolve(__dirname, <span class="string">'dist'</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">   loaders: [</span><br><span class="line">     &#123;</span><br><span class="line">       test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">       loader: <span class="string">'babel-loader'</span></span><br><span class="line">     &#125;,&#123;</span><br><span class="line">        test: <span class="regexp">/\.(less|css)$/</span>,</span><br><span class="line">        use:[ <span class="string">'style-loader'</span>,<span class="string">'css-loader'</span>,<span class="string">'less-loader'</span>],</span><br><span class="line">      &#125;,&#123;</span><br><span class="line">        test :<span class="regexp">/\.ejs$/</span>,</span><br><span class="line">        use :<span class="string">'ejs-loader'</span></span><br><span class="line">      &#125;</span><br><span class="line">   ]</span><br><span class="line"> &#125;,</span><br><span class="line">  plugins:[</span><br><span class="line">    <span class="comment">//自动生成一个html文件，引用相关的资源</span></span><br><span class="line">    <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">      filename: <span class="string">'./index.html'</span>,  <span class="comment">//生成的文件名称,根目录为指定的output目录</span></span><br><span class="line">      hash: <span class="literal">true</span>,  <span class="comment">//在html中引入js时加hash值</span></span><br><span class="line">      template: <span class="string">'./template/index.ejs'</span>   <span class="comment">//从指定的模板中生成html，当前目录找</span></span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>对于entry，拿出来单独讲讲</p>
 <ul>
@@ -311,12 +311,16 @@
 </ul>
 <p><img src="/images/webpack01/webpack_01_01.png" alt="为对象时"></p>
 <ul>
-<li>为数组时，合并打包为一个文件<br><img src="/images/webpack01/webpack_01_02.png" alt="为数组时"></li>
+<li>为数组时，合并打包为一个文件</li>
 </ul>
+<p><img src="/images/webpack01/webpack_01_02.png" alt="为数组时"></p>
 <p>一个插件的使用–HtmlWebpackPlugin</p>
 <p><img src="/images/webpack01/webpack_01_03.png" alt="插件的使用"></p>
-<p>注意选用其他模板时，注意应该使用相应的loaders</p>
-<p>ok，先到这里，吃饭…</p>
+<ul>
+<li>注意选用其他模板时，注意应该使用相应的loaders</li>
+</ul>
+<p>运行命令启动进行开发环境下的打包</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
 ]]></content>
       
         <categories>
