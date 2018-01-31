@@ -63,6 +63,7 @@
 <p>forEach遍历数组，无返回值，不改变原数组，仅仅只是遍历、常用于注册组件、指令等等。</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,2,3,4];</span><br><span class="line">arr.forEach((item,index,arr) =&gt; &#123;</span><br><span class="line">    console.log(item,index,arr)</span><br><span class="line">&#125;);</span><br><span class="line">// 1 0 (4) [1, 2, 3, 4]</span><br><span class="line">// 2 1 (4) [1, 2, 3, 4]</span><br><span class="line">// 3 2 (4) [1, 2, 3, 4]</span><br><span class="line">// 4 3 (4) [1, 2, 3, 4]</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>map()</p>
 <blockquote>
 <p>map用于遍历数组，返回一个新的数组，不改变原数组的值</p>
