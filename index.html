@@ -59,6 +59,82 @@
     <header class="title">
       
         <h1>
+          <a href="/2017/12/01/es6中新增的几个数组方法/">es6中新增的几个数组方法</a>
+        </h1>
+      
+      <div class='ListMeta'>
+  <time datetime="2017-12-01T08:12:17.000Z" itemprop="datePublished">
+    2017-12-01
+  </time>
+  
+  | 
+  <ul>
+    
+  <li class="meta-text">
+  { <a href="/tags/es6/">es6</a> }
+  </li>
+
+
+  </ul>
+  
+  
+  / 
+  <ul>
+    
+  <li class="meta-text">
+  { <a href="/categories/前端/">前端</a> }
+  </li>
+
+
+  </ul>
+  
+</div>
+
+    </header>
+    <div>
+      
+        <p>forEach()</p>
+<blockquote>
+<p>forEach遍历数组，无返回值，不改变原数组，仅仅只是遍历、常用于注册组件、指令等等。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,2,3,4];</span><br><span class="line">arr.forEach((item,index,arr) =&gt; &#123;</span><br><span class="line">    console.log(item,index,arr)</span><br><span class="line">&#125;);</span><br><span class="line">// 1 0 (4) [1, 2, 3, 4]</span><br><span class="line">// 2 1 (4) [1, 2, 3, 4]</span><br><span class="line">// 3 2 (4) [1, 2, 3, 4]</span><br><span class="line">// 4 3 (4) [1, 2, 3, 4]</span><br></pre></td></tr></table></figure>
+<p>map()</p>
+<blockquote>
+<p>map用于遍历数组，返回一个新的数组，不改变原数组的值</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var arr = [10,20,30];</span><br><span class="line">arr.map((item,index,arr)=&gt;&#123;</span><br><span class="line">   return item * 10;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">//[100,200,300]</span><br></pre></td></tr></table></figure>
+<p>filter()</p>
+<blockquote>
+<p>过滤某个条件的数组，不改变原来的数组的值</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,2,3,4];</span><br><span class="line">arr.filter((item,index,arr)=&gt;&#123;</span><br><span class="line">    return item&gt;2;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">//[3,4]</span><br></pre></td></tr></table></figure>
+<p>reduce()</p>
+<blockquote>
+<p>让数组的前后两项进行某种计算。然后返回其值，并继续计算。不改变原数组，返回计算的最终结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,2,3,4];</span><br><span class="line">arr.reduce((result,item,index,arr) =&gt; &#123;</span><br><span class="line">   return (result+item);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//result为上一次计算的结果,item为当前遍历的值</span><br><span class="line"></span><br><span class="line">//10</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>some()</p>
+<blockquote>
+<p>//遍历数组每一项，有一项返回true,则停止遍历，结果返回true。不改变原数组</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,2,3,4];</span><br><span class="line">arr.some((item,index,arr)=&gt;&#123;</span><br><span class="line">    return item&gt;3;   //存在item&gt;3的时候既停止遍历，返回true</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>every()</p>
+<blockquote>
+<p>遍历每一项，如果每一项都返回true时，最终返回true</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,2,3,4];</span><br><span class="line">arr.every((item,index,arr)=&#123;</span><br><span class="line">    return item&gt;0;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">//结果返回true</span><br></pre></td></tr></table></figure>
+<p>总结： 现在基本项目都是在webpack下开发的，用es6的新语法只需要配置相关的解析loader就是可以了，还算是比较方便的</p>
+
+      
+    </div>
+</article>
+
+    </li>
+  
+    <li>
+      <article class='ListView'>
+    <header class="title">
+      
+        <h1>
           <a href="/2017/12/01/es6中对象的常用方法/">es6中对象的常用方法</a>
         </h1>
       
@@ -496,57 +572,6 @@
         
           <div class="more-link">
             <a href="/2017/04/19/搭建公司内网npm/#more">Read On »</a>
-          </div>
-        
-      
-    </div>
-</article>
-
-    </li>
-  
-    <li>
-      <article class='ListView'>
-    <header class="title">
-      
-        <h1>
-          <a href="/2017/02/19/webpack入门笔记六-打包图片/">webpack入门笔记六-打包图片</a>
-        </h1>
-      
-      <div class='ListMeta'>
-  <time datetime="2017-02-19T09:06:16.000Z" itemprop="datePublished">
-    2017-02-19
-  </time>
-  
-  | 
-  <ul>
-    
-  <li class="meta-text">
-  { <a href="/tags/webpack/">webpack</a> }
-  </li>
-
-
-  </ul>
-  
-  
-  / 
-  <ul>
-    
-  <li class="meta-text">
-  { <a href="/categories/前端/">前端</a> }
-  </li>
-
-
-  </ul>
-  
-</div>
-
-    </header>
-    <div>
-      
-        <p>打包图片是一个比较复杂的，涉及到图片压缩，优化，内墙图片和css背景图片,这里总结css图片，其他的可以百度，思路一样，都是一些loader</p>
-        
-          <div class="more-link">
-            <a href="/2017/02/19/webpack入门笔记六-打包图片/#more">Read On »</a>
           </div>
         
       
