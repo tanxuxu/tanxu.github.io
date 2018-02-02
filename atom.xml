@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jtanx.cn/"/>
-  <updated>2018-01-31T08:54:02.207Z</updated>
+  <updated>2018-02-02T07:40:33.541Z</updated>
   <id>http://jtanx.cn/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vue的ssr方案-nuxtjs应用部署到linux服务器</title>
+    <link href="http://jtanx.cn/2018/01/12/vue%E7%9A%84ssr%E6%96%B9%E6%A1%88-nuxtjs%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2%E5%88%B0linux%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <id>http://jtanx.cn/2018/01/12/vue的ssr方案-nuxtjs应用部署到linux服务器/</id>
+    <published>2018-01-12T06:53:53.000Z</published>
+    <updated>2018-02-02T07:40:33.541Z</updated>
+    
+    <content type="html"><![CDATA[<p>Vue.js 是构建客户端应用程序的框架。默认情况下，可以在浏览器中输出 Vue 组件，进行生成 DOM 和操作 DOM。然而，也可以将同一个组件渲染为服务器端的 HTML 字符串，将它们直接发送到浏览器，最后将静态标记”混合”为客户端上完全交互的应用程序。</p><a id="more"></a><p>1、准备</p><p>服务器中需要安装nodejs环境</p><p>下载安装包到指定目录,我的存放目录是 /usr/local/</p><p>执行命令</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf   node-v8.9.3-linux-x64.tar.xz   //解压</span><br><span class="line">mv node-v8.9.3-linux-x64  nodejs       //改名</span><br></pre></td></tr></table></figure><p>添加node npm到全局</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ln -s /usr/local/nodejs/bin/node /usr/local/bin/</span><br><span class="line">ln -s /app/local/nodejs/bin/npm /usr/local/bin/</span><br></pre></td></tr></table></figure><p>为了某些情况顺利点建议安装cnpm</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure><p>同样添加到全局</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /usr/local/nodejs/bin/cnpm /usr/local/bin/</span><br></pre></td></tr></table></figure><p>安装pm2,便于进行进程管理</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install pm2 -g //安装pm2</span><br></pre></td></tr></table></figure><p>添加到全局</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /usr/local/nodejs/bin/pm2 /usr/local/bin/</span><br></pre></td></tr></table></figure><p>2、过程</p><p>我将我本地的项目文件传输到/usr/local/nuxt/nuxtDemo目录<br>注意不用传输node_modules .nuxt  dist等一些开发环境的文件</p><p>cd到/usr/local/nuxt/nuxtDemo目录执行</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cnpm install</span><br><span class="line">npm run build</span><br><span class="line">npm run start</span><br></pre></td></tr></table></figure><p>可以使用pm2进行进程管理</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pm2 start ./node_modules/nuxt/bin/nuxt</span><br></pre></td></tr></table></figure><p>会默认启动一个服务进程，端口号是3000</p><p>测试</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl http://localhost:3000 出来一段你的应用html说明部署是没问题的</span><br></pre></td></tr></table></figure><p>3、还没有完事，需要给外网访问你的应用，用nginx进行代理</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">upstream nuxt &#123;</span><br><span class="line">        server 127.0.0.1:3000;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server&#123;</span><br><span class="line">        listen 8082;</span><br><span class="line">        server_name 192.168.3.205;</span><br><span class="line">        location / &#123;</span><br><span class="line">             proxy_set_header Host  $http_host;</span><br><span class="line">             proxy_set_header X-Real-IP  $remote_addr;</span><br><span class="line">             proxy_set_header X-Forwarded-For  $proxy_add_x_forwarded_for;</span><br><span class="line">             proxy_set_header X-Nginx-proxy true;</span><br><span class="line">             proxy_pass http://nuxt;</span><br><span class="line">             proxy_redirect off;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>4、我们在外网访问应用</p><p><a href="http://192.168.3.205:8082" target="_blank" rel="noopener">http://192.168.3.205:8082</a>  到此为止，vue2.0的ssr应用服务已经部署完毕</p><p>5、不需要了可以结束进程</p><p>mp2 stop nuxt</p><p>6、更多pm2命令</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">//安装</span><br><span class="line">npm install pm2 -g //安装pm2</span><br><span class="line">pm2 update // 更新pm2</span><br><span class="line">pm2 uninstall pm2 //移除pm2</span><br><span class="line"></span><br><span class="line">//开启关闭</span><br><span class="line">pm2 start nuxt //启动server.js进程</span><br><span class="line">pm2 start nuxt -i 4 //启动4个server.js进程</span><br><span class="line">pm2 restart nuxt //重启server.js进程</span><br><span class="line">pm2 stop all // 停止所有进程</span><br><span class="line">pm2 stop nuxt //停止server.js进程</span><br><span class="line">pm2 stop 0 //停止编号为0的进程</span><br><span class="line"></span><br><span class="line">//查看</span><br><span class="line"></span><br><span class="line">pm2 list</span><br><span class="line"></span><br><span class="line">//监控</span><br><span class="line"></span><br><span class="line">pm2 monit</span><br><span class="line"></span><br><span class="line">//查看日志</span><br><span class="line">pm2 logs</span><br></pre></td></tr></table></figure><p>7、vue采用服务器渲染有几点好处</p><p>  vue官网中有做描述<br>  !(vue官网)[<a href="https://ssr.vuejs.org/zh/" target="_blank" rel="noopener">https://ssr.vuejs.org/zh/</a>]</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Vue.js 是构建客户端应用程序的框架。默认情况下，可以在浏览器中输出 Vue 组件，进行生成 DOM 和操作 DOM。然而，也可以将同一个组件渲染为服务器端的 HTML 字符串，将它们直接发送到浏览器，最后将静态标记”混合”为客户端上完全交互的应用程序。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="前端" scheme="http://jtanx.cn/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="vue" scheme="http://jtanx.cn/tags/vue/"/>
+    
+  </entry>
   
   <entry>
     <title>es6中新增的几个数组方法</title>
@@ -445,26 +467,6 @@
       <category term="vue" scheme="http://jtanx.cn/tags/vue/"/>
     
       <category term="vuex" scheme="http://jtanx.cn/tags/vuex/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于hexo的几个问题</title>
-    <link href="http://jtanx.cn/2016/06/09/%E5%85%B3%E4%BA%8Ehexo%E7%9A%84%E5%87%A0%E4%B8%AA%E9%97%AE%E9%A2%98/"/>
-    <id>http://jtanx.cn/2016/06/09/关于hexo的几个问题/</id>
-    <published>2016-06-09T07:31:22.000Z</published>
-    <updated>2017-12-13T03:50:17.230Z</updated>
-    
-    <content type="html"><![CDATA[<p>使用hexo搭建博客比较简单，常规的流程不作记录，这里只记录一些后期的问题，之前有用过hexo搭建过博客，但是由于代码没有上传到github，工程的push进去的是编译后的代码，这次重新搭建，遇到的比较关键的问题做一些记录。<br><a id="more"></a></p><p>1、 主题如何更改</p><ul><li>在官网可以看到各种主题</li><li>用git clone克隆对应的主题到theme目录下</li><li>在全局的config.yml中配置主题名字</li></ul><p>2、 绑定域名后每次提交都报404页面错误</p><ul><li>准备好域名，解析到对应的xxx.github.io</li><li>在source文件夹内新建CNAME文件在里写你的域名</li></ul><p>3、 安装主题后，在哪里配置菜单</p><ul><li>在主题里面的config.yml中配置菜单，具体例如</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">    首页: /</span><br><span class="line">    归档: /archives</span><br><span class="line">    关于: /about</span><br></pre></td></tr></table></figure><p>4、 换了电脑没有对代码做保存怎么办</p><ul><li>建议分为两个分支，一个用来git工程项目，一个用来git源文件，这样还电脑后可以clone源文件下来使用</li></ul><p>5、 如何显示简介和阅读更多</p><ul><li>在主题的配置文件中，加入</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">excerpt_link: 阅读更多</span><br></pre></td></tr></table></figure><ul><li>md写文章时</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">简介内容...</span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line">正文...</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;使用hexo搭建博客比较简单，常规的流程不作记录，这里只记录一些后期的问题，之前有用过hexo搭建过博客，但是由于代码没有上传到github，工程的push进去的是编译后的代码，这次重新搭建，遇到的比较关键的问题做一些记录。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="瞎折腾" scheme="http://jtanx.cn/categories/%E7%9E%8E%E6%8A%98%E8%85%BE/"/>
-    
     
   </entry>
   
