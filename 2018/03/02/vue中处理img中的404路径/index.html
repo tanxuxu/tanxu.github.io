@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue中处理img中的404路径 | Jtanx</title>
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url()">
+        <div class='av-pic' style="background-image: url(/assets/avatar.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>Jtanx</div>
+        
+            <div>走在前端道路上、瞎逛在头条&amp;掘金&amp;知乎&amp;简书</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>首页</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>归档</li>
+            </a>  
+          
+            <a href="/categories/" class="Btn">
+              <li>分类</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>关于</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>vue中处理img中的404路径</h1>
+    </header>
+
+    <section>
+      <p>项目中的图片放在ftp上，很多情况下ftp并没有图片，导致图片不出来，默认图片又上不去，非常难看，那么在vue如何处理这种情况</p>
+<a id="more"></a>
+<p>使用vue的html模板可能是这样：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">v-bind:src</span>=<span class="string">"item.PHOTO"</span>  @<span class="attr">error</span>=<span class="string">"dealErrorImage"</span>  @<span class="attr">click</span>=<span class="string">"previewImage(item)"</span>  <span class="attr">v-if</span>=<span class="string">"item.PHOTO != ''"</span>  <span class="attr">width</span>=<span class="string">'140'</span> <span class="attr">height</span>=<span class="string">'110'</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>vue的methods中</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">data()&#123;</span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    defaultImg: <span class="string">'require('</span>../../<span class="keyword">default</span>.png<span class="string">')'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line">methods:&#123;</span><br><span class="line">  dealErrorImage: <span class="function"><span class="keyword">function</span>(<span class="params">image</span>)</span>&#123;</span><br><span class="line">     $(image.target).attr(<span class="string">'src'</span>, <span class="keyword">this</span>.defaultImg);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>error在原生中的事件是onerror，里头传递的必须是个函数，原生中需要这样写</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span>  <span class="attr">onerror</span>=<span class="string">"dealErrorImage(this)"</span>   <span class="attr">v-if</span>=<span class="string">"item.PHOTO != ''"</span>  <span class="attr">width</span>=<span class="string">'140'</span> <span class="attr">height</span>=<span class="string">'110'</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>将this传递进去</p>
+<p>那么js中</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dealErrorImage</span>(<span class="params">image</span>)</span>&#123;</span><br><span class="line">  image.src = <span class="string">'default.png'</span>;</span><br><span class="line">  <span class="comment">//$(image).attr('src','default.png');   //jquery写法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2018-03-02T03:18:08.000Z" itemprop="datePublished">
+              2018-03-02
+            </time>
+          </div>
+          
+            <div>
+              tags: 
+  <li class="meta-text">
+  { <a href="/tags/vue/">vue</a> }
+  </li>
+
+
+            </div>
+          
+      </section>
+    
+    
+      <section>
+        <div id="disqus_thread"></div>
+        <script>
+          window.disqus_config = function () {
+            this.page.url = window.location.toString()
+            this.page.identifier = window.location.pathname
+          }
+          if (typeof DISQUS === 'undefined') {
+            (function() { // DON'T EDIT BELOW THIS LINE
+              var d = document, s = d.createElement('script');
+              s.src = 'https://.disqus.com/embed.js';
+              s.setAttribute('data-timestamp', +new Date());
+              (d.head || d.body).appendChild(s);
+            })();
+          } else {
+            DISQUS.reset({
+                reload: true,
+                config: window.disqus_config
+            })
+          }
+        </script>
+      </section>
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2016 - Jtanx </div>
+    <div>
+    Powered by Jtanx   emial： 1036699126@qq.com
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+<script src="/js/pager/dist/singlepager.js"></script>
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>

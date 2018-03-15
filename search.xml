@@ -3,6 +3,37 @@
   
     
     <entry>
+      <title><![CDATA[vue中处理img中的404路径]]></title>
+      <url>/2018/03/02/vue%E4%B8%AD%E5%A4%84%E7%90%86img%E4%B8%AD%E7%9A%84404%E8%B7%AF%E5%BE%84/</url>
+      <content type="html"><![CDATA[<p>项目中的图片放在ftp上，很多情况下ftp并没有图片，导致图片不出来，默认图片又上不去，非常难看，那么在vue如何处理这种情况</p>
+<a id="more"></a>
+<p>使用vue的html模板可能是这样：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">v-bind:src</span>=<span class="string">"item.PHOTO"</span>  @<span class="attr">error</span>=<span class="string">"dealErrorImage"</span>  @<span class="attr">click</span>=<span class="string">"previewImage(item)"</span>  <span class="attr">v-if</span>=<span class="string">"item.PHOTO != ''"</span>  <span class="attr">width</span>=<span class="string">'140'</span> <span class="attr">height</span>=<span class="string">'110'</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>vue的methods中</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">data()&#123;</span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    defaultImg: <span class="string">'require('</span>../../<span class="keyword">default</span>.png<span class="string">')'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line">methods:&#123;</span><br><span class="line">  dealErrorImage: <span class="function"><span class="keyword">function</span>(<span class="params">image</span>)</span>&#123;</span><br><span class="line">     $(image.target).attr(<span class="string">'src'</span>, <span class="keyword">this</span>.defaultImg);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>error在原生中的事件是onerror，里头传递的必须是个函数，原生中需要这样写</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span>  <span class="attr">onerror</span>=<span class="string">"dealErrorImage(this)"</span>   <span class="attr">v-if</span>=<span class="string">"item.PHOTO != ''"</span>  <span class="attr">width</span>=<span class="string">'140'</span> <span class="attr">height</span>=<span class="string">'110'</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>将this传递进去</p>
+<p>那么js中</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dealErrorImage</span>(<span class="params">image</span>)</span>&#123;</span><br><span class="line">  image.src = <span class="string">'default.png'</span>;</span><br><span class="line">  <span class="comment">//$(image).attr('src','default.png');   //jquery写法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      
+        <categories>
+            
+            <category> 前端 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> vue </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[vue的ssr方案-nuxtjs应用部署到linux服务器]]></title>
       <url>/2018/01/12/vue%E7%9A%84ssr%E6%96%B9%E6%A1%88-nuxtjs%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2%E5%88%B0linux%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
       <content type="html"><![CDATA[<p>Vue.js 是构建客户端应用程序的框架。默认情况下，可以在浏览器中输出 Vue 组件，进行生成 DOM 和操作 DOM。然而，也可以将同一个组件渲染为服务器端的 HTML 字符串，将它们直接发送到浏览器，最后将静态标记”混合”为客户端上完全交互的应用程序。</p>
