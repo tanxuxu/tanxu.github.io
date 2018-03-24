@@ -3,6 +3,33 @@
   
     
     <entry>
+      <title><![CDATA[关于vue的报错uglifyJs错误]]></title>
+      <url>/2018/03/24/%E5%85%B3%E4%BA%8Evue%E7%9A%84%E6%8A%A5%E9%94%99uglifyJs%E9%94%99%E8%AF%AF/</url>
+      <content type="html"><![CDATA[<p>今天从svn上copy下来生产环境下打包就变成这样，报错，一开始我一直检查我的代码是不是语法错误导致的，死活找不到结果，最后还是网上给了个解释，网友们的力量还是很大的。<br><img src="/images/2018_03_24.png" alt="截图1"></p>
+<p>解决方法</p>
+<p>在项目中添加 .babelrc文件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"presets"</span>: [</span><br><span class="line">    [<span class="string">"es2015"</span>, &#123;</span><br><span class="line">      <span class="string">"modules"</span>: <span class="literal">false</span></span><br><span class="line">    &#125;]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>打包完美，没有出错</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 前端 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> vue </tag>
+            
+            <tag> vuex </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[vue中处理img中的404路径]]></title>
       <url>/2018/03/02/vue%E4%B8%AD%E5%A4%84%E7%90%86img%E4%B8%AD%E7%9A%84404%E8%B7%AF%E5%BE%84/</url>
       <content type="html"><![CDATA[<p>项目中的图片放在ftp上，很多情况下ftp并没有图片，导致图片不出来，默认图片又上不去，非常难看，那么在vue如何处理这种情况</p>

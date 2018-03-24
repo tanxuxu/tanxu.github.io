@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jtanx.cn/"/>
-  <updated>2018-03-15T03:26:40.697Z</updated>
+  <updated>2018-03-24T07:17:00.654Z</updated>
   <id>http://jtanx.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于vue的报错uglifyJs错误</title>
+    <link href="http://jtanx.cn/2018/03/24/%E5%85%B3%E4%BA%8Evue%E7%9A%84%E6%8A%A5%E9%94%99uglifyJs%E9%94%99%E8%AF%AF/"/>
+    <id>http://jtanx.cn/2018/03/24/关于vue的报错uglifyJs错误/</id>
+    <published>2018-03-24T07:10:39.000Z</published>
+    <updated>2018-03-24T07:17:00.654Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天从svn上copy下来生产环境下打包就变成这样，报错，一开始我一直检查我的代码是不是语法错误导致的，死活找不到结果，最后还是网上给了个解释，网友们的力量还是很大的。<br><img src="/images/2018_03_24.png" alt="截图1"></p><p>解决方法</p><p>在项目中添加 .babelrc文件</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"presets"</span>: [</span><br><span class="line">    [<span class="string">"es2015"</span>, &#123;</span><br><span class="line">      <span class="string">"modules"</span>: <span class="literal">false</span></span><br><span class="line">    &#125;]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>打包完美，没有出错</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;今天从svn上copy下来生产环境下打包就变成这样，报错，一开始我一直检查我的代码是不是语法错误导致的，死活找不到结果，最后还是网上给了个解释，网友们的力量还是很大的。&lt;br&gt;&lt;img src=&quot;/images/2018_03_24.png&quot; alt=&quot;截图1&quot;&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://jtanx.cn/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="vue" scheme="http://jtanx.cn/tags/vue/"/>
+    
+      <category term="vuex" scheme="http://jtanx.cn/tags/vuex/"/>
+    
+  </entry>
   
   <entry>
     <title>vue中处理img中的404路径</title>
@@ -443,28 +471,6 @@
     
     
       <category term="vue" scheme="http://jtanx.cn/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>设置css单行和多行溢出省略号</title>
-    <link href="http://jtanx.cn/2016/07/19/%E8%AE%BE%E7%BD%AEcss%E5%8D%95%E8%A1%8C%E5%92%8C%E5%A4%9A%E8%A1%8C%E6%BA%A2%E5%87%BA%E7%9C%81%E7%95%A5%E5%8F%B7/"/>
-    <id>http://jtanx.cn/2016/07/19/设置css单行和多行溢出省略号/</id>
-    <published>2016-07-19T09:28:47.000Z</published>
-    <updated>2017-12-15T07:51:02.048Z</updated>
-    
-    <content type="html"><![CDATA[<p>工作中，经常会对内容的溢出做省略号处理，多行的内容溢出需要webkit支持<br><a id="more"></a></p><p>单行溢出省略号设置</p><ul><li>前提是设置了width</li></ul><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">overflow</span><span class="selector-pseudo">:hidden</span>;</span><br><span class="line"><span class="selector-tag">text-overflow</span>: <span class="selector-tag">ellipsis</span>;</span><br><span class="line"><span class="selector-tag">white-space</span>: <span class="selector-tag">nowrap</span>;</span><br></pre></td></tr></table></figure><p>多行溢出省略号设置</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">-webkit-line-clamp</span>: 2;</span><br><span class="line"><span class="selector-tag">display</span>: <span class="selector-tag">-webkit-box</span>;</span><br><span class="line"><span class="selector-tag">-webkit-box-orient</span>: <span class="selector-tag">vertical</span>;</span><br><span class="line"><span class="selector-tag">overflow</span>: <span class="selector-tag">hidden</span>;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;工作中，经常会对内容的溢出做省略号处理，多行的内容溢出需要webkit支持&lt;br&gt;
-    
-    </summary>
-    
-      <category term="前端" scheme="http://jtanx.cn/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="css" scheme="http://jtanx.cn/tags/css/"/>
     
   </entry>
   

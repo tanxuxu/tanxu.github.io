@@ -59,6 +59,61 @@
     <header class="title">
       
         <h1>
+          <a href="/2018/03/24/关于vue的报错uglifyJs错误/">关于vue的报错uglifyJs错误</a>
+        </h1>
+      
+      <div class='ListMeta'>
+  <time datetime="2018-03-24T07:10:39.000Z" itemprop="datePublished">
+    2018-03-24
+  </time>
+  
+  | 
+  <ul>
+    
+  <li class="meta-text">
+  { <a href="/tags/vue/">vue</a> }
+  </li>
+
+  <li class="meta-text">
+  { <a href="/tags/vuex/">vuex</a> }
+  </li>
+
+
+  </ul>
+  
+  
+  / 
+  <ul>
+    
+  <li class="meta-text">
+  { <a href="/categories/前端/">前端</a> }
+  </li>
+
+
+  </ul>
+  
+</div>
+
+    </header>
+    <div>
+      
+        <p>今天从svn上copy下来生产环境下打包就变成这样，报错，一开始我一直检查我的代码是不是语法错误导致的，死活找不到结果，最后还是网上给了个解释，网友们的力量还是很大的。<br><img src="/images/2018_03_24.png" alt="截图1"></p>
+<p>解决方法</p>
+<p>在项目中添加 .babelrc文件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"presets"</span>: [</span><br><span class="line">    [<span class="string">"es2015"</span>, &#123;</span><br><span class="line">      <span class="string">"modules"</span>: <span class="literal">false</span></span><br><span class="line">    &#125;]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>打包完美，没有出错</p>
+
+      
+    </div>
+</article>
+
+    </li>
+  
+    <li>
+      <article class='ListView'>
+    <header class="title">
+      
+        <h1>
           <a href="/2018/03/02/vue中处理img中的404路径/">vue中处理img中的404路径</a>
         </h1>
       
@@ -520,57 +575,6 @@
         
           <div class="more-link">
             <a href="/2017/06/12/使用async和await处理异步请求/#more">Read On »</a>
-          </div>
-        
-      
-    </div>
-</article>
-
-    </li>
-  
-    <li>
-      <article class='ListView'>
-    <header class="title">
-      
-        <h1>
-          <a href="/2017/06/09/在vue组件中多次使用echart不随窗口resize/">在vue组件中多次使用echart不随窗口resize</a>
-        </h1>
-      
-      <div class='ListMeta'>
-  <time datetime="2017-06-09T09:44:53.000Z" itemprop="datePublished">
-    2017-06-09
-  </time>
-  
-  | 
-  <ul>
-    
-  <li class="meta-text">
-  { <a href="/tags/vue/">vue</a> }
-  </li>
-
-
-  </ul>
-  
-  
-  / 
-  <ul>
-    
-  <li class="meta-text">
-  { <a href="/categories/前端/">前端</a> }
-  </li>
-
-
-  </ul>
-  
-</div>
-
-    </header>
-    <div>
-      
-        <p>最近在vue项目这两个，在不同的组件中使用echart，虽然每一个组件去new一个echart实例，但是在窗口改变时，echart不能自适应，或者只能其中一个chart在适应。<br>
-        
-          <div class="more-link">
-            <a href="/2017/06/09/在vue组件中多次使用echart不随窗口resize/#more">Read On »</a>
           </div>
         
       

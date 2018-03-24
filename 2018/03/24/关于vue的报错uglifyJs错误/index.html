@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Jtanx</title>
+  <title>关于vue的报错uglifyJs错误 | Jtanx</title>
   
   
   <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
@@ -51,84 +51,34 @@
 
     <div class="container">
         <div data-pager-shell>
-            <ul class="Index">
-  
+            <div>
+  <article class='ContentView'>
     <header class='PageTitle'>
-        <h1>{ vuex }</h1>
+        <h1>关于vue的报错uglifyJs错误</h1>
     </header>
-  
-  
-    <li>
-      <article class='ListView'>
-    <header class="title">
-      
-        <h1>
-          <a href="/2018/03/24/关于vue的报错uglifyJs错误/">关于vue的报错uglifyJs错误</a>
-        </h1>
-      
-      <div class='ListMeta'>
-  <time datetime="2018-03-24T07:10:39.000Z" itemprop="datePublished">
-    2018-03-24
-  </time>
-  
-  | 
-  <ul>
-    
-  <li class="meta-text">
-  { <a href="/tags/vue/">vue</a> }
-  </li>
 
-  <li class="meta-text">
-  { <a href="/tags/vuex/">vuex</a> }
-  </li>
-
-
-  </ul>
-  
-  
-  / 
-  <ul>
-    
-  <li class="meta-text">
-  { <a href="/categories/前端/">前端</a> }
-  </li>
-
-
-  </ul>
-  
-</div>
-
-    </header>
-    <div>
-      
-        <p>今天从svn上copy下来生产环境下打包就变成这样，报错，一开始我一直检查我的代码是不是语法错误导致的，死活找不到结果，最后还是网上给了个解释，网友们的力量还是很大的。<br><img src="/images/2018_03_24.png" alt="截图1"></p>
+    <section>
+      <p>今天从svn上copy下来生产环境下打包就变成这样，报错，一开始我一直检查我的代码是不是语法错误导致的，死活找不到结果，最后还是网上给了个解释，网友们的力量还是很大的。<br><img src="/images/2018_03_24.png" alt="截图1"></p>
 <p>解决方法</p>
 <p>在项目中添加 .babelrc文件</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"presets"</span>: [</span><br><span class="line">    [<span class="string">"es2015"</span>, &#123;</span><br><span class="line">      <span class="string">"modules"</span>: <span class="literal">false</span></span><br><span class="line">    &#125;]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>打包完美，没有出错</p>
 
-      
-    </div>
-</article>
 
-    </li>
-  
-    <li>
-      <article class='ListView'>
-    <header class="title">
       
-        <h1>
-          <a href="/2016/07/13/结合vue-iview-vuex记事本小案例/">结合vue+iview+vuex记事本小案例</a>
-        </h1>
-      
-      <div class='ListMeta'>
-  <time datetime="2016-07-13T02:55:05.000Z" itemprop="datePublished">
-    2016-07-13
-  </time>
-  
-  | 
-  <ul>
+
+    </section>
     
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2018-03-24T07:10:39.000Z" itemprop="datePublished">
+              2018-03-24
+            </time>
+          </div>
+          
+            <div>
+              tags: 
   <li class="meta-text">
   { <a href="/tags/vue/">vue</a> }
   </li>
@@ -138,39 +88,38 @@
   </li>
 
 
-  </ul>
-  
-  
-  / 
-  <ul>
+            </div>
+          
+      </section>
     
-  <li class="meta-text">
-  { <a href="/categories/前端/">前端</a> }
-  </li>
-
-
-  </ul>
-  
-</div>
-
-    </header>
-    <div>
-      
-        <p>为了让公司的一些对前端有兴趣和刚入门前端的人快速的掌握前端的知识，我构建了该案例，原因也是大多数公司的案例使用的是iview，于是用iview+vue+vue-router+vuex搭建一个小案例，当然，vuex本不应该适用是小项目，这里只作为使用案例</p>
-        
-          <div class="more-link">
-            <a href="/2016/07/13/结合vue-iview-vuex记事本小案例/#more">Read On »</a>
-          </div>
-        
-      
-    </div>
+    
+      <section>
+        <div id="disqus_thread"></div>
+        <script>
+          window.disqus_config = function () {
+            this.page.url = window.location.toString()
+            this.page.identifier = window.location.pathname
+          }
+          if (typeof DISQUS === 'undefined') {
+            (function() { // DON'T EDIT BELOW THIS LINE
+              var d = document, s = d.createElement('script');
+              s.src = 'https://.disqus.com/embed.js';
+              s.setAttribute('data-timestamp', +new Date());
+              (d.head || d.body).appendChild(s);
+            })();
+          } else {
+            DISQUS.reset({
+                reload: true,
+                config: window.disqus_config
+            })
+          }
+        </script>
+      </section>
+    
 </article>
 
-    </li>
   
-</ul>
-
-
+</div>
 
             <footer>
     <div>© 2016 - Jtanx </div>
