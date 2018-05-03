@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue如何优雅的融入iframe第三方系统 | Jtanx</title>
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url()">
+        <div class='av-pic' style="background-image: url(/assets/avatar.jpg)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>Jtanx</div>
+        
+            <div>走在前端道路上、瞎逛在头条&amp;掘金&amp;知乎&amp;简书</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>首页</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>归档</li>
+            </a>  
+          
+            <a href="/categories/" class="Btn">
+              <li>分类</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>关于</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  <article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>vue如何优雅的融入iframe第三方系统</h1>
+    </header>
+
+    <section>
+      <p>我司的项目目前是用vue结合webpack去搭建的后台管理大型平台，该平台还融入了其他公司的系统，其他公司的系统包含了众多其他技术实现的工程，可能包括了jsp，react，net等，经过调研，iframe一定得用了，虽然性能上可能有点问题，但是百度过很多的技术方案，并没有可以不用iframe的可行方案，那么怎么在vue的webpack的项目中友好的融入iframe呢。</p>
+<a id="more"></a>
+<p>这里简单说说思路</p>
+<p>可能会用到子路由，也许是这样</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> routers = [&#123;</span><br><span class="line">  path: <span class="string">'/home'</span>,</span><br><span class="line">  name: <span class="string">'home'</span>,</span><br><span class="line">  component: <span class="built_in">require</span>(<span class="string">'./home.vue'</span>),</span><br><span class="line">  children: [&#123;</span><br><span class="line">    path: <span class="string">'/home/iframe/:title'</span>,</span><br><span class="line">    name: <span class="string">'iframe'</span>,</span><br><span class="line">    component: <span class="built_in">require</span>(<span class="string">'./iframe.vue'</span>)</span><br><span class="line">  &#125;]</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
+<p>所以可能你需要创建一个iframe的组件</p>
+<p>可能是这样<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">lang</span>=<span class="string">"html"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">:src</span>=<span class="string">"item.path"</span> <span class="attr">v-show</span>=<span class="string">"item.title == curRouter"</span> <span class="attr">v-for</span>=<span class="string">"item in menu"</span> <span class="attr">width</span>=<span class="string">"100%"</span> <span class="attr">height</span>=<span class="string">"500"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="undefined">  data()&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="javascript">      <span class="comment">//假设登录后请求过来的菜单数据是这样</span></span></span><br><span class="line"><span class="undefined">      menu: [&#123;</span></span><br><span class="line"><span class="javascript">        title: <span class="string">'baidu'</span>,</span></span><br><span class="line"><span class="javascript">        path: <span class="string">'http://www.baidu.com'</span></span></span><br><span class="line"><span class="undefined">      &#125;,&#123;</span></span><br><span class="line"><span class="javascript">        title: <span class="string">'google'</span>,</span></span><br><span class="line"><span class="javascript">        path: <span class="string">'http://www.google.com'</span></span></span><br><span class="line"><span class="undefined">      &#125;]</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;,</span></span><br><span class="line"><span class="undefined">  computed:&#123;</span></span><br><span class="line"><span class="javascript">    curRouter: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">return</span> <span class="keyword">this</span>.$route.params.title;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">lang</span>=<span class="string">"css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>在home.vue中可能是这样</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">home的公用元素</span><br><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">'&#123;name: "iframe",params: &#123;title: "baidu"&#125;&#125;'</span>&gt;</span>路由到第三方系统<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>然后的话可以换成tab切换，创建tab标签进行使用，这样刷新浏览器时候也能定位到当前的iframe网页。</p>
+
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2018-03-13T09:42:03.000Z" itemprop="datePublished">
+              2018-03-13
+            </time>
+          </div>
+          
+            <div>
+              tags: 
+  <li class="meta-text">
+  { <a href="/tags/vue/">vue</a> }
+  </li>
+
+
+            </div>
+          
+      </section>
+    
+    
+      <section>
+        <div id="disqus_thread"></div>
+        <script>
+          window.disqus_config = function () {
+            this.page.url = window.location.toString()
+            this.page.identifier = window.location.pathname
+          }
+          if (typeof DISQUS === 'undefined') {
+            (function() { // DON'T EDIT BELOW THIS LINE
+              var d = document, s = d.createElement('script');
+              s.src = 'https://.disqus.com/embed.js';
+              s.setAttribute('data-timestamp', +new Date());
+              (d.head || d.body).appendChild(s);
+            })();
+          } else {
+            DISQUS.reset({
+                reload: true,
+                config: window.disqus_config
+            })
+          }
+        </script>
+      </section>
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2016 - Jtanx </div>
+    <div>
+    Powered by Jtanx   emial： 1036699126@qq.com
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+<script src="/js/pager/dist/singlepager.js"></script>
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>
