@@ -3,6 +3,14 @@
   
     
     <entry>
+      <title><![CDATA[vue使用addRoutes实现动态路由]]></title>
+      <url>/2018/05/03/vue%E4%BD%BF%E7%94%A8addRoutes%E5%AE%9E%E7%8E%B0%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1/</url>
+      <content type="html"></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[关于vue的报错uglifyJs错误]]></title>
       <url>/2018/03/24/%E5%85%B3%E4%BA%8Evue%E7%9A%84%E6%8A%A5%E9%94%99uglifyJs%E9%94%99%E8%AF%AF/</url>
       <content type="html"><![CDATA[<p>默认的uglifyJs工具是不能打包es6的，所以一旦没有转义好es6，就会出现各种压缩报错问题，如果是没有引入 .babelrc文件，如果引入了还出现没有转义的问题，建议换一个压缩工具</p>
