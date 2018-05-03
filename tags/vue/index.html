@@ -63,6 +63,60 @@
     <header class="title">
       
         <h1>
+          <a href="/2018/05/03/vue使用addRoutes实现动态路由/">vue使用addRoutes实现动态路由</a>
+        </h1>
+      
+      <div class='ListMeta'>
+  <time datetime="2018-05-03T09:19:49.000Z" itemprop="datePublished">
+    2018-05-03
+  </time>
+  
+  | 
+  <ul>
+    
+  <li class="meta-text">
+  { <a href="/tags/vue/">vue</a> }
+  </li>
+
+
+  </ul>
+  
+  
+  / 
+  <ul>
+    
+  <li class="meta-text">
+  { <a href="/categories/前端/">前端</a> }
+  </li>
+
+
+  </ul>
+  
+</div>
+
+    </header>
+    <div>
+      
+        <p>在做后台管理系统时，我们想在登录后去根据用户去取该用户下面的权限菜单</p>
+<p>大致是这样</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始路由：</span></span><br><span class="line">[&#123;</span><br><span class="line"> path: <span class="string">'/login'</span>,</span><br><span class="line"> name: <span class="string">'login'</span>,</span><br><span class="line"> component: <span class="function">(<span class="params">resolve</span>) =&gt;</span> <span class="built_in">require</span>([<span class="string">'../views/common/404.vue'</span>], resolve)</span><br><span class="line">&#125;, &#123;</span><br><span class="line"> path: <span class="string">'/404'</span>,</span><br><span class="line"> name: <span class="string">'404'</span>,</span><br><span class="line"> component: <span class="function">(<span class="params">resolve</span>) =&gt;</span> <span class="built_in">require</span>([<span class="string">'../views/common/404.vue'</span>], resolve)</span><br><span class="line">&#125;, &#123;</span><br><span class="line"> path: <span class="string">'*'</span>,</span><br><span class="line"> redirect: <span class="string">'/404'</span></span><br><span class="line">&#125;]</span><br><span class="line"></span><br><span class="line"><span class="comment">//登录逻辑</span></span><br><span class="line"><span class="keyword">let</span> vm = <span class="keyword">this</span>;</span><br><span class="line">axios.get(<span class="string">'/login'</span>, vm.user).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> extendsRoutes = filterRoutes(res.menus);</span><br><span class="line">  &lt;!--</span><br><span class="line">  <span class="comment">//假设得到的可用路由如下</span></span><br><span class="line">  [&#123;</span><br><span class="line">   path: <span class="string">'/'</span>,</span><br><span class="line">   name: <span class="string">'首页'</span>,</span><br><span class="line">   component: <span class="function">(<span class="params">resolve</span>) =&gt;</span> <span class="built_in">require</span>([<span class="string">'../views/index.vue'</span>], resolve),</span><br><span class="line">   children: [&#123;</span><br><span class="line">    path: <span class="string">'/menus'</span>,</span><br><span class="line">    name: <span class="string">'菜单管理'</span>,</span><br><span class="line">    component: <span class="function">(<span class="params">resolve</span>) =&gt;</span> <span class="built_in">require</span>([<span class="string">'../views/menus.vue'</span>], resolve)</span><br><span class="line">   &#125;, &#123;</span><br><span class="line">    path: <span class="string">'/resources'</span>,</span><br><span class="line">    name: <span class="string">'资源管理'</span>,</span><br><span class="line">    component: <span class="function">(<span class="params">resolve</span>) =&gt;</span> <span class="built_in">require</span>([<span class="string">'../views/resources.vue'</span>], resolve)</span><br><span class="line">   &#125;]</span><br><span class="line">  &#125;]--&gt;</span><br><span class="line">  <span class="comment">//存菜单</span></span><br><span class="line">  sessionStorage.setItem(<span class="string">'menus'</span>,<span class="built_in">JSON</span>.stringify(extendsRoutes[<span class="number">0</span>].children));</span><br><span class="line">  <span class="comment">//动态添加路由</span></span><br><span class="line">  vm.$router.addRoutes(extendsRoutes);</span><br><span class="line">  <span class="comment">//跳转到应用界面</span></span><br><span class="line">  vm.$router.push(&#123;<span class="attr">path</span>:<span class="string">'/'</span>&#125;);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//首页获取菜单数据</span></span><br><span class="line"><span class="keyword">this</span>.menus = <span class="built_in">JSON</span>.parse(sessionStorage.getItem(<span class="string">'menus'</span>));</span><br><span class="line"><span class="comment">//用此数据循环菜单</span></span><br><span class="line">..</span><br></pre></td></tr></table></figure>
+<p>这样很明显会出现一个问题，我们在未登录时直接去访问比如 <a href="http://localhost:8080/resources" target="_blank" rel="noopener">http://localhost:8080/resources</a> 时，那肯定是显示为404页面的，这样不好，我们希望是回到登录页面，我们可以在app.vue这里的created函数中判断如果没有user时，回到登录页面</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> isLogin = sessionStorage.getItem(<span class="string">'user'</span>);</span><br><span class="line"><span class="keyword">if</span>(!isLogin)&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.$router.push(&#123;<span class="attr">path</span>:<span class="string">'/login'</span>&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们登录后重新刷新页面，发现又回到了404页面，因为刷新页面后程序实例化了vue/vuex中的数据已经被替换掉了<br>我们可以借助sessionStorage</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> localRoutes = sessionStorage.getItem(<span class="string">'routes'</span>);</span><br><span class="line"><span class="keyword">if</span>(localRoutes)&#123;</span><br><span class="line">  router.addRoutes(<span class="built_in">JSON</span>.parse(localRoutes));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>雏形基本是这样，主要是掌握vue的动态路由的使用场景。</p>
+
+      
+    </div>
+</article>
+
+    </li>
+  
+    <li>
+      <article class='ListView'>
+    <header class="title">
+      
+        <h1>
           <a href="/2018/03/24/关于vue的报错uglifyJs错误/">关于vue的报错uglifyJs错误</a>
         </h1>
       
